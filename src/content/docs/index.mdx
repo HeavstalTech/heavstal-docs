@@ -1,0 +1,35 @@
+---
+title: Heavstal Tech Documentation
+description: Official documentation for Heavstal Tech APIs, OAuth2, Modules, and Bots.
+template: splash
+hero:
+  tagline: Building Tomorrow's Web, Today. Explore the Heavstal infrastructure ecosystem.
+  actions:
+    - text: Get Started
+      link: /apis/introduction/
+      icon: right-arrow
+      variant: primary
+    - text: View on GitHub
+      link: https://github.com/HeavstalTech
+      icon: external
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## The Heavstal Ecosystem
+
+<CardGrid stagger>
+  <Card title="Heavstal APIs" icon="rocket">
+    High-performance REST endpoints for AI, Media Downloaders, Cryptography, and more.
+    <br/><br/>[**View API Docs →**](/apis/introduction/)
+  </Card>
+  <Card title="Heavstal Accounts (OAuth2)" icon="shield">
+    Integrate "Sign in with Heavstal Tech" into your applications using standard OpenID Connect.
+  </Card>
+  <Card title="NPM Modules" icon="puzzle">
+    Enterprise-grade packages including `@heavstaltech/api`, `HT-Baileys`, and `heavstal-auth`.
+  </Card>
+  <Card title="Heavstal Bots" icon="seti:robot">
+    Documentation for Verselor-V1, our advanced WhatsApp and Telegram automation agents.
+  </Card>
+</CardGrid>
