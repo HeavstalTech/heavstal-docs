@@ -12,13 +12,16 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js 20
+      - name: Setup Node.js 24
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
 
-      - name: Generate package-lock.json
-        run: npm install --package-lock-only
+      - name: Clear NPM Cache & Install
+        run: |
+          npm cache clean --force
+          rm -rf node_modules package-lock.json
+          npm install
 
       - name: Commit and Push
         run: |
@@ -29,6 +32,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to package-lock.json detected."
           else
-            git commit -m "chore: generate package-lock.json [skip ci]"
+            git commit -m "chore: generate Astro 6 package-lock.json [skip ci]"
             git push
           fi
