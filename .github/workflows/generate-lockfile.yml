@@ -1,0 +1,35 @@
+name: Generate Lockfile
+
+on:
+  workflow_dispatch: # This enables the manual trigger button
+
+jobs:
+  lockfile:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required to push the file back to the repo
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate package-lock.json
+        run: npm install --package-lock-only
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add package-lock.json
+          
+          # Only commit if the lockfile actually changed/was created
+          if git diff --staged --quiet; then
+            echo "No changes to package-lock.json detected."
+          else
+            git commit -m "chore: generate package-lock.json [skip ci]"
+            git push
+          fi
