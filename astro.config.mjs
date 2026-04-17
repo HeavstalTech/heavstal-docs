@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import tailwind from '@astrojs/tailwind';
+import tailwind from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://heavstal-docs.vercel.app',
@@ -26,6 +26,8 @@ export default defineConfig({
         }
       ],
     }),
-    tailwind({ applyBaseStyles: false }),
-  ],
+    ],
+    vite: {
+    plugins: [tailwind()],
+  },
 });
