@@ -1,13 +1,13 @@
 name: Generate Lockfile
 
 on:
-  workflow_dispatch: # This enables the manual trigger button
+  workflow_dispatch:
 
 jobs:
   lockfile:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Required to push the file back to the repo
+      contents: write
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -26,7 +26,6 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add package-lock.json
           
-          # Only commit if the lockfile actually changed/was created
           if git diff --staged --quiet; then
             echo "No changes to package-lock.json detected."
           else
