@@ -22,7 +22,7 @@ export default defineConfig({
         },
         {
           label: 'Heavstal Auth Provider',
-          autogenerat: { directory: 'oauth' },
+          autogenerate: { directory: 'oauth' },
         }
       ],
     }),
