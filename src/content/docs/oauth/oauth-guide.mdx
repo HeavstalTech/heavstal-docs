@@ -1,0 +1,85 @@
+---
+title: "OAuth2 & OIDC Guide"
+description: "Integrate 'Sign in with Heavstal' into your applications using standard OAuth2 or OpenID Connect."
+sidebar:
+  badge:
+    text: HOT
+    variant: tip
+---
+
+Integrate the Heavstal Identity ecosystem into your applications. We support our official Next.js SDK and standard OpenID Connect (OIDC) discovery.
+
+## 1. Next.js Integration (Recommended)
+
+The easiest way to add Heavstal Auth to your Next.js application.
+
+```bash
+npm install heavstal-auth
+# or
+yarn add heavstal-auth
+# or
+pnpm add heavstal-auth
+```
+
+### Configuration (auth.ts)
+
+```typescript
+import NextAuth from "next-auth";
+import HeavstalProvider from "heavstal-auth";
+
+export const authOptions = {
+  providers: [
+    HeavstalProvider({
+      clientId: process.env.HEAVSTAL_CLIENT_ID!,
+      clientSecret: process.env.HEAVSTAL_CLIENT_SECRET!,
+    })
+  ]
+};
+```
+
+## 2. OIDC Auto-Discovery
+
+For other languages, you do not need to manually configure endpoints. Heavstal Tech is an **OpenID Connect (OIDC)** compliant provider. Simply use the Issuer URL below with any OIDC-compatible library.
+
+> **Issuer URL:** `https://accounts-heavstal.vercel.app`
+
+## 3. Other Frameworks
+
+Examples of how to connect using standard libraries without manual URL configuration.
+
+### Node.js (openid-client)
+
+```javascript
+const { Issuer } = require('openid-client');
+
+async function main() {
+  // Auto-discover endpoints using the Issuer URL
+  const heavstal = await Issuer.discover('https://accounts-heavstal.vercel.app');
+
+  const client = new heavstal.Client({
+    client_id: process.env.HEAVSTAL_CLIENT_ID,
+    client_secret: process.env.HEAVSTAL_CLIENT_SECRET,
+    redirect_uris: ['http://localhost:3000/callback'],
+    response_types: ['code']
+  });
+  
+  // Ready to authenticate!
+}
+```
+
+### Python (Authlib)
+
+```python
+from authlib.integrations.flask_client import OAuth
+
+oauth = OAuth(app)
+
+# Auto-discovery via server_metadata_url
+oauth.register(
+    name='heavstal',
+    server_metadata_url='https://accounts-heavstal.vercel.app/.well-known/openid-configuration',
+    client_id=os.getenv('HEAVSTAL_CLIENT_ID'),
+    client_secret=os.getenv('HEAVSTAL_CLIENT_SECRET'),
+    client_kwargs={'scope': 'openid profile email'}
+)
+```
