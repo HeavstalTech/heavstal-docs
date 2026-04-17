@@ -39,6 +39,6 @@ All responses are returned in JSON format.
 ```json
 {
   "error": "Short error message",
-  "details": "Detailed explanation (optional)"
+  "details": "Detailed explanation"
 }
 ```
