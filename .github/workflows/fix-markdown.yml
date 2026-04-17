@@ -1,0 +1,81 @@
+name: Fix API Docs Formatting
+
+on:
+  workflow_dispatch: # This allows you to run it manually once!
+
+permissions:
+  contents: write
+
+jobs:
+  fix-markdown:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Fixer Script
+        run: |
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          
+          const dir = 'src/content/docs/apis';
+          
+          if (!fs.existsSync(dir)) {
+            console.error('Directory not found: ' + dir);
+            process.exit(1);
+          }
+          
+          const files = fs.readdirSync(dir).filter(f => f.toLowerCase().endsWith('.md'));
+          let fixedCount = 0;
+          
+          for (const file of files) {
+            const filePath = path.join(dir, file);
+            const content = fs.readFileSync(filePath, 'utf-8');
+            
+            // Split the file by '---' to separate frontmatter from the body
+            const parts = content.split('---');
+            
+            if (parts.length >= 3) {
+              const frontmatter = parts[1];
+              let body = parts.slice(2).join('---');
+              
+              // 1. Remove the '# Overview' or '# OVERVIEW' heading completely
+              body = body.replace(/^#[ \t]+overview[ \t]*\r?\n?/gmi, '');
+              
+              // 2. Un-indent the text! 
+              // This removes up to 8 leading spaces from the start of EVERY line,
+              // moving the text back to the left margin without breaking nested formatting.
+              body = body.replace(/^[ \t]{1,8}/gm, '');
+              
+              // 3. Clean up any weird blank lines at the top of the document
+              body = body.trimStart();
+              
+              // Reconstruct the file safely
+              const newContent = '---\n' + frontmatter.trim() + '\n---\n\n' + body + '\n';
+              
+              if (content !== newContent) {
+                fs.writeFileSync(filePath, newContent);
+                fixedCount++;
+                console.log('✅ Fixed: ' + file);
+              }
+            }
+          }
+          console.log('\n🎉 Total files fixed: ' + fixedCount);
+          "
+
+      - name: Commit and Push Fixes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add src/content/docs/apis/
+          
+          if git diff --staged --quiet; then
+            echo "🤷‍♂️ All files are already perfectly formatted. Nothing to do."
+          else
+            git commit -m "chore: fix markdown indentation and remove Overview headers"
+            git push
+            echo "🚀 Successfully pushed fixes to the repo!"
+          fi
