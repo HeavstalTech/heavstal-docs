@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Heavstal Tech Blue Theme - overrides for Starlight */
+:root {
+  --sl-color-accent-low: #dbeafe;
+  --sl-color-accent: #1a73e8;
+  --sl-color-accent-high: #1e3a8a;
+  --sl-color-text-accent: #1a73e8;
+}
+
+:root[data-theme='dark'] {
+  --sl-color-accent-low: #1e3a8a;
+  --sl-color-accent: #8ab4f8;
+  --sl-color-accent-high: #dbeafe;
+  --sl-color-text-accent: #8ab4f8;
+}
