@@ -5,7 +5,7 @@ description: "Enterprise-grade code obfuscation for JS, Python, and Java."
 
 # Overview
       
-      **CODE-X** is an enterprise-grade code obfuscation and encryption engine. It supports JavaScript (via advanced obfuscation) and Python/Java (via Base64 encoding). Use this to protect your source code before distribution.
+      **CODE-X** is an enterprise-grade code obfuscation and encryption engine. It supports JavaScript (via advanced obfuscation) and Python/Java (via Base64 encoding). Use this to protect your source code before distribution
 
       ## Endpoint
       `POST /codex`
