@@ -23,6 +23,10 @@ export default defineConfig({
         {
           label: 'Heavstal Auth Provider',
           autogenerate: { directory: 'oauth' },
+        },
+        {
+          label: 'NPM Libraries (Modules)',
+          autogenerate: { directory: 'modules' },
         }
       ],
     }),
