@@ -1,8 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* Heavstal Tech Blue Theme - overrides for Starlight */
+/* Heavstal Tech Blue Theme Overrides for Starlight */
 :root {
   --sl-color-accent-low: #dbeafe;
   --sl-color-accent: #1a73e8;
