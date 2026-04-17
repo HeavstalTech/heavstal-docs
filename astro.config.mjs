@@ -7,10 +7,10 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Heavstal Docs',
-      // We will leave this commented out until you upload ht_icon.svg to src/assets/
-      // logo: {
-      //   src: './src/assets/ht_icon.svg', 
-      // },
+      // TODO: upload ht_icon.svg to src/assets/ - DONE
+      logo: {
+        src: './src/assets/ht_icon.svg', 
+      },
       social: {
         github: 'https://github.com/HeavstalTech',
       },
