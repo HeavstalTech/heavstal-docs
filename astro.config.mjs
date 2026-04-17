@@ -27,6 +27,10 @@ export default defineConfig({
         {
           label: 'NPM Libraries (Modules)',
           autogenerate: { directory: 'modules' },
+        },
+        {
+          label: 'Heavatal Bots (Wa/Tg)',
+          autogenerate: { directory: 'bots' },
         }
       ],
     }),
