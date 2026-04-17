@@ -1,0 +1,80 @@
+name: Extract Uploaded Docs Zip
+
+on:
+  push:
+    # This workflow will automatically trigger ONLY when you upload or modify this specific zip file
+    paths:
+      - 'src/content/docs/apis/exported-docs.zip'
+  workflow_dispatch: # Allows manual triggering from the Actions tab
+
+# Required permission to allow the bot to commit and push files back to your repo
+permissions:
+  contents: write
+
+jobs:
+  extract-and-distribute:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Extract zip and process .MD files
+        run: |
+          ZIP_PATH="src/content/docs/apis/exported-docs.zip"
+          DEST_DIR="src/content/docs/apis"
+          
+          # Check if the zip file actually exists
+          if [ ! -f "$ZIP_PATH" ]; then
+            echo "❌ No zip file found at $ZIP_PATH"
+            exit 0
+          fi
+
+          # Create a temporary directory to extract files into
+          TEMP_DIR=$(mktemp -d)
+          echo "📂 Extracting $ZIP_PATH..."
+          unzip -q "$ZIP_PATH" -d "$TEMP_DIR"
+
+          # Enable case-insensitive matching so we catch both .md and .MD
+          shopt -s nocaseglob
+          shopt -s nullglob # Prevents loop from breaking if no .md files exist
+
+          echo "🔍 Scanning for Markdown files in the root of the zip..."
+          
+          # Loop through all markdown files in the root of the extracted zip
+          for file in "$TEMP_DIR"/*.md; do
+            FILENAME=$(basename "$file")
+            TARGET_PATH="$DEST_DIR/$FILENAME"
+            
+            # Check if file already exists in the destination
+            if [ -f "$TARGET_PATH" ]; then
+              echo "⏭️  SKIPPED: $FILENAME (Already exists in $DEST_DIR)"
+            else
+              echo "✅ ADDED: $FILENAME"
+              mv "$file" "$TARGET_PATH"
+            fi
+          done
+
+          # Clean up the temporary extraction folder
+          rm -rf "$TEMP_DIR"
+          
+          # OPTIONAL: Uncomment the line below if you want the Action to automatically 
+          # delete the .zip file from your repo after extracting the docs!
+            git rm "$ZIP_PATH"
+
+      - name: Commit and Push new Markdown files
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Stage the new files in the APIs folder
+          git add src/content/docs/apis/
+          
+          # Commit only if there are changes to avoid workflow errors
+          if git diff --staged --quiet; then
+            echo "🤷‍♂️ No new files were added. Nothing to commit."
+          else
+            git commit -m "Auto-extracted new docs from exported-docs.zip"
+            git push
+            echo "🎉 Successfully pushed new files to the repository!"
+          fi
