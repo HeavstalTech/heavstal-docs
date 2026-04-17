@@ -1,3 +1,5 @@
+// © Heavstal Tech™
+// Modify before re-use - bugs may occur
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'node:url';
@@ -55,10 +57,7 @@ async function fetchReadme(item) {
   }
   
   let markdown = await res.text();
-
-  // imgs
   const rawBase = `https://raw.githubusercontent.com/${item.repo}/${item.branch}/`;
-  
   markdown = markdown.replace(/!\[([^\]]*)\]\((?!http)(.*?)\)/g, (_, alt, src) => {
     const cleanSrc = src.replace(/^\.\//, '');
     return `![${alt}](${rawBase}${cleanSrc})`;
@@ -69,20 +68,25 @@ async function fetchReadme(item) {
     return `<img ${before}src="${rawBase}${cleanSrc}"${after}>`;
   });
 
-  // TODO: clean html - DONE 
-  markdown = markdown.replace(/<br>/gi, '<br/>');
-  markdown = markdown.replace(/<hr>/gi, '<hr/>');
-  
-  const validHtmlTags = ['p', 'div', 'span', 'img', 'a', 'b', 'i', 'strong', 'em', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'br', 'hr', 'details', 'summary', 'blockquote', 'code', 'pre'];
+  markdown = markdown.replace(/<br\s*\/?>/gi, '<br/>');
+  markdown = markdown.replace(/<\/br>/gi, '<br/>');
+  markdown = markdown.replace(/<hr\s*\/?>/gi, '<hr/>');
+  markdown = markdown.replace(/<\/hr>/gi, '');
+  markdown = markdown.replace(/<\/img>/gi, '');
+  markdown = markdown.replace(/<img([^>]+)>/gi, (match, inner) => {
+    const cleanInner = inner.replace(/\/$/, '').trim();
+    return `<img ${cleanInner} />`;
+  });
+  markdown = markdown.replace(/<\/>/g, '&lt;/&gt;');
+
+  const validHtmlTags = ['p', 'div', 'span', 'img', 'a', 'b', 'i', 'strong', 'em', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'br', 'hr', 'details', 'summary', 'blockquote', 'code', 'pre', 'kbd', 'sub', 'sup', 'picture', 'source'];
   markdown = markdown.replace(/<\/?([a-zA-Z0-9_ -]+)[^>]*>/g, (fullMatch, tagName) => {
     if (validHtmlTags.includes(tagName.toLowerCase().trim())) {
       return fullMatch;
     }
     return fullMatch.replace(/</g, '&lt;').replace(/>/g, '&gt;');
   });
-  markdown = markdown.replace(/<(?=\s|[0-9])/g, '&lt;');
 
-  // format
   const frontmatter = `---
 title: "${item.name}"
 description: "${item.desc}"
@@ -114,7 +118,7 @@ async function run() {
     }
   }
 
-  console.log('Documentation successfully synced and sanitized from GitHub!');
+  console.log('Documentation successfully synced and strictly sanitized for MDX!');
 }
 
 run();
