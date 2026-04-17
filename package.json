@@ -1,5 +1,9 @@
 {
   "name": "heavstal-docs",
+  "description": "Heavstal Tech Ecosystem Documentary",
+  "engines": {
+    "node": ">=22"
+  },
   "type": "module",
   "version": "1.0.0",
   "scripts": {
