@@ -37,7 +37,7 @@ const BOTS = [
     name: 'Verselor-V1',
     repo: 'HeavstalTech/Verselor-V1',
     branch: 'main',
-    desc: 'A high-performance and feature-rich WhatsApp assistant by Heavstal Tech. Verselor V1 supports cross-device connectivity, shared user hosting, and global language translation, offering a complete suite of tools for chat moderation, media processing, and interactive entertainment. Built by Heavstal Tech - 2026.'
+    desc: 'Advanced WhatsApp bot automation agent.'
   }
 ];
 
@@ -58,15 +58,29 @@ async function fetchReadme(item) {
 
   // imgs
   const rawBase = `https://raw.githubusercontent.com/${item.repo}/${item.branch}/`;
-  markdown = markdown.replace(/!\[([^\]]*)\]\((?!http)(.*?)\)/g, (match, alt, src) => {
+  
+  markdown = markdown.replace(/!\[([^\]]*)\]\((?!http)(.*?)\)/g, (_, alt, src) => {
     const cleanSrc = src.replace(/^\.\//, '');
     return `![${alt}](${rawBase}${cleanSrc})`;
   });
 
-  markdown = markdown.replace(/<img\s+([^>]*?)src=["'](?!http)(.*?)["']([^>]*)>/gi, (match, before, src, after) => {
+  markdown = markdown.replace(/<img\s+([^>]*?)src=["'](?!http)(.*?)["']([^>]*)>/gi, (_, before, src, after) => {
     const cleanSrc = src.replace(/^\.\//, '');
     return `<img ${before}src="${rawBase}${cleanSrc}"${after}>`;
   });
+
+  // TODO: clean html - DONE 
+  markdown = markdown.replace(/<br>/gi, '<br/>');
+  markdown = markdown.replace(/<hr>/gi, '<hr/>');
+  
+  const validHtmlTags = ['p', 'div', 'span', 'img', 'a', 'b', 'i', 'strong', 'em', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'br', 'hr', 'details', 'summary', 'blockquote', 'code', 'pre'];
+  markdown = markdown.replace(/<\/?([a-zA-Z0-9_ -]+)[^>]*>/g, (fullMatch, tagName) => {
+    if (validHtmlTags.includes(tagName.toLowerCase().trim())) {
+      return fullMatch;
+    }
+    return fullMatch.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  });
+  markdown = markdown.replace(/<(?=\s|[0-9])/g, '&lt;');
 
   // format
   const frontmatter = `---
@@ -100,7 +114,7 @@ async function run() {
     }
   }
 
-  console.log('Documentation successfully synced from GitHub!');
+  console.log('Documentation successfully synced and sanitized from GitHub!');
 }
 
 run();
