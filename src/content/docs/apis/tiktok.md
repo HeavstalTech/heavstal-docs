@@ -17,24 +17,25 @@ A dual-purpose engine. You can provide a direct **TikTok URL** to download a spe
 ## Example Usage (Download)
 ```javascript
 const res = await fetch('https://heavstal-tech.vercel.app/api/v1/tiktok', {
-  method: 'POST',
-  headers: { 'x-api-key': 'YOUR_KEY' },
-  body: JSON.stringify({ query: 'https://vm.tiktok.com/ZGe...' })
+method: 'POST',
+headers: { 'x-api-key': 'YOUR_KEY' },
+body: JSON.stringify({ query: 'https://vm.tiktok.com/ZGe...' })
 });
 ```
 
 ### Successful Response
 ```json
 {
-  "status": "success",
-  "creator": "HEAVSTAL TECH",
-  "mode": "search",
-  "data": {
-    "title": "Video Caption Here",
-    "author": "Username",
-    "video_nowm": "https://...",
-    "audio": "https://...",
-    "stats": { "views": 1000, "likes": 500 }
-  }
+"status": "success",
+"creator": "HEAVSTAL TECH",
+"mode": "search",
+"data": {
+"title": "Video Caption Here",
+"author": "Username",
+"video_nowm": "https://...",
+"audio": "https://...",
+"stats": { "views": 1000, "likes": 500 }
+}
 }
 ```
+
