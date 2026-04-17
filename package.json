@@ -7,9 +7,9 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "predev": "node scripts/fetch-modules.js",
+    "predev": "node scripts/fetch-githubs.js",
     "dev": "astro dev",
-    "prebuild": "node scripts/fetch-modules.js",
+    "prebuild": "node scripts/fetch-githubs.js",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
