@@ -19,6 +19,10 @@ export default defineConfig({
         {
           label: 'Heavstal APIs',
           autogenerate: { directory: 'apis' },
+        },
+        {
+          label: 'Heavstal Auth Provider',
+          autogenerat: { directory: 'oauth' },
         }
       ],
     }),
