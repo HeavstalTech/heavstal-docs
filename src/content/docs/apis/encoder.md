@@ -5,7 +5,7 @@ description: "Smart Base64/Base32 engine. Encodes text and Decodes binary string
 
 **Heavstal Universal Encoder** is an intelligent transformation engine. It supports standard **Base64** and **Base32** operations but adds a layer of "Smart Detection."
 
-**✨ Magic Feature:** 
+**Magic Feature:** 
 When decoding, if the engine detects that the result is a binary file (Image, Audio, PDF, Zip) or a massive text block, it will automatically upload the result to a cloud host (Catbox) and return a direct download link instead of crashing your app with raw binary data.
 
 ## Endpoint
