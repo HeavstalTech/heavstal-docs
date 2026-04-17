@@ -7,12 +7,8 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Heavstal Docs',
-      // TODO: upload ht_icon.svg to src/assets/ - DONE
       logo: {
         src: './src/assets/ht_icon.svg', 
-      },
-      social: {
-        github: 'https://github.com/HeavstalTech',
       },
       customCss: ['./src/tailwind.css'],
       sidebar: [
@@ -26,8 +22,8 @@ export default defineConfig({
         }
       ],
     }),
-    ],
-    vite: {
+  ],
+  vite: {
     plugins: [tailwind()],
   },
 });
