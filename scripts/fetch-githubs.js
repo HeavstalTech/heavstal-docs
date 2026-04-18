@@ -73,19 +73,18 @@ async function fetchReadme(item) {
   });
 
   markdown = markdown.replace(/<\/?p[^>]*>/gi, '\n\n');
-
+  markdown = markdown.replace(/<\/?(center|div)[^>]*>/gi, '');
+  markdown = markdown.replace(/<\/>/g, '&lt;/&gt;');
   markdown = markdown.replace(/<(?![a-zA-Z/])/g, '&lt;');
 
   markdown = markdown.replace(/<img([^>]+)>/gi, (_, inner) => {
     const cleanInner = inner.replace(/\/$/, '').trim();
     return `<img ${cleanInner} />`;
   });
-  
-  markdown = markdown.replace(/<\/?(center|div)[^>]*>/gi, '');
 
   const validHtmlTags = ['img', 'a', 'b', 'i', 'strong', 'em', 'ul', 'ol', 'li', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'details', 'summary', 'blockquote', 'code', 'pre', 'kbd', 'sub', 'sup', 'picture', 'source'];
   
-  markdown = markdown.replace(/<\/?([a-zA-Z0-9_ -]+)[^>]*>/g, (fullMatch, tagName) => {
+  markdown = markdown.replace(/<\/?([a-zA-Z0-9_-]+)[^>]*>/g, (fullMatch, tagName) => {
     if (validHtmlTags.includes(tagName.toLowerCase().trim())) {
       return fullMatch;
     }
