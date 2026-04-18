@@ -35,7 +35,7 @@ const BOTS = [
     name: 'Verselor-V1',
     repo: 'HeavstalTech/Verselor-V1',
     branch: 'main',
-    desc: 'A high-performance and feature-rich WhatsApp assistant by Heavstal Tech. Verselor V1 supports cross-device connectivity, shared user hosting, and global language translation, offering a complete suite of tools for chat moderation, media processing, and interactive entertainment. Built by Heavstal Tech - 2026.'
+    desc: 'A high-performance and feature-rich WhatsApp assistant by Heavstal Tech.'
   }
 ];
 
@@ -47,48 +47,16 @@ async function fetchReadme(item) {
   console.log(`Fetching: ${item.name}...`);
   
   const res = await fetch(url);
-  if (!res.ok) {
-    console.error(`Failed to fetch ${item.name} from ${url}`);
-    return null;
-  }
+  if (!res.ok) return null;
   
   let markdown = await res.text();
   const rawBase = `https://raw.githubusercontent.com/${item.repo}/${item.branch}/`;
-  
   markdown = markdown.replace(/!\[([^\]]*)\]\((?!http)(.*?)\)/g, (_, alt, src) => {
-    const cleanSrc = src.replace(/^\.\//, '');
-    return `![${alt}](${rawBase}${cleanSrc})`;
+    return `![${alt}](${rawBase}${src.replace(/^\.\//, '')})`;
   });
 
   markdown = markdown.replace(/<img\s+([^>]*?)src=["'](?!http)(.*?)["']([^>]*)>/gi, (_, before, src, after) => {
-    const cleanSrc = src.replace(/^\.\//, '');
-    return `<img ${before}src="${rawBase}${cleanSrc}"${after}>`;
-  });
-
-  markdown = markdown.replace(/<\/?br\s*\/?>/gi, '');
-  markdown = markdown.replace(/<\/?hr\s*\/?>/gi, '\n---\n');
-
-  markdown = markdown.replace(/<h([1-6])[^>]*>(.*?)<\/h\1>/gi, (_, level, content) => {
-    return `\n${'#'.repeat(Number(level))} ${content.trim()}\n`;
-  });
-
-  markdown = markdown.replace(/<\/?p[^>]*>/gi, '\n\n');
-  markdown = markdown.replace(/<\/?(center|div)[^>]*>/gi, '');
-  markdown = markdown.replace(/<\/>/g, '&lt;/&gt;');
-  markdown = markdown.replace(/<(?![a-zA-Z/])/g, '&lt;');
-
-  markdown = markdown.replace(/<img([^>]+)>/gi, (_, inner) => {
-    const cleanInner = inner.replace(/\/$/, '').trim();
-    return `<img ${cleanInner} />`;
-  });
-
-  const validHtmlTags = ['img', 'a', 'b', 'i', 'strong', 'em', 'ul', 'ol', 'li', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'details', 'summary', 'blockquote', 'code', 'pre', 'kbd', 'sub', 'sup', 'picture', 'source'];
-  
-  markdown = markdown.replace(/<\/?([a-zA-Z0-9_-]+)[^>]*>/g, (fullMatch, tagName) => {
-    if (validHtmlTags.includes(tagName.toLowerCase().trim())) {
-      return fullMatch;
-    }
-    return fullMatch.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return `<img ${before}src="${rawBase}${src.replace(/^\.\//, '')}"${after}>`;
   });
 
   const frontmatter = `---
@@ -107,22 +75,19 @@ async function run() {
   for (const mod of MODULES) {
     const content = await fetchReadme(mod);
     if (content) {
-      const filePath = path.join(MODULES_DIR, `${mod.id}.mdx`);
-      await fs.writeFile(filePath, content, 'utf-8');
-      console.log(`Saved: ${mod.id}.mdx`);
+      await fs.writeFile(path.join(MODULES_DIR, `${mod.id}.md`), content, 'utf-8');
+      console.log(`Saved: ${mod.id}.md`);
     }
   }
 
   for (const bot of BOTS) {
     const content = await fetchReadme(bot);
     if (content) {
-      const filePath = path.join(BOTS_DIR, `${bot.id}.mdx`);
-      await fs.writeFile(filePath, content, 'utf-8');
-      console.log(`Saved: ${bot.id}.mdx`);
+      await fs.writeFile(path.join(BOTS_DIR, `${bot.id}.md`), content, 'utf-8');
+      console.log(`Saved: ${bot.id}.md`);
     }
   }
-
-  console.log('Documentation successfully synced and strictly sanitized for MDX!');
+  console.log('Documentation synced with original styling preserved!');
 }
 
 run();
