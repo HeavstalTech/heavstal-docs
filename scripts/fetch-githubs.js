@@ -42,6 +42,25 @@ const BOTS = [
 const MODULES_DIR = path.join(__dirname, '..', 'src', 'content', 'docs', 'modules');
 const BOTS_DIR = path.join(__dirname, '..', 'src', 'content', 'docs', 'bots');
 
+async function fetchLastUpdatedDate(item) {
+  const apiUrl = `https://api.github.com/repos/${item.repo}/commits?path=README.md&sha=${item.branch}&per_page=1`;
+  
+  try {
+    const res = await fetch(apiUrl, {
+      headers: { 'User-Agent': 'Heavstal-Docs-Builder' }
+    });
+    if (!res.ok) return null;
+    
+    const data = await res.json();
+    if (data && data.length > 0) {
+      return data[0].commit.committer.date; 
+    }
+  } catch (error) {
+    console.error(`Failed to fetch date for ${item.name}`);
+  }
+  return null;
+}
+
 async function fetchReadme(item) {
   const url = `https://raw.githubusercontent.com/${item.repo}/${item.branch}/README.md`;
   console.log(`Fetching: ${item.name}...`);
@@ -51,6 +70,7 @@ async function fetchReadme(item) {
   
   let markdown = await res.text();
   const rawBase = `https://raw.githubusercontent.com/${item.repo}/${item.branch}/`;
+  
   markdown = markdown.replace(/!\[([^\]]*)\]\((?!http)(.*?)\)/g, (_, alt, src) => {
     return `![${alt}](${rawBase}${src.replace(/^\.\//, '')})`;
   });
@@ -59,17 +79,19 @@ async function fetchReadme(item) {
     return `<img ${before}src="${rawBase}${src.replace(/^\.\//, '')}"${after}>`;
   });
 
+  const lastUpdatedDate = await fetchLastUpdatedDate(item);
+  const lastUpdatedFrontmatter = lastUpdatedDate ? `lastUpdated: ${lastUpdatedDate}` : `lastUpdated: false`;
+
   const frontmatter = `---
 title: "${item.name}"
 description: "${item.desc}"
 editUrl: "https://github.com/${item.repo}/edit/${item.branch}/README.md"
+${lastUpdatedFrontmatter}
 ---
 
 `;
   return frontmatter + markdown;
-  return frontmatter + markdown;
 }
-
 async function run() {
   await fs.mkdir(MODULES_DIR, { recursive: true });
   await fs.mkdir(BOTS_DIR, { recursive: true });
