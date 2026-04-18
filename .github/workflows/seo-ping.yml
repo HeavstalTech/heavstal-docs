@@ -1,0 +1,16 @@
+name: SEO IndexNow Ping
+
+on:
+  workflow_dispatch:
+
+jobs:
+  ping-search-engines:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping IndexNow (Central Hub)
+        run: |
+          curl -s -o /dev/null -w "%{http_code}" "https://api.indexnow.org/indexnow?url=https://heavstal-docs.vercel.app&key=heavstal-indexnow-key"
+
+      - name: Ping Google (Standard Sitemap Ping)
+        run: |
+          curl -s -o /dev/null -w "%{http_code}" "https://www.google.com/ping?sitemap=https://heavstal-docs.vercel.app/sitemap-index.xml"
