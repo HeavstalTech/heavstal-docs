@@ -58,6 +58,7 @@ async function fetchReadme(item) {
   
   let markdown = await res.text();
   const rawBase = `https://raw.githubusercontent.com/${item.repo}/${item.branch}/`;
+  
   markdown = markdown.replace(/!\[([^\]]*)\]\((?!http)(.*?)\)/g, (_, alt, src) => {
     const cleanSrc = src.replace(/^\.\//, '');
     return `![${alt}](${rawBase}${cleanSrc})`;
@@ -73,11 +74,18 @@ async function fetchReadme(item) {
   markdown = markdown.replace(/<hr\s*\/?>/gi, '<hr/>');
   markdown = markdown.replace(/<\/hr>/gi, '');
   markdown = markdown.replace(/<\/img>/gi, '');
-  markdown = markdown.replace(/<img([^>]+)>/gi, (match, inner) => {
+  markdown = markdown.replace(/<img([^>]+)>/gi, (_, inner) => {
     const cleanInner = inner.replace(/\/$/, '').trim();
     return `<img ${cleanInner} />`;
   });
+  
   markdown = markdown.replace(/<\/>/g, '&lt;/&gt;');
+  markdown = markdown.replace(/<\/p>\s*<\/a>/gi, '</a>\n</p>');
+  markdown = markdown.replace(/<p align="([^"]+)">/gi, '<div align="$1">');
+  markdown = markdown.replace(/<\/p>/gi, (match, offset, string) => {
+    return match;
+  });
+  markdown = markdown.replace(/<div align="([^"]+)">([\s\S]*?)<\/p>/gi, '<div align="$1">$2</div>');
 
   const validHtmlTags = ['p', 'div', 'span', 'img', 'a', 'b', 'i', 'strong', 'em', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'br', 'hr', 'details', 'summary', 'blockquote', 'code', 'pre', 'kbd', 'sub', 'sup', 'picture', 'source'];
   markdown = markdown.replace(/<\/?([a-zA-Z0-9_ -]+)[^>]*>/g, (fullMatch, tagName) => {
