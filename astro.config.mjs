@@ -10,6 +10,10 @@ export default defineConfig({
       logo: {
         src: './src/assets/ht_icon.svg', 
       },
+      editLink: {
+        baseUrl: 'https://github.com/HeavstalTech/heavstal-docs/edit/main/',
+      },
+      lastUpdated: true,
       customCss: ['./src/tailwind.css'],
       sidebar: [
         {
