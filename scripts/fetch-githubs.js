@@ -39,7 +39,7 @@ const BOTS = [
     name: 'Verselor-V1',
     repo: 'HeavstalTech/Verselor-V1',
     branch: 'main',
-    desc: 'Advanced WhatsApp bot automation agent.'
+    desc: 'A high-performance and feature-rich WhatsApp assistant by Heavstal Tech. Verselor V1 supports cross-device connectivity, shared user hosting, and global language translation, offering a complete suite of tools for chat moderation, media processing, and interactive entertainment. Built by Heavstal Tech - 2026.'
   }
 ];
 
