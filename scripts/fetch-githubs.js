@@ -62,9 +62,11 @@ async function fetchReadme(item) {
   const frontmatter = `---
 title: "${item.name}"
 description: "${item.desc}"
+editUrl: "https://github.com/${item.repo}/edit/${item.branch}/README.md"
 ---
 
 `;
+  return frontmatter + markdown;
   return frontmatter + markdown;
 }
 
