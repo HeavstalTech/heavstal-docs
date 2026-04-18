@@ -1,5 +1,3 @@
-// © Heavstal Tech™
-// Modify before re-use - bugs may occur
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'node:url';
@@ -67,14 +65,14 @@ async function fetchReadme(item) {
     return `<img ${before}src="${rawBase}${cleanSrc}"${after}>`;
   });
 
-  markdown = markdown.replace(/<br\s*\/?>/gi, '<br />');
-  markdown = markdown.replace(/<hr\s*\/?>/gi, '<hr />');
-  markdown = markdown.replace(/<\/br>/gi, '<br />');
-  markdown = markdown.replace(/<\/hr>/gi, '');
-  markdown = markdown.replace(/<\/img>/gi, '');
-  markdown = markdown.replace(/<\/>/g, '&lt;/&gt;');
+  markdown = markdown.replace(/<\/?br\s*\/?>/gi, '');
+  markdown = markdown.replace(/<\/?hr\s*\/?>/gi, '\n---\n');
 
-  markdown = markdown.replace(/<br\s*\/>\s*<\/h([1-6])>/gi, '</h$1>');
+  markdown = markdown.replace(/<h([1-6])[^>]*>(.*?)<\/h\1>/gi, (_, level, content) => {
+    return `\n${'#'.repeat(Number(level))} ${content.trim()}\n`;
+  });
+
+  markdown = markdown.replace(/<\/?p[^>]*>/gi, '\n\n');
 
   markdown = markdown.replace(/<(?![a-zA-Z/])/g, '&lt;');
 
@@ -83,12 +81,9 @@ async function fetchReadme(item) {
     return `<img ${cleanInner} />`;
   });
   
-  markdown = markdown.replace(/<\/p>\s*<\/a>/gi, '</a>\n</p>');
-  
-  markdown = markdown.replace(/<p align="([^"]+)">/gi, '<div align="$1">');
-  markdown = markdown.replace(/<div align="([^"]+)">([\s\S]*?)<\/p>/gi, '<div align="$1">$2</div>');
+  markdown = markdown.replace(/<\/?(center|div)[^>]*>/gi, '');
 
-  const validHtmlTags = ['p', 'div', 'span', 'img', 'a', 'b', 'i', 'strong', 'em', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'br', 'hr', 'details', 'summary', 'blockquote', 'code', 'pre', 'kbd', 'sub', 'sup', 'picture', 'source'];
+  const validHtmlTags = ['img', 'a', 'b', 'i', 'strong', 'em', 'ul', 'ol', 'li', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'details', 'summary', 'blockquote', 'code', 'pre', 'kbd', 'sub', 'sup', 'picture', 'source'];
   
   markdown = markdown.replace(/<\/?([a-zA-Z0-9_ -]+)[^>]*>/g, (fullMatch, tagName) => {
     if (validHtmlTags.includes(tagName.toLowerCase().trim())) {
