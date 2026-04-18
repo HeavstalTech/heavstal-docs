@@ -7,7 +7,6 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Heavstal Tech modules repos
 const MODULES = [
   {
     id: 'api',
@@ -32,7 +31,6 @@ const MODULES = [
   }
 ];
 
-// Heavstal Tech bot repos
 const BOTS = [
   {
     id: 'verselor',
@@ -69,25 +67,29 @@ async function fetchReadme(item) {
     return `<img ${before}src="${rawBase}${cleanSrc}"${after}>`;
   });
 
-  markdown = markdown.replace(/<br\s*\/?>/gi, '<br/>');
-  markdown = markdown.replace(/<\/br>/gi, '<br/>');
-  markdown = markdown.replace(/<hr\s*\/?>/gi, '<hr/>');
+  markdown = markdown.replace(/<br\s*\/?>/gi, '<br />');
+  markdown = markdown.replace(/<hr\s*\/?>/gi, '<hr />');
+  markdown = markdown.replace(/<\/br>/gi, '<br />');
   markdown = markdown.replace(/<\/hr>/gi, '');
   markdown = markdown.replace(/<\/img>/gi, '');
+  markdown = markdown.replace(/<\/>/g, '&lt;/&gt;');
+
+  markdown = markdown.replace(/<br\s*\/>\s*<\/h([1-6])>/gi, '</h$1>');
+
+  markdown = markdown.replace(/<(?![a-zA-Z/])/g, '&lt;');
+
   markdown = markdown.replace(/<img([^>]+)>/gi, (_, inner) => {
     const cleanInner = inner.replace(/\/$/, '').trim();
     return `<img ${cleanInner} />`;
   });
   
-  markdown = markdown.replace(/<\/>/g, '&lt;/&gt;');
   markdown = markdown.replace(/<\/p>\s*<\/a>/gi, '</a>\n</p>');
+  
   markdown = markdown.replace(/<p align="([^"]+)">/gi, '<div align="$1">');
-  markdown = markdown.replace(/<\/p>/gi, (match, offset, string) => {
-    return match;
-  });
   markdown = markdown.replace(/<div align="([^"]+)">([\s\S]*?)<\/p>/gi, '<div align="$1">$2</div>');
 
   const validHtmlTags = ['p', 'div', 'span', 'img', 'a', 'b', 'i', 'strong', 'em', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'br', 'hr', 'details', 'summary', 'blockquote', 'code', 'pre', 'kbd', 'sub', 'sup', 'picture', 'source'];
+  
   markdown = markdown.replace(/<\/?([a-zA-Z0-9_ -]+)[^>]*>/g, (fullMatch, tagName) => {
     if (validHtmlTags.includes(tagName.toLowerCase().trim())) {
       return fullMatch;
