@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://docs.heavstal.com.ng/sitemap-index.xml
-llms-txt: https://docs.heavstal.com.ng/llms.txt
