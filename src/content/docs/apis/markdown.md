@@ -15,7 +15,7 @@ description: "Convert Markdown text into valid HTML instantly."
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/markdown', {
+const res = await fetch('https://heavstal.com.ng/api/v1/markdown', {
 method: 'POST',
 headers: { 'x-api-key': 'YOUR_KEY' },
 body: JSON.stringify({ markdown: '# Hello **World**' })

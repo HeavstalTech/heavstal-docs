@@ -18,7 +18,7 @@ description: "Capture high-quality screenshots of websites with device emulation
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/screenshot', {
+const res = await fetch('https://heavstal.com.ng/api/v1/screenshot', {
 method: 'POST',
 headers: { 
   'Content-Type': 'application/json',

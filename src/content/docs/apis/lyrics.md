@@ -15,7 +15,7 @@ description: "Fetch accurate song lyrics and metadata using a multi-source engin
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/lyrics', {
+const res = await fetch('https://heavstal.com.ng/api/v1/lyrics', {
 method: 'POST',
 headers: { 
   'Content-Type': 'application/json',

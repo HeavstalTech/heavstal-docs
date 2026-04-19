@@ -16,7 +16,7 @@ description: "Extract text from images using OCR (Optical Character Recognition)
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/ocr', {
+const res = await fetch('https://heavstal.com.ng/api/v1/ocr', {
 method: 'POST',
 headers: { 
   'Content-Type': 'application/json',

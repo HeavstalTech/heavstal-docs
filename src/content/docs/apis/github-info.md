@@ -15,7 +15,7 @@ description: "Get developer details, repositories, and bio from GitHub."
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/github-info', {
+const res = await fetch('https://heavstal.com.ng/api/v1/github-info', {
 method: 'POST',
 headers: { 
   'Content-Type': 'application/json',

@@ -15,7 +15,7 @@ description: "Real-time weather conditions and forecast for any city."
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/weather', {
+const res = await fetch('https://heavstal.com.ng/api/v1/weather', {
 method: 'POST',
 headers: { 'x-api-key': 'YOUR_KEY' },
 body: JSON.stringify({ city: 'Lagos' })

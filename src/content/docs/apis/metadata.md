@@ -15,7 +15,7 @@ description: "Extract title, description, images, and favicons from any URL."
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/metadata', {
+const res = await fetch('https://heavstal.com.ng/api/v1/metadata', {
 method: 'POST',
 headers: { 
   'Content-Type': 'application/json',

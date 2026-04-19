@@ -34,7 +34,7 @@ This endpoint uses a stable, standard browser signature. It does **not** employ 
 Best for simply getting the text content of a blog post or article.
 
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/web-search', {
+const res = await fetch('https://heavstal.com.ng/api/v1/web-search', {
 method: 'POST',
 headers: { 'x-api-key': 'YOUR_KEY' },
 body: JSON.stringify({ 
@@ -47,7 +47,7 @@ body: JSON.stringify({
 Scrape multiple pages and get structured reports for each. Ideal for market research or news aggregation.
 
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/web-search', {
+const res = await fetch('https://heavstal.com.ng/api/v1/web-search', {
 method: 'POST',
 headers: { 'x-api-key': 'YOUR_KEY' },
 body: JSON.stringify({ 

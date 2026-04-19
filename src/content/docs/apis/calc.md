@@ -20,7 +20,7 @@ description: "Documentation for Heavstal Calculator"
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/calc', {
+const res = await fetch('https://heavstal.com.ng/api/v1/calc', {
   method: 'POST',
   headers: { 
     'Content-Type': 'application/json',

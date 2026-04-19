@@ -18,7 +18,7 @@ It supports **Batch Generation** and **Variations** out of the box.
 
 ## Example 1: Single Generation
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/image', {
+const res = await fetch('https://heavstal.com.ng/api/v1/image', {
 method: 'POST',
 headers: { 'x-api-key': 'YOUR_KEY' },
 body: JSON.stringify({ 
@@ -31,7 +31,7 @@ body: JSON.stringify({
 Generate 4 versions of the same concept in parallel.
 
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/image', {
+const res = await fetch('https://heavstal.com.ng/api/v1/image', {
 method: 'POST',
 headers: { 'x-api-key': 'YOUR_KEY' },
 body: JSON.stringify({ 

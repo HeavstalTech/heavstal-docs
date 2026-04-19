@@ -15,7 +15,7 @@ description: "Get location, ISP, and timezone info for any IP address or domain.
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/ip-info', {
+const res = await fetch('https://heavstal.com.ng/api/v1/ip-info', {
 method: 'POST',
 headers: { 'x-api-key': 'YOUR_KEY' },
 body: JSON.stringify({ ip: '8.8.8.8' })

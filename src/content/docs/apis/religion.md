@@ -20,7 +20,7 @@ description: "Retrieve sacred texts from the Bible or Quran (includes Audio & Ar
 
 ## Example: Bible (KJV)
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/religion', {
+const res = await fetch('https://heavstal.com.ng/api/v1/religion', {
 method: 'POST',
 headers: { 'Content-Type': 'application/json', 'x-api-key': 'KEY' },
 body: JSON.stringify({ 

@@ -15,7 +15,7 @@ description: "Analyze password strength, crack time, and improvement suggestions
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/password-strength', {
+const res = await fetch('https://heavstal.com.ng/api/v1/password-strength', {
 method: 'POST',
 headers: { 'x-api-key': 'YOUR_KEY' },
 body: JSON.stringify({ password: 'password123' })

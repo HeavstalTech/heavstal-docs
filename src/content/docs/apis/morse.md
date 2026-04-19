@@ -16,7 +16,7 @@ description: "Translate text to Morse code and decode Morse code back to text."
 
 ## Example Usage (Encode)
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/morse', {
+const res = await fetch('https://heavstal.com.ng/api/v1/morse', {
 method: 'POST',
 headers: { 
   'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ body: JSON.stringify({
 
 ## Example Usage (Decode)
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/morse', {
+const res = await fetch('https://heavstal.com.ng/api/v1/morse', {
 method: 'POST',
 headers: { 'x-api-key': 'YOUR_KEY' },
 body: JSON.stringify({ 

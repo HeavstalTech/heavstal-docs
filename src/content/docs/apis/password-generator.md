@@ -18,7 +18,7 @@ description: "Generate strong, random passwords with custom criteria."
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/password-generator', {
+const res = await fetch('https://heavstal.com.ng/api/v1/password-generator', {
 method: 'POST',
 headers: { 'x-api-key': 'YOUR_KEY' },
 body: JSON.stringify({ length: 24, symbols: false })

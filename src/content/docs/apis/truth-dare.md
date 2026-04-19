@@ -17,7 +17,7 @@ It returns the text challenge along with a thematic image URL to make the respon
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/truth-dare', {
+const res = await fetch('https://heavstal.com.ng/api/v1/truth-dare', {
 method: 'POST',
 headers: { 
   'Content-Type': 'application/json',

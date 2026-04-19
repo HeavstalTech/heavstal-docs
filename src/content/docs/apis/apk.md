@@ -15,7 +15,7 @@ description: "Search and download Android Apps (APK) directly. Returns version, 
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/apk', {
+const res = await fetch('https://heavstal.com.ng/api/v1/apk', {
 method: 'POST',
 headers: { 
   'Content-Type': 'application/json',

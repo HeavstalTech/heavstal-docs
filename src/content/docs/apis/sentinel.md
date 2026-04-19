@@ -19,7 +19,7 @@ description: "AI Text Detector: Check whether content was AI-generated."
 ```python
 import requests
 
-url = "https://heavstal-tech.vercel.app/api/v1/sentinel"
+url = "https://heavstal.com.ng/api/v1/sentinel"
 payload = {
   "text": "This is the text I want to scan for AI patterns."
 }

@@ -21,7 +21,7 @@ description: "Extract text from PDF, DOCX, TXT, and Code files."
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/doc-extract', {
+const res = await fetch('https://heavstal.com.ng/api/v1/doc-extract', {
 method: 'POST',
 headers: { 
   'Content-Type': 'application/json',

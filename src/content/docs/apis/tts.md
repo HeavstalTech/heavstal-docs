@@ -18,7 +18,7 @@ Instead of streaming binary data, this API **generates the audio, hosts it secur
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/tts', {
+const res = await fetch('https://heavstal.com.ng/api/v1/tts', {
 method: 'POST',
 headers: { 
   'Content-Type': 'application/json',

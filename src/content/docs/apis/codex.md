@@ -23,7 +23,7 @@ lang: "js",
 code: "function hello() { console.log('Secret Code'); }"
 };
 
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/codex', {
+const res = await fetch('https://heavstal.com.ng/api/v1/codex', {
   method: 'POST',
   headers: { 
     'Content-Type': 'application/json',

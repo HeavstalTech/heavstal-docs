@@ -18,7 +18,7 @@ description: "Documentation for Heavstal Jeden API"
 
 ### JavaScript / TypeScript
 ```javascript
-const response = await fetch('https://heavstal-tech.vercel.app/api/v1/jeden', {
+const response = await fetch('https://heavstal.com.ng/api/v1/jeden', {
 method: 'POST',
 headers: {
   'Content-Type': 'application/json',

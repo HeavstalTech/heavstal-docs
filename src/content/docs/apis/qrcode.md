@@ -17,7 +17,7 @@ description: "Create custom QR codes with colors. Returns a direct image link."
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/qrcode', {
+const res = await fetch('https://heavstal.com.ng/api/v1/qrcode', {
 method: 'POST',
 headers: { 'x-api-key': 'YOUR_KEY' },
 body: JSON.stringify({ 

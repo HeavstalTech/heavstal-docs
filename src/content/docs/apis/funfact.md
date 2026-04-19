@@ -13,7 +13,7 @@ _None required._
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/funfact', {
+const res = await fetch('https://heavstal.com.ng/api/v1/funfact', {
 method: 'POST',
 headers: { 'x-api-key': 'YOUR_API_KEY' }
 });

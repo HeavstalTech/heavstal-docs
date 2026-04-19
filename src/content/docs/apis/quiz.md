@@ -18,7 +18,7 @@ It supports **Batch Generation**, allowing you to fetch up to 10 unique question
 
 ## Example Usage (Single Question)
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/quiz', {
+const res = await fetch('https://heavstal.com.ng/api/v1/quiz', {
 method: 'POST',
 headers: { 
   'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ body: JSON.stringify({
 Get 5 random Mathematics questions.
 
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/quiz', {
+const res = await fetch('https://heavstal.com.ng/api/v1/quiz', {
 method: 'POST',
 headers: { 'x-api-key': 'YOUR_KEY' },
 body: JSON.stringify({ 

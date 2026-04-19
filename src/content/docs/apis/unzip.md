@@ -18,7 +18,7 @@ This is extremely useful for feeding an entire project codebase into ChatGPT, Cl
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/unzip', {
+const res = await fetch('https://heavstal.com.ng/api/v1/unzip', {
 method: 'POST',
 headers: { 
   'Content-Type': 'application/json',

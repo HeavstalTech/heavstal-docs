@@ -15,7 +15,7 @@ description: "Documentation for MediaFire Downloader"
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/mediafire', {
+const res = await fetch('https://heavstal.com.ng/api/v1/mediafire', {
 method: 'POST',
 headers: { 
   'Content-Type': 'application/json',

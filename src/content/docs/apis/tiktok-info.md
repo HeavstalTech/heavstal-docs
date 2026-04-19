@@ -15,7 +15,7 @@ description: "Retrieve public profile details from TikTok accounts."
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/tiktok-info', {
+const res = await fetch('https://heavstal.com.ng/api/v1/tiktok-info', {
 method: 'POST',
 headers: { 
   'Content-Type': 'application/json',

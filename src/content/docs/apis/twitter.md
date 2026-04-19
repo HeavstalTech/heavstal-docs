@@ -15,7 +15,7 @@ description: "Download videos and GIFs from Twitter (X) in HD or SD qualities."
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/twitter', {
+const res = await fetch('https://heavstal.com.ng/api/v1/twitter', {
 method: 'POST',
 headers: { 
   'Content-Type': 'application/json',

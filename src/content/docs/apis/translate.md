@@ -15,7 +15,7 @@ description: "Auto-detects and translates any language text into English."
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/translate', {
+const res = await fetch('https://heavstal.com.ng/api/v1/translate', {
 method: 'POST',
 headers: { 
   'Content-Type': 'application/json',

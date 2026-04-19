@@ -15,7 +15,7 @@ description: "Convert normal text into 30+ fancy font styles (Bold, Cursive, etc
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/style-text', {
+const res = await fetch('https://heavstal.com.ng/api/v1/style-text', {
 method: 'POST',
 headers: { 
   'Content-Type': 'application/json',

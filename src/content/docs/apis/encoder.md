@@ -20,7 +20,7 @@ When decoding, if the engine detects that the result is a binary file (Image, Au
 
 ## Example 1: Text Encoding
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/encoder', {
+const res = await fetch('https://heavstal.com.ng/api/v1/encoder', {
 method: 'POST',
 headers: { 
   'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ body: JSON.stringify({
 If you send a Base64 string that represents an image, the API detects it.
 
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/encoder', {
+const res = await fetch('https://heavstal.com.ng/api/v1/encoder', {
 method: 'POST',
 headers: { 'x-api-key': 'YOUR_API_KEY' },
 body: JSON.stringify({ 

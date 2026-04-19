@@ -15,7 +15,7 @@ description: "Check if a website is Up or Down, including latency and headers."
 
 ## Example Usage
 ```javascript
-const res = await fetch('https://heavstal-tech.vercel.app/api/v1/http-status', {
+const res = await fetch('https://heavstal.com.ng/api/v1/http-status', {
 method: 'POST',
 headers: { 'x-api-key': 'YOUR_KEY' },
 body: JSON.stringify({ url: 'https://github.com' })
