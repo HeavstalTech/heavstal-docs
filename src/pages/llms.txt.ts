@@ -16,7 +16,7 @@ export const GET = async () => {
     if (doc.data.description) {
       content += `DESCRIPTION: ${doc.data.description}\n`;
     }
-    content += `URL: https://heavstal-docs.vercel.app/${doc.id.replace(/\.(md|mdx)$/, '')}\n`;
+    content += `URL: https://docs.heavstal.com.ng/${doc.id.replace(/\.(md|mdx)$/, '')}\n`;
     content += `========================================================================\n\n`;
     content += doc.body || '';
   }
