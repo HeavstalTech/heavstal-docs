@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://heavstal-docs.vercel.app/sitemap-index.xml
-llms-txt: https://heavstal-docs.vercel.app/llms.txt
+Sitemap: https://docs.heavstal.com.ng/sitemap-index.xml
+llms-txt: https://docs.heavstal.com.ng/llms.txt
