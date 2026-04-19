@@ -9,8 +9,8 @@ jobs:
     steps:
       - name: Ping IndexNow (Central Hub)
         run: |
-          curl -s -o /dev/null -w "%{http_code}" "https://api.indexnow.org/indexnow?url=https://heavstal-docs.vercel.app&key=heavstal-indexnow-key"
+          curl -s -o /dev/null -w "%{http_code}" "https://api.indexnow.org/indexnow?url=https://docs.heavstal.com.ng&key=heavstal-indexnow-key"
 
       - name: Ping Google (Standard Sitemap Ping)
         run: |
-          curl -s -o /dev/null -w "%{http_code}" "https://www.google.com/ping?sitemap=https://heavstal-docs.vercel.app/sitemap-index.xml"
+          curl -s -o /dev/null -w "%{http_code}" "https://www.google.com/ping?sitemap=https://docs.heavstal.com.ng/sitemap-index.xml"
