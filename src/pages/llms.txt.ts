@@ -9,17 +9,16 @@ export const GET = async () => {
   content += `> BASE URL: https://heavstal-tech.vercel.app/api/v1\n\n`;
   docs.sort((a, b) => a.id.localeCompare(b.id));
   for (const doc of docs) {
-    if (doc.id.includes('404')) continue;
-
+    if (doc.id.includes('404') || doc.id === 'index.mdx' || doc.id === 'index') continue;
     content += `\n\n========================================================================\n`;
     content += `DOCUMENT: ${doc.id}\n`;
     content += `TITLE: ${doc.data.title}\n`;
     if (doc.data.description) {
       content += `DESCRIPTION: ${doc.data.description}\n`;
     }
-    content += `URL: https://heavstal-docs.vercel.app/${doc.slug || doc.id.replace(/\.(md|mdx)$/, '')}\n`;
+    content += `URL: https://heavstal-docs.vercel.app/${doc.id.replace(/\.(md|mdx)$/, '')}\n`;
     content += `========================================================================\n\n`;
-    content += doc.body;
+    content += doc.body || '';
   }
 
   return new Response(content, {
