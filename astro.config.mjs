@@ -3,7 +3,7 @@ import starlight from '@astrojs/starlight';
 import tailwind from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://heavstal-docs.vercel.app',
+  site: 'https://docs.heavstal.com.ng',
   integrations: [
     starlight({
       title: 'Heavstal Docs',
@@ -14,10 +14,10 @@ export default defineConfig({
       },
       head: [
         { tag: 'link', attrs: { rel: 'apple-touch-icon', href: '/favicon.ico' } },
-        { tag: 'meta', attrs: { property: 'og:image', content: 'https://heavstal-docs.vercel.app/social-banner.png' } },
+        { tag: 'meta', attrs: { property: 'og:image', content: 'https://docs.heavatal.com.ng/social-banner.png' } },
         { tag: 'meta', attrs: { property: 'og:type', content: 'website' } },
         { tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' } },
-        { tag: 'meta', attrs: { name: 'twitter:image', content: 'https://heavstal-docs.vercel.app/social-banner.png' } },
+        { tag: 'meta', attrs: { name: 'twitter:image', content: 'https://docs.heavstal.com.ng/social-banner.png' } },
       ],
       editLink: {
         baseUrl: 'https://github.com/HeavstalTech/heavstal-docs/edit/main/',
