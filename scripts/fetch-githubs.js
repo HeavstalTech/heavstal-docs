@@ -1,3 +1,6 @@
+// scripts/fetch-github.js
+// © Heavstal Tech™
+// modify before re-use - bugs may occur 
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'node:url';
