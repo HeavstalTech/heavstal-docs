@@ -4,7 +4,7 @@ import tailwind from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://docs.heavstal.com.ng',
-  integrations: [
+  integrations:[
     starlight({
       title: 'Heavstal Docs',
       description: 'Official documentation for the Heavstal Tech Ecosystem.',
@@ -12,7 +12,7 @@ export default defineConfig({
       logo: {
         src: './src/assets/ht_icon.svg', 
       },
-      head: [
+      head:[
         { tag: 'link', attrs: { rel: 'apple-touch-icon', href: '/favicon.ico' } },
         { tag: 'meta', attrs: { property: 'og:image', content: 'https://docs.heavatal.com.ng/social-banner.png' } },
         { tag: 'meta', attrs: { property: 'og:type', content: 'website' } },
@@ -24,7 +24,7 @@ export default defineConfig({
       },
       lastUpdated: true,
       customCss: ['./src/tailwind.css'],
-      sidebar: [
+      sidebar:[
         {
           label: 'Getting Started',
           link: '/',
@@ -42,8 +42,29 @@ export default defineConfig({
           autogenerate: { directory: 'modules' },
         },
         {
-          label: 'Heavatal Bots (Wa/Tg)',
+          label: 'Heavstal Bots (Wa/Tg)', // I also fixed a small typo here ('Heavatal' -> 'Heavstal')
           autogenerate: { directory: 'bots' },
+        },
+        {
+          label: 'Heavstal Tech Ecosystem Documentary',
+          items:[
+            {
+              label: 'Overview',
+              link: '/overview/',
+            },
+            {
+              label: 'Heavstal Tech Platform',
+              link: '/guides/heavstal-tech/',
+            },
+            {
+              label: 'Heavstal Bots',
+              link: '/guides/heavstal-bots/',
+            },
+            {
+              label: 'Heavstal Accounts',
+              link: '/guides/heavstal-accounts/',
+            }
+          ]
         }
       ],
     }),
