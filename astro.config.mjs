@@ -54,15 +54,24 @@ export default defineConfig({
             },
             {
               label: 'Heavstal Tech Platform',
-              link: '/guides/heavstal-tech/',
+              items:[
+                { label: 'Introduction', link: '/guides/heavstal-tech/' },
+              ]
             },
             {
               label: 'Heavstal Bots',
-              link: '/guides/heavstal-bots/',
+              items:[
+                { label: 'Introduction', link: '/guides/heavstal-bots/' },
+                { label: 'How to Make an Authcode', link: '/guides/heavstal-bots/auth-code/' },
+                { label: 'Terms & Privacy', link: '/guides/heavstal-bots/terms/' },
+                { label: 'Pricing', link: '/guides/heavstal-bots/pricing/' },
+              ]
             },
             {
               label: 'Heavstal Accounts',
-              link: '/guides/heavstal-accounts/',
+              items:[
+                { label: 'Introduction', link: '/guides/heavstal-accounts/' },
+              ]
             }
           ]
         }
