@@ -5,10 +5,10 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'node:url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+var __filename = fileURLToPath(import.meta.url);
+var __dirname = path.dirname(__filename);
 
-const MODULES = [
+var MODULES = [
   {
     id: 'api',
     name: '@heavstaltech/api',
@@ -32,7 +32,7 @@ const MODULES = [
   }
 ];
 
-const BOTS = [
+var BOTS = [
   {
     id: 'verselor',
     name: 'Verselor-V1',
@@ -42,8 +42,8 @@ const BOTS = [
   }
 ];
 
-const MODULES_DIR = path.join(__dirname, '..', 'src', 'content', 'docs', 'modules');
-const BOTS_DIR = path.join(__dirname, '..', 'src', 'content', 'docs', 'bots');
+var MODULES_DIR = path.join(__dirname, '..', 'src', 'content', 'docs', 'modules');
+var BOTS_DIR = path.join(__dirname, '..', 'src', 'content', 'docs', 'bots');
 
 async function fetchLastUpdatedDate(item) {
   const apiUrl = `https://api.github.com/repos/${item.repo}/commits?path=README.md&sha=${item.branch}&per_page=1`;
