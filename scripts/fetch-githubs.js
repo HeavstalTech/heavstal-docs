@@ -49,7 +49,7 @@ async function fetchLastUpdatedDate(item) {
   const apiUrl = `https://api.github.com/repos/${item.repo}/commits?path=README.md&sha=${item.branch}&per_page=1`;
   
   try {
-    var res = await fetch(apiUrl, {
+   const res = await fetch(apiUrl, {
       headers: { 'User-Agent': 'Heavstal-Docs-Builder' }
     });
     if (!res.ok) return null;
