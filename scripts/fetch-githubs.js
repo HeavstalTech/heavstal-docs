@@ -11,8 +11,8 @@ var __dirname = path.dirname(__filename);
 var MODULES = [
   {
     id: 'api',
-    name: '@heavstaltech/api',
-    repo: 'HeavstalTech/heavstaltech-api',
+    name: '@heavstal/api',
+    repo: 'HeavstalTech/heavstal-api',
     branch: 'main',
     desc: 'A powerful, all-in-one scraping and utility library.'
   },
