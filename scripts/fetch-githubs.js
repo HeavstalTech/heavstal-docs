@@ -18,7 +18,7 @@ var MODULES = [
   },
   {
     id: 'auth',
-    name: 'Heavstal Auth',
+    name: '@heavstal/auth',
     repo: 'HeavstalTech/heavstal-auth',
     branch: 'main',
     desc: 'The official NextAuth.js provider for Heavstal Tech.'
