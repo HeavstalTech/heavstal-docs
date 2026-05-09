@@ -11,24 +11,26 @@ Integrate the Heavstal Identity ecosystem into your applications. We support our
 
 ## 1. Next.js Integration (Recommended)
 
-The easiest way to add Heavstal Auth to your Next.js application.
+The easiest way to add Heavstal Auth to your Next.js application. This official provider pre-configures authorization endpoints, token exchanges, and user profile mapping securely.
 
 ```bash
-npm install heavstal-auth
+npm install @heavstal/auth
 # or
-yarn add heavstal-auth
+yarn add @heavstal/auth
 # or
-pnpm add heavstal-auth
+pnpm add @heavstal/auth
 ```
 
-### Configuration (auth.ts)
+### Configuration (`auth.ts` or `app/api/auth/[...nextauth]/route.ts`)
+
+By default, the provider runs in modern `oidc` mode and uses our Discovery Document to fetch configurations automatically.
 
 ```typescript
 import NextAuth from "next-auth";
-import HeavstalProvider from "heavstal-auth";
+import HeavstalProvider from "@heavstal/auth";
 
 export const authOptions = {
-  providers: [
+  providers:[
     HeavstalProvider({
       clientId: process.env.HEAVSTAL_CLIENT_ID!,
       clientSecret: process.env.HEAVSTAL_CLIENT_SECRET!,
@@ -37,24 +39,41 @@ export const authOptions = {
 };
 ```
 
+### Pure OAuth2 Mode (Bypassing JWKS)
+
+If your environment has strict edge-runtime limitations or you prefer not to deal with cryptographic JWT verification (JWKS), you can switch the provider into pure `oauth2` mode. This forces NextAuth to ignore the `id_token` and fetch user data directly from the Heavstal `/userinfo` API instead.
+
+```typescript
+HeavstalProvider({
+  clientId: process.env.HEAVSTAL_CLIENT_ID!,
+  clientSecret: process.env.HEAVSTAL_CLIENT_SECRET!,
+  mode: "oauth2", // <-- skips OIDC / JWKS validation
+})
+```
+
 ## 2. OIDC Auto-Discovery
 
-For other languages, you do not need to manually configure endpoints. Heavstal Tech is an **OpenID Connect (OIDC)** compliant provider. Simply use the Issuer URL below with any OIDC-compatible library.
+For other languages or frameworks, you do not need to manually configure endpoints. Heavstal Tech is an OpenID Connect (OIDC) compliant provider. Simply use the Issuer URL below with any OIDC-compatible library.
 
-> **Issuer URL:** `https://accounts-heavstal.vercel.app`
+| Parameter              | Value                                                               |
+| :--------------------- | :------------------------------------------------------------------ |
+| **Issuer URL**         | `https://accounts.heavstal.com.ng`                                  |
+| **Discovery Document** | `https://accounts.heavstal.com.ng/.well-known/openid-configuration` |
+| **JWKS Endpoint**      | `https://accounts.heavstal.com.ng/.well-known/jwks.json`            |
+
 
 ## 3. Other Frameworks
 
 Examples of how to connect using standard libraries without manual URL configuration.
 
-### Node.js (openid-client)
+### Node.js (`openid-client`)
 
 ```javascript
 const { Issuer } = require('openid-client');
 
 async function main() {
   // Auto-discover endpoints using the Issuer URL
-  const heavstal = await Issuer.discover('https://accounts-heavstal.vercel.app');
+  const heavstal = await Issuer.discover('https://accounts.heavstal.com.ng');
 
   const client = new heavstal.Client({
     client_id: process.env.HEAVSTAL_CLIENT_ID,
@@ -67,19 +86,33 @@ async function main() {
 }
 ```
 
-### Python (Authlib)
+### Python (`Authlib`)
 
 ```python
 from authlib.integrations.flask_client import OAuth
+import os
 
 oauth = OAuth(app)
 
 # Auto-discovery via server_metadata_url
 oauth.register(
     name='heavstal',
-    server_metadata_url='https://accounts-heavstal.vercel.app/.well-known/openid-configuration',
+    server_metadata_url='https://accounts.heavstal.com.ng/.well-known/openid-configuration',
     client_id=os.getenv('HEAVSTAL_CLIENT_ID'),
     client_secret=os.getenv('HEAVSTAL_CLIENT_SECRET'),
     client_kwargs={'scope': 'openid profile email'}
 )
+```
+
+## 4. User Profile Data
+
+On successful authentication, the provider returns the following normalized user profile structure:
+
+```typescript
+interface HeavstalProfile {
+  id: string;       // The unique Heavstal User ID
+  name: string;     // Public Display Name
+  email: string;    // Verified Email Address
+  image: string;    // Profile Picture URL
+}
 ```
