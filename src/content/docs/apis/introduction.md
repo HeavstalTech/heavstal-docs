@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: API Introduction
 description: Welcome to Heavstal Cloud APIs
 ---
 
@@ -11,7 +11,7 @@ All API requests require an **API Key**. You can generate one in your [Credentia
 Authenticate by passing the key in the `x-api-key` header.
 
 ```bash
-curl -X POST https://heavstal.com.ng/api/v1/jeden \
+curl -X POST https://heavstal.com.ng/api/v1/ai \
 -H "Content-Type: application/json" \
 -H "x-api-key: ht_live_xxxxxxxxxxxxxxxx" \
 -d '{"prompt": "Hello"}'
