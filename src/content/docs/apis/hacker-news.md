@@ -1,4 +1,3 @@
-```markdown
 ---
 title: "Hacker News Top 10"
 description: "Fetch the top 10 latest stories from Hacker News with speed."
