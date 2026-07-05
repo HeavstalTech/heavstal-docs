@@ -216,16 +216,15 @@ If your client credentials are exposed, Heavstal automatically helps minimize th
 </details>
 
 <details> 
- <summary><b>How can I rotate my heavstal auth credentials</b>
-  You can rotate your Heavstal Auth Credentials in Heavstal Console by following the methods below:
-  1. Visit [Heavstal Auth Manager](https://heavstal.com.ng/oauth/apps)
-  2. From the application list, find the app whose credentials you want to rotate and at the end of that app select the kebab menu and from the list select *"Configure"* with Settings icon
-  3. From the configuration settings, you'll see a section named "OAuth Credentials" containing your client id and masked client secret marked as "Enabled"
-  4. At the top right of the OAuth Credentials section you will see a button "+ Add Secret", click this button to create a new client secret 
-  5. A message modal will appear with your new secret, you're to copy it and replace with the old version in your app
-  6. Importantly after successfully migrating to the new client secret, you must return to the application configuration in Heavstal Authentication Manger and click, from the two available client secrets, find old one (you can easily identify it via the date provided) that's usually at the bottom, and click on the blue "Enabled" tag at the end of the secret to disable the Old Client secret and optional delete it
-  **Note 1:** Please ensure you've updated your old client secret to the new client secret before disabling the the old client secret. 
-  **Note 2:** Never expose your Client Secret in frontend code. It must only be used on trusted backend servers.
-  **Note 3:** Please use the Desktop Site option provided at the sidebar for best developer experience.
- </summary>
+ <summary><b>How can I rotate my heavstal auth credentials</b> </summary>
+  You can rotate your Heavstal Auth Credentials in Heavstal Console by following the methods below:<br>
+  1. Visit [Heavstal Auth Manager](https://heavstal.com.ng/oauth/apps)<br>
+  2. From the application list, find the app whose credentials you want to rotate and at the end of that app select the kebab menu and from the list select <strong>"Configure"</strong> with Settings icon<br>
+  3. From the configuration settings, you'll see a section named <strong>"OAuth Credentials"</strong> containing your client id and masked client secret marked as <strong>"Enabled"</strong><br>
+  4. At the top right of the OAuth Credentials section you will see a button "+ Add Secret", click this button to create a new client secret <br>
+  5. A message modal will appear with your new secret, you're to copy it and replace with the old version in your app<br>
+  6. Importantly after successfully migrating to the new client secret, you must return to the application configuration in Heavstal Authentication Manger and click, from the two available client secrets, find old one (you can easily identify it via the date provided) that's usually at the bottom, and click on the blue "Enabled" tag at the end of the secret to disable the Old Client secret and optional delete it<br>
+  <strong>Note 1:</strong> Please ensure you've updated your old client secret to the new client secret before disabling the the old client secret. <br>
+  <strong>Note 2:</strong> Never expose your Client Secret in frontend code. It must only be used on trusted backend servers.<br>
+  <strong>Note 3:</strong> Please use the Desktop Site option provided at the sidebar for best developer experience.
 </details>
