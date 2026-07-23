@@ -8,7 +8,7 @@ sidebar:
 ---
 
 ## What is Heavstal Authentication
-Heavstal Auth (short for Heavstal Tech Authentication) is Africa's first OAuth 2.0 and OpenID Connect platform that lets users prove their identity using their Heavstal account, allowing them to sign in to apps, websites, or services without creating a separate username and password for each application, significantly reducing authentication friction.
+Heavstal Auth (short for Heavstal Tech Authentication) is an African OAuth 2.0 and OpenID Connect platform that lets users prove their identity using their Heavstal account, allowing them to sign in to apps, websites, or services without creating a separate username and password for each application, significantly reducing authentication friction.
 
 ## Why Heavstal Authentication over traditional Authentication methods
 Using Heavstal Auth over traditional Authentication methods (email+password) provides both users and developers with major advantages including:
@@ -26,7 +26,7 @@ Using Heavstal Auth over traditional Authentication methods (email+password) pro
 4. **Reduced Integration Overhead:** By leveraging standard OAuth 2.0 and OIDC protocols along with a dedicated SDK, developers can quickly implement secure authentication without building complex identity infrastructure from scratch.
 
 ## Why Heavstal Authentication over other auth provider 
-Heavstal Auth reduces account compromise risks through mandatory multi-factor authentication and modern account protection mechanisms. Furthermore, Heavstal Auth is designed for low-latency authentication flows, reliable uptime and more importantly it's the first African-built OAuth provider giving African developers a major advantage. The platform also benefits from enterprise-grade edge protection and DDoS mitigation through Cloudflare's global network.
+Heavstal Auth reduces account compromise risks through mandatory multi-factor authentication and modern account protection mechanisms. Furthermore, Heavstal Auth is designed for low-latency authentication flows, reliable uptime and more importantly it's also an African-built OAuth provider giving African developers a major advantage. The platform also benefits from enterprise-grade edge protection and DDoS mitigation through Cloudflare's global network.
 
 <!-- ## Rate Limits
 Coming Soon...
@@ -208,25 +208,110 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
 ## Frequently Asked Questions (FAQ)
 <details> 
- <summary><b>What happens if my client credentials are accidentally exposed?</b></summary>
+ <summary><b>What happens if my OAuth credentials are accidentally exposed?</b></summary>
  <br>
-<!-- Several things can happen is your Heavstal Auth credentials Happens to gets leaked:
-**Secret Scanning:** Heavstal Tech works hand in hand with secret Scanning service meaning if your credentials (API key, Heavstal Auth Secret) happens to get leaked, our service will be notified and that credential will automatically be rovoked and rotated and you will receive an email from us informing you about the incident. -->
-If your client credentials are exposed, Heavstal automatically helps minimize the impact through secret scanning and credential revocation. If this occurs, the affected credentials are automatically revoked and you'll be notified by email so you can generate new credentials.
+If your client credentials are exposed, Heavstal automatically helps minimize the impact through secret scanning and credential revocation. If this occurs, the affected credentials are automatically revoked and you'll be notified via email so you can generate new credentials.
 </details>
-
+<br>
 <details> 
- <summary><b>How can I rotate my heavstal auth credentials</b> </summary>
+ <summary><b>How can I rotate my OAuth credentials?</b> </summary>
  <br>
-  You can rotate your Heavstal Auth Credentials in Heavstal Console by following the methods below:<br>
+  You can rotate your Heavstal Auth Credentials in Heavstal Console by following the steps below:<br>
   <br>
-  1. <strong><a href="https://heavstal.com.ng/oauth/apps">Visit Heavstal Auth Manager</a></strong><br>
-  2. From the application list, find the app whose credentials you want to rotate and at the end of that app select the kebab menu and from the list select <strong>"Configure"</strong> with Settings icon<br>
+  1. Visit <strong><a href="https://heavstal.com.ng/oauth/apps">Heavstal Auth Manager</a></strong><br>
+  <br>
+  2. From the application list, find the app whose credentials you want to rotate and at the top right of that app click the <strong>more options menu</strong> and from the list select <strong>"Configure"</strong> with Settings icon<br>
+  <br>
   3. From the configuration settings, you'll see a section named <strong>"OAuth Credentials"</strong> containing your client id and masked client secret marked as <strong>"Enabled"</strong><br>
+  <br>
   4. At the top right of the OAuth Credentials section you will see a button <strong>"+ Add Secret"</strong>, click this button to create a new client secret <br>
+  <br>
   5. A message modal will appear with your new secret, you're to copy it and replace with the old version in your app<br>
+  <br>
   6. Importantly after successfully migrating to the new client secret, you must return to the application configuration in Heavstal Authentication Manger and click, from the two available client secrets, find old one (you can easily identify it via the date provided) that's usually at the bottom, and click on the blue <strong>"Enabled"</strong> tag at the end of the secret to disable the Old Client secret and optional delete it<br>
+  <br>
   <strong>Note 1:</strong> Please ensure you've updated your old client secret to the new client secret before disabling the the old client secret. <br>
   <strong>Note 2:</strong> Never expose your Client Secret in frontend code. It must only be used on trusted backend servers.<br>
   <strong>Note 3:</strong> Please use the Desktop Site option provided at the sidebar for best developer experience.
+</details>
+<br>
+<details>
+<summary><b>How can I verify my OAuth Domain?</b></summary>
+<br>
+
+You can verify your OAuth Domain by following the steps below:<br>
+<br>
+  1. Visit <strong><a href="https://heavstal.com.ng/oauth/apps">Heavstal Auth Manager</a></strong><br>
+  <br>
+  2. From the application list, find the application you want to verify which is usually tagged as <strong>"Test"</strong> then click he <strong>more options menu</strong> at the top right of the application and from the list which is comprises of only:<br>
+  <ul>
+  <li><code>Analytics</code> - Charts analytics of the OAuth application</li>
+  <li><code>Configure</code> - Configuration area of the OAuth application </li>
+  <li><code>Delete</code> - Deleting area of the OAuth application</li>
+  <strong>SELECT Configure</strong><br>
+  </ul>
+  <br>
+  3. At the top of the application you'll see a hard to miss message <strong>"This OAuth Property is not yet verified"</strong> with button <strong>Start Verification</strong>, click on the button.
+  <br>
+  4. A pop-up window will appear asking you select a verification method which comprises of only:<br>
+  <ul>
+  <li><code>Verify via HTML</code> - Upload a specific HTML file to the root of your website</li>
+  <li><code>Verify via TXT Record</code> - Add a DNS TXT record to your domain registrar e.g Namecheap, Cloudflare, etc.</li>
+  <strong>Select the method best suitable to you and your application.</strong><br>
+  </ul>
+  
+  <strong>METHOD 1: Verification via HTML</strong><br>
+  <br>
+  when verifying via HTML, the pop up window usually changes to new window asking to add a very specific HTML file to the root of your website with details:
+  <ul>
+  <li><code>Name:</code> heavstal-oauth-domain-verification.html</li>
+  <li><code>Content:</code> HeavstalAuthDomainVerification@heavstal.com.ng?oauthId=...?</li><br>
+  </ul>
+  You are also provided with option to download the HTML file with it's contents<br>
+  <br>
+  <strong>Note 1:</strong> if your application has more then one redirect URIs added during registration, you will have to add the html file to all the redirect URIs root<br>
+  <strong>Note 2:</strong> this method is recommended for applications with URIs from different domains<br>
+  <strong>Note 3:</strong> Heavstal Tech uses a custom User-Agent <strong>HeavstalBot/1.0</strong>, ensure your application does not block it.<br>
+  <br>
+  
+  <strong>METHOD 2: Verification via TXT Records</strong><br>
+  <br>
+  when verifying via TXT Records, the pop up window usually changes to a new window asking you to add a very specific TXT record to your registrar with details:<br>
+  <ul>
+  <li><code>Type:</code> TXT</li>
+  <li><code>Name:</code> heavstal-oauth</li>
+  <li><code>Record:</code> heavstal-txt-domain-verification@heavstal.com.ng?oauthId=...?</li>
+  </ul>
+  <br>
+  <strong>Note 1:</strong> Due to DNS caching, it may take up to 15-20 minutes for Heavstal Auth to discover the TXT record
+  <br>  
+  5. After adding the records with either methods, return to Heavstal Auth Manager and click on Verify. Heavstal Auth will verify if the records are available and correct and update your OAuth Application to <strong>Production.</strong><br>
+  <br>
+  Typical error messages includes
+<ul>
+<li><strong>blocked</strong> - you get this error message when your website is blocking our Bot from successfully featching the records, you can usually fix this by dropping the block or bot-protection(Cloudflare) temporarily and Trying again.</li>
+<li><strong>not found</strong> - you oftentimes get this error when the provided HTML or TXT Record has not yet been added or deployed to the root of your website, you can usually fix this in cases of HTML by verifying that the file in the root of your website and has been deployed whereas in cases of TXT Records you can handle it by ensuring the records provided has properly been added to your registrar as requested then waiting 15-20 minutes before Trying again.</li>
+<li><strong>mismatch</strong> - you only get this if our Bot successfully fetches the required HTML or TXT Records but the contents gotten does not match that which was given to you, you can fix this in case of HTML by copying the correct Record provided in the error UI and replacing the old incorrect record with new correct Record, while in cases of TXT this can be handled by adding the new record and ensuring you didn't accidentally add quotes, extra dots, or whitespace</li>
+<li><strong>server error</strong> - this only happens when Heavstal Bot hits an unknown type of error, typically an error above the code of "500", this takes the power off of Heavstal Auth and is left to the developer to fix and Try again</li>
+<li><strong>unreachable / lookup_error</strong></li> - this if oftentimes an Internal Server Error and takes the power away from your hands, you can only fix this by contacting <strong><a href="https://support.heavstal.com.ng"> Heavstal Support</a></strong> and providing the exact error message you received</li>
+</details>
+<br>
+
+<details> 
+ <summary><b>Why is my OAuth Application Paused?</b></summary>
+ <br>
+ An OAuth Application can get paused if the <strong>OAuth Domain</strong> is not <strong>Verified</strong> within the first <strong>80 days</strong> of registration even after the owner of the domain was informed several times.<br>
+ <br>
+ Another case in which an OAuth Application get paused is when the OAuth application's <strong>Redirect URI or Authorized JavaScript Origins</strong> was changed to a new <strong>Domain</strong> and was not re-verified within 80 days from day of change.
+<!--  <br>
+ Another case of which a domains gets paused is if the OAuth has been dormant for upto 80 days with not even at least one OAuth2/OIDC process. --> 
+ </details>
+ </br>
+
+<details> 
+ <summary><b>How do I resume/unpause a paused OAuth Application?</b></summary>
+ <br>
+In other to resume or unpause an OAuth application that has been paused due to long-standing unverification, you have to go through the verification process and get the OAuth Domain verified
+<!-- <br>
+In other cases when a OAuth application was paused due to inactivity, it can usually be unpaused by re-verifying the OAuth Domain. -->
 </details>
