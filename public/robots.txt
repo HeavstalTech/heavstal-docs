@@ -1,4 +1,6 @@
+# Allow AI Training and Search Indexing
 User-agent: *
+Content-Signal: search=yes,ai-train=yes,use=full
 Allow: /
 
 Sitemap: https://docs.heavstal.com.ng/sitemap-index.xml
