@@ -1,4 +1,5 @@
 @import "tailwindcss"
+@source "./components";
 
 /* Heavstal Tech Blue Theme Overrides for Starlight */
 :root {
