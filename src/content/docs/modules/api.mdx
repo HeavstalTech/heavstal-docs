@@ -1,0 +1,151 @@
+---
+title: "@heavstal/api"
+description: "A powerful, zero-dependency multi-purpose SDK client for interacting with Heavstal Tech API Utilities."
+sidebar:
+  badge:
+    text: v2.1.0
+    variant: success
+---
+
+import { Tabs, TabItem, Steps, Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<div align="center">
+  <img src="https://heavstal.com.ng/ht_icon.svg" width="120" alt="Heavstal Tech Logo" />
+  
+  <p>
+    <img alt="NPM Version" src="https://img.shields.io/npm/v/@heavstal/api?style=flat-square" />
+    <img alt="Build Status" src="https://img.shields.io/github/actions/workflow/status/HeavstalTech/heavstal-api/test.yml?style=flat-square&label=tests" />
+    <img alt="License" src="https://img.shields.io/npm/l/@heavstal/api?style=flat-square" />
+  </p>
+</div>
+
+A zero-dependency multi-purpose SDK client for interacting with Heavstal Tech APIs.
+
+:::danger[Migration Notice]
+`@heavstaltech/api` has been renamed to **[@heavstal/api](https://www.npmjs.com/package/@heavstal/api)**. 
+The legacy `@heavstaltech/api` package is now deprecated. Please update your dependencies to continue receiving security updates and new features.
+:::
+
+---
+
+## Installation
+
+Install the Heavstal API SDK using your preferred package manager:
+
+<Tabs>
+  <TabItem label="npm">
+  ```bash
+  npm install @heavstal/api
+  ```
+  </TabItem>
+  <TabItem label="yarn">
+  ```bash
+  yarn add @heavstal/api
+  ```
+  </TabItem>
+  <TabItem label="pnpm">
+  ```bash
+  pnpm add @heavstal/api
+  ```
+  </TabItem>
+</Tabs>
+
+---
+
+## Authentication
+
+To use this SDK, you must have a valid API Key from the [Heavstal Tech Credentials dashboard](https://heavstal.com.ng/credentials). The SDK supports two methods of authentication.
+
+### Method 1: Environment Variable (Recommended)
+
+The SDK will automatically detect your API key if it is set in your environment variables. This keeps your credentials secure and out of your source code.
+
+<Steps>
+1. Create a `.env` file in the root of your project.
+2. Add your API key to the file:
+   ```env title=".env"
+   HEAVSTAL_API_KEY=ht_live_your_api_key_here
+   ```
+3. Initialize the SDK without passing any configuration.
+</Steps>
+
+### Method 2: Manual Configuration Object
+
+If you prefer not to use environment variables, or if you need to switch keys dynamically at runtime, you can pass a configuration object as the final argument to any function.
+
+```javascript title="index.js"
+import { downloader } from '@heavstal/api';
+
+const config = { apiKey: "ht_live_your_api_key_here" };
+
+// Pass the config object as the final argument
+const result = await downloader.tiktok("https://vt.tiktok.com/...", config);
+```
+
+---
+
+## Usage
+
+This library is a hybrid module, meaning it seamlessly supports both **ES Modules (`import`)** and **CommonJS (`require`)**.
+
+<Tabs>
+  <TabItem label="ES Modules (TypeScript / Modern JS)">
+  ```typescript
+  // Import categorical classes
+  import { downloader, search, tools, ai, movies } from '@heavstal/api';
+
+  // Or import specific standalone methods for tree-shaking
+  import { tiktok, apk, unzip } from '@heavstal/api';
+  ```
+  </TabItem>
+  <TabItem label="CommonJS (Node.js Legacy)">
+  ```javascript
+  // Require categorical classes
+  const { downloader, search, tools, ai, movies } = require('@heavstal/api');
+
+  // Or require specific standalone methods
+  const { tiktok, apk, unzip } = require('@heavstal/api');
+  ```
+  </TabItem>
+</Tabs>
+
+---
+
+## API Endpoint Documentation
+
+Every method in the `@heavstal/api` SDK maps directly to a Heavstal REST API endpoint. For detailed information on available parameters, success responses, and error handling for each method, please refer to the specific API documentation pages, here are some:
+
+<CardGrid>
+  <LinkCard 
+    title="TikTok Downloader" 
+    description="TikTok Downloader Docs."
+    href="/apis/tiktok/" 
+  />
+  <LinkCard 
+    title="AI." 
+    description="Conversational AI suitable for ChatBots and more."
+    href="/apis/ai/" 
+  />
+  <LinkCard 
+    title="GitHub User Info." 
+    description="GitHub Developer information."
+    href="/apis/github-info/" 
+  />
+  <LinkCard 
+    title="Obfuscator & Encryptor" 
+    description="Using the Heavstal Codex to obfuscate JavaScript, Python & Java" 
+    href="/apis/codex/" 
+  />
+</CardGrid>
+
+---
+
+## License & Support
+
+This project is licensed under the **MIT License**.
+
+If you encounter any issues, experience rate-limiting, or need to upgrade your API tier, please refer to the following resources:
+
+* **Manage API Keys:** [heavstal.com.ng/credentials](https://heavstal.com.ng/credentials)
+* **Pricing:** [heavstal.com.ng/pricing](https://heavstal.com.ng/pricing)
+* **API Policy:** [heavstal.com.ng/api-policy](https://heavstal.com.ng/api-policy)
