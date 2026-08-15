@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config'
 import starlight from '@astrojs/starlight'
 import react from '@astrojs/react'
-import tailwind from '@tailwindcss/vite'
+//import tailwind from '@tailwindcss/vite'
 
 export default defineConfig({
   site: 'https://docs.heavstal.com.ng',
@@ -91,7 +91,7 @@ export default defineConfig({
       ],
     }),
   ],
-  vite: {
-    plugins: [tailwind()],
-  },
+//  vite: {
+//    plugins: [tailwind()],
+//  },
 })
