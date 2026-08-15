@@ -1,4 +1,3 @@
-// Docs/src/components/FeedbackWidget.tsx
 import React, { useState } from 'react';
 import { ThumbsUp, ThumbsDown, CheckCircle2 } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
@@ -6,15 +5,16 @@ import toast, { Toaster } from 'react-hot-toast';
 export default function FeedbackWidget() {
   const [submitted, setSubmitted] = useState(false);
   
-  const handleFeedback = (isHelpful: boolean) => {
+  const handleFeedback = (_isHelpful: boolean) => {
     if (submitted) return;
     setSubmitted(true);
     
     toast.success('Thanks for your feedback!', {
       duration: 4000,
+      position: 'bottom-center',
       style: {
         borderRadius: '9999px',
-        background: '#1e3a8a', 
+        background: '#1e3a8a',
         color: '#fff',
         padding: '12px 24px',
         boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
@@ -28,10 +28,10 @@ export default function FeedbackWidget() {
 
   return (
     <div className="relative mt-8 w-full">
-      <div className="absolute -top-16 left-0 right-0 z-[100] flex justify-center pointer-events-none">
+      <div className="absolute bottom-full left-0 right-0 z-50 flex justify-center mb-4 pointer-events-none">
         <Toaster 
-          position="top-center" 
-          containerStyle={{ position: 'relative' }} 
+          position="bottom-center" 
+          containerStyle={{ position: 'absolute', inset: 0 }} 
         />
       </div>
 
@@ -45,7 +45,7 @@ export default function FeedbackWidget() {
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Your feedback helps us improve our documentation.</p>
           </div>
           
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-6">
             {!submitted ? (
               <>
                 <button 
