@@ -1,5 +1,5 @@
 //src/components/FeedbackWidget.tsx
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { ThumbsUp, ThumbsDown } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 
