@@ -15,15 +15,15 @@ export default function FeedbackWidget() {
       position: 'top-center',
       style: {
         borderRadius: '9999px',
-        background: 'var(--sl-color-accent-high, #1e3a8a)',
-        color: '#fff',
+        background: '#1e3a8a',
+        color: '#ffffff',
         padding: '12px 24px',
         boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-        border: '1px solid var(--sl-color-accent)',
+        border: '1px solid #3b82f6',
       },
       iconTheme: {
-        primary: '#fff',
-        secondary: 'var(--sl-color-accent-high, #1e3a8a)',
+        primary: '#ffffff',
+        secondary: '#1e3a8a',
       },
     });
   };
