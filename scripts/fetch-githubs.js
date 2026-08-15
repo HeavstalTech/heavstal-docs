@@ -1,6 +1,5 @@
 // scripts/fetch-github.js
-// © Heavstal Tech™
-// modify before re-use - bugs may occur 
+// © Heavstal Tech
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'node:url';
@@ -9,13 +8,13 @@ var __filename = fileURLToPath(import.meta.url);
 var __dirname = path.dirname(__filename);
 
 var MODULES = [
-  {
+/*  {
     id: 'api',
     name: '@heavstal/api',
     repo: 'HeavstalTech/heavstal-api',
     branch: 'main',
     desc: 'A powerful, all-in-one scraping and utility library.'
-  },
+  }, */
   {
     id: 'auth',
     name: '@heavstal/auth',
