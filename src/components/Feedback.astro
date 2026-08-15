@@ -1,0 +1,8 @@
+---
+//src/components/Feedback.astro
+import Default from '@astrojs/starlight/components/Pagination.astro';
+import FeedbackWidget from './FeedbackWidget';
+---
+
+<FeedbackWidget client:idle />
+<Default {...Astro.props} />
