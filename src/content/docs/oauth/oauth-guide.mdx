@@ -47,9 +47,14 @@ To set up Heavstal Auth, you need a Client ID and Client Secret. Heavstal Auth p
 5. A pop-up window appears containing your Client ID and Client Secret with options to copy or download details.
 </Steps>
 
-> **Note 1:** Download these details. They will never be shown to you again.  
-> **Note 2:** Do not expose your Client Secret in frontend code. It must only be used on trusted backend servers.  
-> **Note 3:** Use a desktop browser for the best developer experience.
+:::caution[Important]
+Do not expose your Client Secret in frontend code. It must only be used on trusted backend servers.
+:::
+
+:::note
+* Download your Client ID and Secret immediately. They will never be shown to you again.
+* Use a desktop browser for the best developer experience.
+:::
 
 ## Code and Examples
 
@@ -253,9 +258,11 @@ If your client credentials are exposed, Heavstal minimizes the impact through se
   6. Return to the application configuration in Heavstal Auth Manager. Locate the old secret and select the blue **Enabled** tag to disable it. You can optionally delete the old secret.
   </Steps>
 
-  > **Note 1:** Ensure your application uses the new client secret before you disable the old one.  
-  > **Note 2:** Do not expose your Client Secret in frontend code. Use it only on trusted backend servers.  
-  > **Note 3:** Use a desktop browser for the best developer experience.
+:::note
+* Ensure your application uses the new client secret before you disable the old one.
+* Do not expose your Client Secret in frontend code. Use it only on trusted backend servers.
+* Use a desktop browser for the best developer experience.
+:::
 </details>
 
 <details>
@@ -273,14 +280,21 @@ Verify your OAuth Domain by following the steps below:
   **Method 1: Verification via HTML**
   Download the provided HTML file and place it in the root directory of your website.
   
-  > **Note 1:** If your application has multiple redirect URIs, add the HTML file to the root of all associated domains.  
-  > **Note 2:** Use this method for applications with URIs spanning different domains.  
-  > **Note 3:** Ensure your application does not block the custom `HeavstalBot/1.0` User-Agent.
-  
+:::tip
+Use this method for applications with URIs spanning different domains.
+:::
+
+:::note
+* If your application has multiple redirect URIs, add the HTML file to the root of all associated domains.
+* Ensure your application does not block the custom `HeavstalBot/1.0` User-Agent.
+:::
+
   **Method 2: Verification via TXT Records**
   Add the provided TXT record to your DNS registrar configuration.
   
-  > **Note 1:** Due to DNS caching, it may take up to 20 minutes for Heavstal Auth to discover the TXT record.
+:::note
+Due to DNS caching, it may take up to 20 minutes for Heavstal Auth to discover the TXT record.
+:::
   
   After completing your chosen method, return to the Heavstal Auth Manager and select **Verify**. Heavstal Auth will check the records and update your OAuth Application to **Production**.
   
