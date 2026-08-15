@@ -1,6 +1,6 @@
 ---
 title: "OAuth 2.0 & OpenID Connect (OIDC) Guide"
-description: "Integrate 'Sign in with Heavstal' into your applications using standard OAuth 2.0 or OpenID Connect (OIDC). Full Documentation."
+description: "Integrate 'Sign in with Heavstal' into your applications using standard OAuth 2.0 or OpenID Connect (OIDC)."
 sidebar:
   badge:
     text: HOT
@@ -10,49 +10,56 @@ sidebar:
 import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
 
 ## What is Heavstal Authentication
-Heavstal Auth (short for Heavstal Tech Authentication) is an African OAuth 2.0 and OpenID Connect platform that lets users prove their identity using their Heavstal account, allowing them to sign in to apps, websites, or services without creating a separate username and password for each application, significantly reducing authentication friction.
 
-## Why Heavstal Authentication over traditional Authentication methods
-Using Heavstal Auth over traditional Authentication methods (email+password) provides both users and developers with major advantages including:
+Heavstal Auth (short for Heavstal Tech Authentication) is an African OAuth 2.0 and OpenID Connect platform. Users prove their identity using their Heavstal account, which allows them to sign in to applications without creating separate credentials.
 
-### User Benefits:
-1. **Password-Free Sign-In:** Users can access multiple applications across the web with a single click without having to create, memorize, or constantly reset new passwords for every website they visit.
-2. **Privacy by Design:** Instead of trusting dozens of third-party websites with their sensitive passwords, users authenticate through one highly secure, centralized platform. They maintain full control over which apps have access to their profile data.
-3. **Enhanced Support:** Heavstal Tech provides enhanced support for users, ensuring fast responses whenever issues arise.
-4. **Strong Account Security:** With mandatory multi-factor authentication (2FA) and modern account protection protocols, users enjoy a higher level of security compared to standard email and password combinations.
+## Why use Heavstal Authentication
 
-### Developer Benefits:
-1. **Reduced Authentication Burden:** Developers no longer need to worry about securely hashing passwords, managing password resets, email verification, protecting against credential stuffing attacks or scraping. Heavstal Auth handles the heavy lifting of user security seamlessly.
-2. **Higher Sign-Up Conversion Rates:** By offering a frictionless, one-click sign-in experience, applications see significantly lower drop-off rates during user registration and log in flows, leading to faster user acquisition.
-3. **Seamless Identity Management:** Developers can focus on building core application features while relying on Heavstal’s robust, high-uptime, and secure authentication service to handle user identity verification and profile mapping.
-4. **Reduced Integration Overhead:** By leveraging standard OAuth 2.0 and OIDC protocols along with a dedicated SDK, developers can quickly implement secure authentication without building complex identity infrastructure from scratch.
+Using Heavstal Auth instead of traditional email and password authentication provides several advantages:
 
-## Why Heavstal Authentication over other auth provider 
-Heavstal Auth reduces account compromise risks through mandatory multi-factor authentication and modern account protection mechanisms. Furthermore, Heavstal Auth is designed for low-latency authentication flows, reliable uptime and more importantly it's also an African-built OAuth provider giving African developers a major advantage. The platform also benefits from enterprise-grade edge protection and DDoS mitigation through Cloudflare's global network.
+### User Benefits
+1. **Password-Free Sign-In:** Users can access multiple applications without creating or memorizing new passwords.
+2. **Privacy by Design:** Users authenticate through one centralized platform. They maintain full control over which applications have access to their profile data.
+3. **Enhanced Support:** Heavstal Tech provides dedicated support for users to ensure fast responses.
+4. **Strong Account Security:** Heavstal requires multi-factor authentication (2FA) and uses modern account protection protocols to provide higher security than standard email and password combinations.
+
+### Developer Benefits
+1. **Reduced Authentication Burden:** Developers do not need to securely hash passwords, manage password resets, or protect against credential stuffing attacks. Heavstal Auth manages user security.
+2. **Higher Sign-Up Conversion Rates:** Offering a one-step sign-in experience lowers drop-off rates during user registration.
+3. **Identity Management:** Developers can focus on core application features while Heavstal manages user identity verification and profile mapping.
+4. **Reduced Integration Overhead:** Developers can implement secure authentication using standard OAuth 2.0 and OIDC protocols along with a dedicated SDK.
+
+## Heavstal vs. other auth providers
+
+Heavstal Auth reduces account compromise risks through mandatory multi-factor authentication. The platform is designed for low-latency authentication flows and uses enterprise-grade edge protection and DDoS mitigation through Cloudflare's global network.
 
 ## Getting Started
-When setting up Heavstal Auth, just like any other Authentication Provider, you'll need to get a `Client ID & Client Secret`. Heavstal Auth also provides an SDK for simple integration into your applications.
 
-### Step 1: How To Get Your Client ID & Secret:
+To set up Heavstal Auth, you need a Client ID and Client Secret. Heavstal Auth provides an SDK for integration into your applications.
+
+### Step 1: Get your Client ID and Secret
 
 <Steps>
-1. Visit [Heavstal Auth Manager](https://heavstal.com.ng/oauth/apps).
+1. Go to [Heavstal Auth Manager](https://heavstal.com.ng/oauth/apps).
 2. Select **Create App** or **Register Application**.
-3. Enter your application details in the required fields (Application Type, App Name, Homepage URL, Authorized JavaScript Origins, & Authorized JavaScript URIs).
+3. Enter your application details in the required fields.
 4. Select **Register Application**.
-5. A pop-up window will appear containing your Client ID and Client Secret with options to copy or download details. 
+5. A pop-up window appears containing your Client ID and Client Secret with options to copy or download details.
 </Steps>
 
-> **Note 1:** It is recommended to download these details as they will *NEVER* be shown to you again.  
-> **Note 2:** Never expose your Client Secret in frontend code. It must only be used on trusted backend servers.  
-> **Note 3:** It is recommended to use Desktop Site for the best developer experience and to ensure a more accurate positioning of the instructions above.
+> **Note 1:** Download these details. They will never be shown to you again.  
+> **Note 2:** Do not expose your Client Secret in frontend code. It must only be used on trusted backend servers.  
+> **Note 3:** Use a desktop browser for the best developer experience.
 
+## Code and Examples
 
-## Code & Examples
-As said earlier under the `Getting Started` section, Heavstal Auth has a custom SDK to help developers with easier integration of Heavstal Auth into their application and this SDK is available on npm as _[@heavstal/auth](https://www.npmjs.com/package/@heavstal/auth)_. Below are several methods by which you can integrate Heavstal Auth into your application:
+Heavstal Auth provides a custom SDK to help developers integrate authentication into their applications. This SDK is available on npm as [@heavstal/auth](https://www.npmjs.com/package/@heavstal/auth). 
 
-### Integrating Heavstal Authentication Using Next.js
-This is the easiest way to add Heavstal Auth to your Next.js application. This official provider pre-configures authorization endpoints, token exchanges, and user profile mapping securely. Ensure that Next.js is installed before using this provider.
+Choose a method below to integrate Heavstal Auth into your application:
+
+### Next.js
+
+Use the official provider to pre-configure authorization endpoints, token exchanges, and user profile mapping securely. Ensure that Next.js is installed before using this provider.
 
 **Installation:**
 
@@ -76,8 +83,7 @@ This is the easiest way to add Heavstal Auth to your Next.js application. This o
 
 **Configuration (`auth.ts` or `app/api/auth/[...nextauth]/route.ts`)**
 
-The Heavstal Auth library uses "OpenID Connect (OIDC)" by default, meaning its default mode is `oidc`. 
-The difference between OIDC and OAuth 2.0 here is that OAuth 2.0 may be preferable in strict edge-runtime environments where JWKS retrieval or JWT verification introduces additional complexity.
+The Heavstal Auth library defaults to `oidc` mode. Use `oauth2` mode in strict edge-runtime environments where JWKS retrieval or JWT verification introduces complexity.
 
 <Tabs>
   <TabItem label="OIDC Mode (Default)">
@@ -113,15 +119,14 @@ The difference between OIDC and OAuth 2.0 here is that OAuth 2.0 may be preferab
   </TabItem>
 </Tabs>
 
+### Other Frameworks
 
-### Integrating Heavstal Authentication Using Other Frameworks
-For other frameworks like Vue.js, Express.js or Node.js, you do not need to manually configure endpoints. Heavstal Auth operates as an OpenID Connect (OIDC) compliant provider. Simply provide the Issuer URL to any openId library and the library will automatically handle endpoint discovery and configuration.
+For frameworks like Vue.js, Express.js, or Node.js, Heavstal Auth operates as an OpenID Connect (OIDC) compliant provider. Provide the Issuer URL to any OpenID library to automatically handle endpoint discovery and configuration.
 
 ```javascript title="app.js"
 const { Issuer } = require('openid-client');
 
 async function main() {
-  // Auto-discover endpoints using the Issuer URL
   const heavstal = await Issuer.discover('https://accounts.heavstal.com.ng');
   const client = new heavstal.Client({
     client_id: process.env.HEAVSTAL_CLIENT_ID,
@@ -132,8 +137,9 @@ async function main() {
 }
 ```
 
-### Integrating Heavstal Authentication Using OIDC
-If you decide to use Heavstal Auth OIDC directly, you can use the following parameters for integration.
+### OIDC Direct Integration
+
+If you use Heavstal Auth OIDC directly, use the following parameters for integration:
 
 | Parameter              | Value                                                               |
 | :--------------------- | :------------------------------------------------------------------ |
@@ -141,15 +147,15 @@ If you decide to use Heavstal Auth OIDC directly, you can use the following para
 | **Discovery Document** | `https://accounts.heavstal.com.ng/.well-known/openid-configuration` |
 | **JWKS Endpoint**      | `https://accounts.heavstal.com.ng/.well-known/jwks.json`            |
 
-### Integrating Heavstal Authentication Using Other Languages 
-Yes, you can use Heavstal Auth with other languages, it is not limited to only JavaScript and its frameworks. As long as the language supports backend execution, it can be used to communicate with Heavstal Auth.
+### Other Languages 
+
+You can use Heavstal Auth with any language that supports backend execution.
 
 ```python title="app.py"
 from authlib.integrations.flask_client import OAuth
 import os
 
 oauth = OAuth(app)
-# Auto-discovery via server_metadata_url
 oauth.register(
     name='heavstal',
     server_metadata_url='https://accounts.heavstal.com.ng/.well-known/openid-configuration',
@@ -160,7 +166,8 @@ oauth.register(
 ```
 
 ## User Profile Data
-On successful authentication, Heavstal Auth provides your application with user details such as `Name`, `ID`, `Email`, & `Profile photo`. Heavstal Auth returns the following normalized user profile structure:
+
+On successful authentication, Heavstal Auth provides user details such as name, ID, email, and profile photo. Heavstal Auth returns the following normalized user profile structure:
 
 ```typescript
 interface HeavstalProfile {
@@ -172,7 +179,8 @@ interface HeavstalProfile {
 ```
 
 ## Real Time Usage Example 
-The following example demonstrates what developers can do next after integrating the basic set-up. The example uses the provider's stable user identifier to either create a new user account or log in an existing account, it uses Redis as the database, It demonstrates sign-in handling, JWT persistence, session management, and user creation using OAuth 2.0 mode.
+
+The following example demonstrates how to create a new user account or log in an existing account using the provider's stable user identifier. It uses Redis as the database and demonstrates sign-in handling, JWT persistence, session management, and user creation using OAuth 2.0 mode.
 
 ```javascript title="auth.js"
 import NextAuth from "next-auth";
@@ -184,21 +192,20 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     HeavstalProvider({
       clientId: process.env.HEAVSTAL_CLIENT_ID,
       clientSecret: process.env.HEAVSTAL_CLIENT_SECRET,
-      mode: "oauth2", // Remove this option to use OIDC (default).
+      mode: "oauth2", 
     }),
   ],
-  secret: process.env.AUTH_SECRET, // optional but recommended for production
+  secret: process.env.AUTH_SECRET, 
   trustHost: true,
   pages: {
     signIn: "/auth/signin",
   },
   callbacks: { 
-    // create or log in a user
     async signIn({ user, profile }) {
       const stableId = profile?.sub
       if (!stableId) return true;
       const userKey = `user:${stableId}`;
-      await kv.hset(userKey, { // store in DB
+      await kv.hset(userKey, { 
         id: stableId,
         name: user.name,
         email: user.email,
@@ -206,8 +213,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       })
       return true
     },
-
-    // Store the user's ID in JWT so it can be accessible throughout your application 
     async jwt({ token, user, profile }) { 
       if (user || profile) {
         token.id = profile?.sub
@@ -215,12 +220,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       }
       return token
     },
-
-    /**
-     * Expose the user identifier on the session object.
-     * Useful for authorization, database lookups,
-     * and session validation.
-     */
     async session({ session, token }) {
       if (session.user) {
         session.user.id = token.id || token.sub;
@@ -238,69 +237,69 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
 <details> 
  <summary><b>What happens if my OAuth credentials are accidentally exposed?</b></summary>
-If your client credentials are exposed, Heavstal automatically helps minimize the impact through secret scanning and credential revocation. If this occurs, the affected credentials are automatically revoked and you'll be notified via email so you can generate new credentials.
+If your client credentials are exposed, Heavstal minimizes the impact through secret scanning and credential revocation. The affected credentials are automatically revoked and you receive a notification via email so you can generate new credentials.
 </details>
 
 <details> 
  <summary><b>How can I rotate my OAuth credentials?</b> </summary>
-  You can rotate your Heavstal Auth Credentials in Heavstal Console by following the steps below:
+  You can rotate your Heavstal Auth Credentials in the Heavstal Console by following the steps below:
 
   <Steps>
-  1. Visit [Heavstal Auth Manager](https://heavstal.com.ng/oauth/apps).
-  2. From the application list, find the app whose credentials you want to rotate and at the top right of that app select the **more options menu** and from the list select **Configure**.
-  3. From the configuration settings, you'll see a section named **OAuth Credentials** containing your client id and masked client secret marked as **Enabled**.
-  4. At the top right of the OAuth Credentials section select **+ Add Secret** to create a new client secret.
-  5. A message modal will appear with your new secret, you're to copy it and replace with the old version in your app.
-  6. Importantly after successfully migrating to the new client secret, you must return to the application configuration in Heavstal Authentication Manger. From the two available client secrets, find the old one (you can easily identify it via the date provided) that's usually at the bottom, and select the blue **Enabled** tag at the end of the secret to disable the Old Client secret and optionally delete it.
+  1. Go to [Heavstal Auth Manager](https://heavstal.com.ng/oauth/apps).
+  2. From the application list, find your application. Select the **more options menu** at the top right, then select **Configure**.
+  3. Locate the **OAuth Credentials** section containing your Client ID and masked Client Secret.
+  4. Select **+ Add Secret** to create a new client secret.
+  5. Copy the new secret from the modal window and update your application backend.
+  6. Return to the application configuration in Heavstal Auth Manager. Locate the old secret and select the blue **Enabled** tag to disable it. You can optionally delete the old secret.
   </Steps>
 
-  > **Note 1:** Please ensure you've updated your old client secret to the new client secret before disabling the the old client secret.  
-  > **Note 2:** Never expose your Client Secret in frontend code. It must only be used on trusted backend servers.  
-  > **Note 3:** Please use the Desktop Site option provided at the sidebar for best developer experience.
+  > **Note 1:** Ensure your application uses the new client secret before you disable the old one.  
+  > **Note 2:** Do not expose your Client Secret in frontend code. Use it only on trusted backend servers.  
+  > **Note 3:** Use a desktop browser for the best developer experience.
 </details>
 
 <details>
 <summary><b>How can I verify my OAuth Domain?</b></summary>
 
-You can verify your OAuth Domain by following the steps below:
+Verify your OAuth Domain by following the steps below:
 
   <Steps>
-  1. Visit [Heavstal Auth Manager](https://heavstal.com.ng/oauth/apps).
-  2. From the application list, find the application you want to verify which is usually tagged as **Test** then select the **more options menu** at the top right of the application and select **Configure**.
-  3. At the top of the application you'll see a hard to miss message **"This OAuth Property is not yet verified"** with a button **Start Verification**. Select it.
-  4. A pop-up window will appear asking you select a verification method which comprises of only `Verify via HTML` or `Verify via TXT Record`. Select the method best suitable to you and your application.
+  1. Go to [Heavstal Auth Manager](https://heavstal.com.ng/oauth/apps).
+  2. Locate your unverified application (tagged as **Test**). Select the **more options menu** at the top right, then select **Configure**.
+  3. At the top of the application configuration, select **Start Verification**.
+  4. Choose your verification method: `Verify via HTML` or `Verify via TXT Record`.
   </Steps>
   
-  **METHOD 1: Verification via HTML**
-  When verifying via HTML, the pop up window usually changes to new window asking to add a very specific HTML file to the root of your website. You are also provided with an option to download the HTML file with its contents.
+  **Method 1: Verification via HTML**
+  Download the provided HTML file and place it in the root directory of your website.
   
-  > **Note 1:** if your application has more than one redirect URIs added during registration, you will have to add the html file to all the redirect URIs root.  
-  > **Note 2:** this method is recommended for applications with URIs from different domains.  
-  > **Note 3:** Heavstal Tech uses a custom User-Agent `HeavstalBot/1.0`, ensure your application does not block it.
+  > **Note 1:** If your application has multiple redirect URIs, add the HTML file to the root of all associated domains.  
+  > **Note 2:** Use this method for applications with URIs spanning different domains.  
+  > **Note 3:** Ensure your application does not block the custom `HeavstalBot/1.0` User-Agent.
   
-  **METHOD 2: Verification via TXT Records**
-  When verifying via TXT Records, the pop up window usually changes to a new window asking you to add a very specific TXT record to your registrar.
+  **Method 2: Verification via TXT Records**
+  Add the provided TXT record to your DNS registrar configuration.
   
-  > **Note 1:** Due to DNS caching, it may take up to 15-20 minutes for Heavstal Auth to discover the TXT record.
+  > **Note 1:** Due to DNS caching, it may take up to 20 minutes for Heavstal Auth to discover the TXT record.
   
-  After adding the records with either method, return to Heavstal Auth Manager and select **Verify**. Heavstal Auth will verify if the records are available and correct and update your OAuth Application to **Production.**
+  After completing your chosen method, return to the Heavstal Auth Manager and select **Verify**. Heavstal Auth will check the records and update your OAuth Application to **Production**.
   
-  Typical error messages include:
-  - **blocked:** you get this error message when your website is blocking our Bot from successfully fetching the records, you can usually fix this by dropping the block or bot-protection (Cloudflare) temporarily and trying again.
-  - **not found:** you oftentimes get this error when the provided HTML or TXT Record has not yet been added or deployed to the root of your website.
-  - **mismatch:** you only get this if our Bot successfully fetches the required HTML or TXT Records but the contents gotten does not match what was given to you. 
-  - **server error:** this only happens when Heavstal Bot hits an unknown type of error, typically an error above the code of "500".
-  - **unreachable / lookup_error:** this if oftentimes an Internal Server Error and takes the power away from your hands, you can only fix this by contacting [Heavstal Support](https://support.heavstal.com.ng).
+  **Troubleshooting errors:**
+  - **blocked:** Your website is blocking the verification bot. Disable bot protection (e.g., Cloudflare Under Attack mode) temporarily.
+  - **not found:** The HTML file or TXT record is not deployed or accessible.
+  - **mismatch:** The fetched record does not match the expected value. Check for typos or extra whitespace.
+  - **server error:** The Heavstal Bot encountered an internal HTTP 500+ error. Retry the verification later.
+  - **unreachable / lookup_error:** DNS or network failure. Contact [Heavstal Support](https://support.heavstal.com.ng).
 </details>
 
 <details> 
- <summary><b>Why is my OAuth Application Paused?</b></summary>
- An OAuth Application can get paused if the **OAuth Domain** is not **Verified** within the first **80 days** of registration even after the owner of the domain was informed several times.
+ <summary><b>Why is my OAuth Application paused?</b></summary>
+ An OAuth Application is paused if the **OAuth Domain** remains unverified for **80 days** after registration.
  <br/><br/>
- Another case in which an OAuth Application gets paused is when the OAuth application's **Redirect URI or Authorized JavaScript Origins** was changed to a new **Domain** and was not re-verified within 80 days from the day of change.
+ Applications are also paused if the **Redirect URI** or **Authorized JavaScript Origins** change to a new domain and remain unverified for 80 days.
  </details>
 
 <details> 
- <summary><b>How do I resume/unpause a paused OAuth Application?</b></summary>
-In order to resume or unpause an OAuth application that has been paused due to long-standing unverification, you have to go through the verification process and get the OAuth Domain verified.
+ <summary><b>How do I resume a paused OAuth Application?</b></summary>
+To resume a paused OAuth application, you must complete the domain verification process.
 </details>
