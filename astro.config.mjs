@@ -1,16 +1,21 @@
 import { defineConfig } from 'astro/config'
 import starlight from '@astrojs/starlight'
+import react from '@astrojs/react'
 import tailwind from '@tailwindcss/vite'
 
 export default defineConfig({
   site: 'https://docs.heavstal.com.ng',
   integrations:[
+    react(),
     starlight({
       title: 'Heavstal Docs',
       description: 'Official documentation for the Heavstal Tech Ecosystem.',
       favicon: '/favicon.ico',
       logo: {
         src: './src/assets/ht_icon.svg', 
+      },
+      components: {
+        Pagination: './src/components/Feedback.astro',
       },
       head:[
         { tag: 'link', attrs: { rel: 'apple-touch-icon', href: '/favicon.ico' } },
