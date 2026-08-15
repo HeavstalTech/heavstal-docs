@@ -11,6 +11,7 @@
     "dev": "astro dev",
     "prebuild": "node scripts/fetch-githubs.js",
     "build": "astro check && astro build",
+    "postbuild": "node scripts/indexnow.js",
     "preview": "astro preview",
     "astro": "astro"
   },
