@@ -14,3 +14,10 @@
   --sl-color-accent-high: #dbeafe;
   --sl-color-text-accent: #8ab4f8;
 }
+
+.api-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
