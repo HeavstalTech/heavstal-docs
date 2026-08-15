@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config'
 import starlight from '@astrojs/starlight'
 import react from '@astrojs/react'
 import mdx from '@astrojs/mdx'
-//import tailwind from '@tailwindcss/vite'
+///import tailwind from '@tailwindcss/vite'
 
 export default defineConfig({
   site: 'https://docs.heavstal.com.ng',
