@@ -1,10 +1,14 @@
 import { defineConfig } from 'astro/config'
 import starlight from '@astrojs/starlight'
 import react from '@astrojs/react'
+import mdx from '@astrojs/mdx'
 //import tailwind from '@tailwindcss/vite'
 
 export default defineConfig({
   site: 'https://docs.heavstal.com.ng',
+  markdown: {
+    gfm: true,
+  },
   integrations:[
     react(),
     starlight({
@@ -90,6 +94,7 @@ export default defineConfig({
         }
       ],
     }),
+    mdx(),
   ],
 //  vite: {
 //    plugins: [tailwind()],
