@@ -1,0 +1,115 @@
+---
+title: "Fancy Text Generator API"
+description: "Convert normal text into 30+ fancy font styles."
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+This API converts standard ASCII text into over 30+ various Unicode font styles. This is perfect for bio generators, social media captions, messaging bots and other applications.
+
+## Endpoint
+
+```text
+POST https://heavstal.com.ng/api/v1/style-text
+```
+
+## Request Parameters
+
+The following parameters are accepted in the request body:
+
+| Field | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `text` | `string` | **Yes** | The text you want to convert. |
+
+## Request Examples
+
+<Tabs>
+  <TabItem label="cURL">
+  ```bash
+  curl -X POST https://heavstal.com.ng/api/v1/style-text \
+  -H "Content-Type: application/json" \
+  -H "x-api-key: <YOUR_API_KEY>" \
+  -d '{"text": "Heavstal"}'
+  ```
+  </TabItem>
+  <TabItem label="JavaScript (Fetch)">
+  ```javascript
+  const response = await fetch('https://heavstal.com.ng/api/v1/style-text', {
+    method: 'POST',
+    headers: { 
+      'Content-Type': 'application/json',
+      'x-api-key': '<YOUR_API_KEY>' 
+    },
+    body: JSON.stringify({ 
+      text: 'Heavstal' 
+    })
+  });
+
+  const res = await response.json();
+  console.log(res.data);
+  ```
+  </TabItem>
+  <TabItem label="Heavstal SDK">
+  ```javascript
+  import { tools } from '@heavstal/api';
+
+  const fonts = await tools.styleText("Heavstal Tech");
+  
+  // Output the first available style
+  console.log(fonts.data[0].result);
+  ```
+  </TabItem>
+  <TabItem label="Python">
+  ```python
+  import requests
+
+  url = "https://heavstal.com.ng/api/v1/style-text"
+  headers = {
+      "Content-Type": "application/json",
+      "x-api-key": "<YOUR_API_KEY>"
+  }
+  payload = {
+      "text": "Heavstal"
+  }
+
+  response = requests.post(url, headers=headers, json=payload)
+  
+  # Print the "Cursive" style result as an example
+  print(response.json()["data"][1]["result"])
+  ```
+  </TabItem>
+</Tabs>
+
+## Response Examples
+
+<Tabs>
+  <TabItem label="Success Response">
+  ```json
+  {
+    "status": "success",
+    "creator": "HEAVSTAL TECH",
+    "total_styles": 35,
+    "data": [
+      {
+        "author": { "name": "HEAVSTAL TECH" },
+        "name": "Black Bubble",
+        "result": "🅗🅔🅐🅥🅢🅣🅐🅛"
+      },
+      {
+        "author": { "name": "HEAVSTAL TECH" },
+        "name": "Cursive",
+        "result": "𝓗𝓮𝓪𝓿𝓼𝓽𝓪𝓵"
+      }
+    ]
+  }
+  ```
+  </TabItem>
+  <TabItem label="Error Response">
+  ```json
+  {
+    "status": "error",
+    "error": "Missing required parameter: text"
+  }
+  ```
+  </TabItem>
+</Tabs>

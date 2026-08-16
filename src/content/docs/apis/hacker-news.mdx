@@ -1,0 +1,106 @@
+---
+title: "Hacker News API"
+description: "Fetch the top 10 latest stories from Hacker News with speed."
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+This API allows you to seamlessly retrieve the top 10 trending stories currently on the front page of Hacker News. Ideal for building news aggregators or daily developer briefings.
+
+## Endpoint
+
+```text
+POST https://heavstal.com.ng/api/v1/hacker-news
+```
+
+## Request Parameters
+
+This endpoint does not require any JSON body parameters.
+
+| Field | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| (None) | - | - | Send an empty JSON object `{}`. |
+
+## Request Examples
+
+<Tabs>
+  <TabItem label="cURL">
+  ```bash
+  curl -X POST https://heavstal.com.ng/api/v1/hacker-news \
+  -H "Content-Type: application/json" \
+  -H "x-api-key: <YOUR_API_KEY>" \
+  -d '{}'
+  ```
+  </TabItem>
+  <TabItem label="JavaScript (Fetch)">
+  ```javascript
+  const response = await fetch('https://heavstal.com.ng/api/v1/hacker-news', {
+    method: 'POST',
+    headers: { 
+      'Content-Type': 'application/json',
+      'x-api-key': '<YOUR_API_KEY>' 
+    },
+    body: JSON.stringify({})
+  });
+
+  const res = await response.json();
+  console.log(res.data);
+  ```
+  </TabItem>
+  <TabItem label="Heavstal SDK">
+  ```javascript
+  import { search } from '@heavstal/api';
+
+  const news = await search.hackerNews();
+  console.log(news.data[0].title);
+  ```
+  </TabItem>
+  <TabItem label="Python">
+  ```python
+  import requests
+
+  url = "https://heavstal.com.ng/api/v1/hacker-news"
+  headers = {
+      "Content-Type": "application/json",
+      "x-api-key": "<YOUR_API_KEY>"
+  }
+
+  response = requests.post(url, headers=headers, json={})
+  print(response.json()["data"])
+  ```
+  </TabItem>
+</Tabs>
+
+## Response Examples
+
+<Tabs>
+  <TabItem label="Success Response">
+  ```json
+  {
+    "status": "success",
+    "creator": "HEAVSTAL TECH",
+    "cached": false,
+    "data": [
+      {
+        "id": 48713832,
+        "title": "HackerRank open sourced its ATS...",
+        "url": "https://danunparsed.com/p/hackerrank-open-source-ats",
+        "content": null, 
+        "author": "sambellll",
+        "score": 299,
+        "time": "2026-06-29T01:44:40.000Z",
+        "comments_count": 92
+      }
+    ]
+  }
+  ```
+  </TabItem>
+  <TabItem label="Error Response">
+  ```json
+  {
+    "status": "error",
+    "error": "Failed to fetch stories from upstream provider."
+  }
+  ```
+  </TabItem>
+</Tabs>
