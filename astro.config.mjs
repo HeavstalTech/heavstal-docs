@@ -14,9 +14,9 @@ export default defineConfig({
     starlight({
       title: 'Heavstal Docs',
       description: 'Official documentation for the Heavstal Tech Ecosystem.',
-      favicon: '/favicon.ico',
+      favicon: '/favicon.svg',
       logo: {
-        src: './src/assets/ht_icon.svg', 
+        src: './src/assets/ht_iconDocs.svg', 
       },
       components: {
         Pagination: './src/components/Feedback.astro',
