@@ -1,8 +1,14 @@
 // src/pages/[...slug].md.ts
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import type { APIContext } from 'astro';
+
+interface Props {
+  doc: CollectionEntry<'docs'>;
+}
 
 export async function getStaticPaths() {
-  const docs = await getCollection('docs');  
+  const docs = await getCollection('docs');
+  
   return docs.map((doc) => {
     const slug = doc.id.replace(/\.(md|mdx)$/, '');
     return {
@@ -12,8 +18,9 @@ export async function getStaticPaths() {
   });
 }
 
-export const GET = async ({ props }) => {
+export const GET = async ({ props }: APIContext<Props>) => {
   const { doc } = props;
+  
   return new Response(doc.body || '', {
     headers: {
       'Content-Type': 'text/markdown; charset=utf-8',
