@@ -4,6 +4,7 @@ description: "Extract text from PDF, DOCX, TXT, and Code files via URL."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro';
 
 This API provides a multi-format parsing engine. It accepts a direct URL to a document or code file and returns the clean, raw text content. This is ideal for feeding individual documents into LLMs or search indexes.
 
@@ -19,9 +20,8 @@ PDF files may take longer to handle due to it's requirement of heavy processing 
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/doc-extract
-```
+<Endpoint method="POST" url="/api/v1/doc-extract" />
+
 
 ## Request Parameters
 

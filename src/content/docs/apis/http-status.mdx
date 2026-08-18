@@ -4,14 +4,14 @@ description: "Check if a website is Up or Down, including latency and headers."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API performs a real-time health check on any URL. It measures the response time (latency), captures the HTTP status code, and identifies the server IP.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/http-status
-```
+<Endpoint method="POST" url="/api/v1/http-status" />
+
 
 ## Request Parameters
 

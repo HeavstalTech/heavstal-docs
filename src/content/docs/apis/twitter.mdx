@@ -4,14 +4,13 @@ description: "Download videos and GIFs from Twitter (X) in HD & SD quality."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro';
 
 This API allows you to extract media from Tweets. It supports both legacy `twitter.com` links and modern `x.com` links, automatically resolving the highest quality MP4 available.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/twitter
-```
+<Endpoint method="POST" url="/api/v1/twitter" />
 
 ## Request Parameters
 

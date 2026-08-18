@@ -4,14 +4,13 @@ description: "Convert Markdown text into valid HTML."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API provides high-speed conversion of Markdown syntax into sanitized HTML. It supports standard Markdown features including tables, code blocks, lists & more.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/markdown
-```
+<Endpoint method="POST" url="/api/v1/markdown" />
 
 ## Request Parameters
 

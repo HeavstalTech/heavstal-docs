@@ -4,14 +4,13 @@ description: "Documentation for scraping direct download links from MediaFire."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API provides the direct download link from a MediaFire file page. It bypasses the landing page and returns the raw file link, name, and size, allowing you to trigger downloads programmatically.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/mediafire
-```
+<Endpoint method="POST" url="/api/v1/mediafire" />
 
 ## Request Parameters
 

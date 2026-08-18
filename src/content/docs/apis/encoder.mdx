@@ -4,18 +4,18 @@ description: "Encodes & Decodes Base64 & Base32 binary strings back into files."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API provides access to encoding and decoding Base64 & Base32 encoding/decoding.
 
-:::tip[Smart Decoding Feature]
-When decoding, if the engine detects that the result is a binary file (Image, Audio, PDF, Zip) or a massive text block, it will automatically upload the result to a cloud host and return a direct download link instead of returning raw binary data.
+:::tip[Decoding Feature]
+When decoding, if the system detects that the result is a binary file (Image, Audio, PDF, Zip) or a massive text block, it will automatically upload the result to a cloud host and return a direct download link instead of returning raw binary data.
 :::
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/encoder
-```
+<Endpoint method="POST" url="/api/v1/encoder" />
+
 
 ## Request Parameters
 

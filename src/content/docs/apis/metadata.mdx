@@ -4,15 +4,14 @@ description: "Get a URL's metadata for your application."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API provides access to website's metadata, such as name, description, image, favicon, url, and so on. This is perfect for generating rich link preview for applications, forums, bots etc.
 
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/metadata
-```
+<Endpoint method="POST" url="/api/v1/metadata" />
 
 ## Request Parameters
 

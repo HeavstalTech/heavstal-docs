@@ -4,14 +4,14 @@ description: "Search and download Android Apps (APK) directly."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API allows you to search for Android applications and retrieve direct download links. It fetches the latest version available from the internet, regardless of regional restrictions and app store requirements.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/apk
-```
+<Endpoint method="POST" url="/api/v1/apk" />
+
 
 ## Request Parameters
 

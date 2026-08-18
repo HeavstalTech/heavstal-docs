@@ -4,14 +4,13 @@ description: "Search YouTube, stream audio/video, or download direct MP3 and MP4
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API allows you to seamlessly search YouTube and extract direct, high-quality audio (MP3) or video (MP4) download links.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/youtube
-```
+<Endpoint method="POST" url="/api/v1/youtube" />
 
 ## Request Parameters
 

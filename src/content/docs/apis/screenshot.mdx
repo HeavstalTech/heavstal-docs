@@ -4,14 +4,13 @@ description: "Capture high-quality screenshots of websites with device emulation
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API uses our proprietary browser engine to capture high-quality screenshots of websites. It supports device emulation (desktop, tablet, mobile) and returns an image url.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/screenshot
-```
+<Endpoint method="POST" url="/api/v1/screenshot" />
 
 ## Request Parameters
 

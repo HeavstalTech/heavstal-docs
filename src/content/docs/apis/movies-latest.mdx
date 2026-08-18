@@ -4,14 +4,13 @@ description: "Get the most newest movies on the internet in your app."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API provides provides real-time feed of the newest movies added to the internet. This endpoint has a shorter **1-hour cache** to ensure your app always displays the newest releases.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/movies/latest
-```
+<Endpoint method="POST" url="/api/v1/movies/latest" />
 
 ## Request Parameters
 

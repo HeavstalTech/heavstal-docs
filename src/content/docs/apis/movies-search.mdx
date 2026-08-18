@@ -4,6 +4,7 @@ description: "List and search movies. Filter by genre, sort order, minimum ratin
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API allows developers to build full-scale movie catalogues. It retrieves rich metadata, cover images, torrent distributions, and more based on advanced search queries.
 
@@ -14,9 +15,7 @@ This API allows developers to build full-scale movie catalogues. It retrieves ri
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/movies/search
-```
+<Endpoint method="POST" url="/api/v1/movies/search" />
 
 ## Request Parameters
 

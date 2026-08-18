@@ -4,14 +4,13 @@ description: "Extract text from images using advanced machines."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 **Image To Text API** uses advanced machines to recognize and extract text from images. It supports multiple languages and returns the raw text along with a confidence score.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/ocr
-```
+<Endpoint method="POST" url="/api/v1/ocr" />
 
 ## Request Parameters
 

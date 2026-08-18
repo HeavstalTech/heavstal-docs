@@ -4,14 +4,13 @@ description: "Create custom QR codes with colors and receive a direct image link
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API generates high-quality QR codes for URLs, text, Wi-Fi configs, or vCards. The result is automatically uploaded to cloud storage, returning a direct image link that you can share or embed immediately.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/qrcode
-```
+<Endpoint method="POST" url="/api/v1/qrcode" />
 
 ## Request Parameters
 

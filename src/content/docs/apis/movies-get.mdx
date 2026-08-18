@@ -4,6 +4,7 @@ description: "Get full details for a movie by its ID — cast, images, torrents,
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API provides comprehensive metadata for a specific movie. It runs concurrent requests to aggregate the movie's details, high-res screenshots, cast list, and recommended similar movies into a single unified JSON response.
 
@@ -13,9 +14,7 @@ Responses are cached on the edge for **24 hours**, as movie details rarely chang
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/movies/get
-```
+<Endpoint method="POST" url="/api/v1/movies/get" />
 
 ## Request Parameters
 

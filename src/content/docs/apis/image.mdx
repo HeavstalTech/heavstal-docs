@@ -4,14 +4,14 @@ description: "High-speed latent diffusion model for text-to-image generation."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API provides high-speed latent diffusion models to generate images from text descriptions and provides you with an image link.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/image
-```
+<Endpoint method="POST" url="/api/v1/image" />
+
 
 ## Request Parameters
 

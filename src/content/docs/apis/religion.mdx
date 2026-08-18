@@ -4,6 +4,7 @@ description: "Retrieve sacred texts from the Bible or Quran (includes Audio & Ar
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API allows you to retrieve sacred texts from both the **Bible** and **Quran**. 
 
@@ -12,9 +13,7 @@ This API allows you to retrieve sacred texts from both the **Bible** and **Quran
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/religion
-```
+<Endpoint method="POST" url="/api/v1/religion" />
 
 ## Request Parameters
 

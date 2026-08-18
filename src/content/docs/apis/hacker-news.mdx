@@ -4,14 +4,14 @@ description: "Fetch the top 10 latest stories from Hacker News with speed."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API allows you to seamlessly retrieve the top 10 trending stories currently on the front page of Hacker News. Ideal for building news aggregators or daily developer briefings.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/hacker-news
-```
+<Endpoint method="POST" url="/api/v1/hacker-news" />
+
 
 ## Request Parameters
 

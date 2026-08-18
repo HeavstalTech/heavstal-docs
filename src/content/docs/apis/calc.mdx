@@ -4,6 +4,7 @@ description: "High-precision mathematical calculator for complex expressions."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API provides a high-precision mathematical calculator. It allows for complex expression evaluationI, useful for bots, apps or other applications needing safe math parsing.
 
@@ -14,9 +15,8 @@ This API provides a high-precision mathematical calculator. It allows for comple
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/calc
-```
+<Endpoint method="POST" url="/api/v1/calc" />
+
 
 ## Request Parameters
 

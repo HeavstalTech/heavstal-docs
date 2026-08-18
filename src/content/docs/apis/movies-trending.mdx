@@ -4,14 +4,13 @@ description: "Get the top trending/most-downloaded movies from the database."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API provides a pre-sorted feed of the most popular and highly-downloaded movies right now. Perfect for populating the "Featured" or "Hot" sections of your streaming app.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/movies/trending
-```
+<Endpoint method="POST" url="/api/v1/movies/trending" />
 
 ## Request Parameters
 

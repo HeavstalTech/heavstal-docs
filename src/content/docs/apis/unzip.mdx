@@ -4,6 +4,7 @@ description: "Extract entire codebases or zip archives into a single formatted t
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API is a specialized tool for developers and AI engineers. It downloads a remote ZIP file, recursively extracts every file inside, and compiles them into a single, structured `.txt` file.
 
@@ -11,9 +12,7 @@ This can be useful for feeding an entire project codebase into Large Language Mo
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/unzip
-```
+<Endpoint method="POST" url="/api/v1/unzip" />
 
 ## Request Parameters
 

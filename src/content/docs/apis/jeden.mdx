@@ -4,9 +4,10 @@ description: "Jeden AI, a private advanced conversational Artificial Intelligenc
 ---
 
 import { Tabs, TabItem, Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 :::caution[Important]
-This API will be deprecated as of Tuesday, September 1st, 2026 and may no longer function, please migrate to the maintained Heavstal AI API to prevent damage whrb this service stops.
+This API will be deprecated as of **Tuesday, September 1st, 2026** and will no longer function, please migrate to the maintained Heavstal AI API to prevent damage whrb this service stops.
 :::
 
 <CardGrid>
@@ -21,9 +22,9 @@ This API will be deprecated as of Tuesday, September 1st, 2026 and may no longer
 This API provides a private advanced conversational AI optimized for natural, witty, and context-aware interactions. Suitable for ChatBots, Coding, AI Agents, Short replies, writing memos, etc.
 
 ## Endpoint
-```text
-POST https://heavstal.com.ng/api/v1/jeden
-```
+
+<Endpoint method="POST" url="/api/v1/jeden" />
+
 
 ## Request Parameters
 

@@ -4,14 +4,14 @@ description: "Get location, ISP, and timezone info for any IP address or domain.
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API provides detailed information on IP addresses and domain. It shows data such as the physical location (Country, City), the Internet Service Provider (ISP), and specific other details.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/ip-info
-```
+<Endpoint method="POST" url="/api/v1/ip-info" />
+
 
 ## Request Parameters
 

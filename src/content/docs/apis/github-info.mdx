@@ -4,14 +4,14 @@ description: "Get developer details, repositories, and bio from GitHub."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API provides fetches detailed developer profiles from GitHub. It returns bio, repository counts, follower stats, account creation dates & more.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/github-info
-```
+<Endpoint method="POST" url="/api/v1/github-info" />
+
 
 ## Request Parameters
 

@@ -4,14 +4,13 @@ description: "Download TikTok videos or search for keywords without watermarks."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 A dual-purpose TikTok API. You can provide a direct **TikTok URL** to download a specific video, OR provide a **Search Query** to automatically find and download the top result for that keyword.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/tiktok
-```
+<Endpoint method="POST" url="/api/v1/tiktok" />
 
 ## Request Parameters
 

@@ -4,14 +4,13 @@ description: "Translate text to Morse code and decode Morse code back to text."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API translates standard text into International Morse Code and vice versa. It handles alphanumeric characters and punctuation, using standard spacing for readability.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/morse
-```
+<Endpoint method="POST" url="/api/v1/morse" />
 
 ## Request Parameters
 

@@ -4,6 +4,7 @@ description: "Get random Truth questions or Dare challenges with themed images."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API provides random "Truth" questions or "Dare" challenges to create a fun, interactive experience for chat bots and games. 
 
@@ -11,9 +12,7 @@ To make the response visually appealing in modern UI wrappers, it returns the te
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/truth-dare
-```
+<Endpoint method="POST" url="/api/v1/truth-dare" />
 
 ## Request Parameters
 

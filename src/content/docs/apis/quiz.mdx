@@ -4,6 +4,7 @@ description: "Generate multiple-choice questions for STEM subjects."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API provides generates multiple-choice questions (MCQs) for educational purposes. It covers core STEM subjects including Physics, Chemistry, Biology, Mathematics, and Computer Science.
 
@@ -13,9 +14,7 @@ This endpoint supports batch requests! You can fetch up to **10 unique questions
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/quiz
-```
+<Endpoint method="POST" url="/api/v1/quiz" />
 
 ## Request Parameters
 

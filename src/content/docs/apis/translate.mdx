@@ -4,14 +4,13 @@ description: "Auto-detects and translates upto 240+ languagea into English."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API provides automatically detects the source language of your provided text and translates it into English. Supporting upto 240+ languages.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/translate
-```
+<Endpoint method="POST" url="/api/v1/translate" />
 
 ## Request Parameters
 

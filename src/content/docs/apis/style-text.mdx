@@ -4,14 +4,13 @@ description: "Convert normal text into 30+ fancy font styles."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API converts standard ASCII text into over 30+ various Unicode font styles. This is perfect for bio generators, social media captions, messaging bots and other applications.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/style-text
-```
+<Endpoint method="POST" url="/api/v1/style-text" />
 
 ## Request Parameters
 

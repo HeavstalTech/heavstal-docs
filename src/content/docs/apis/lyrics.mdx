@@ -4,14 +4,14 @@ description: "Fetch accurate song lyrics and metadata using a multi-source engin
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API provides a high-availability lyrics fetcher. It aggregates data from open-source and metadata providers to ensure you get accurate, synced lyrics and album art.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/lyrics
-```
+<Endpoint method="POST" url="/api/v1/lyrics" />
+
 
 ## Request Parameters
 

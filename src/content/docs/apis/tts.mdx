@@ -4,14 +4,13 @@ description: "Convert text into lifelike speech audio (MP3). Supports multiple l
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API converts text into natural-sounding speech audio. Instead of streaming raw binary data, this API **generates the audio, hosts it in the cloud, and returns a direct MP3 link**. This makes it perfect for Bots, HTML5 players, mobile apps, and other applications.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/tts
-```
+<Endpoint method="POST" url="/api/v1/tts" />
 
 ## Request Parameters
 

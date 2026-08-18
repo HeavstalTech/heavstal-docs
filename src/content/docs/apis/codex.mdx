@@ -4,14 +4,14 @@ description: "Enterprise-grade code obfuscation for JS, Python, and Java."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API provides access to code obfuscation and encryption. It supports JavaScript (via advanced obfuscation), Python & Java (via Base64 encoding). It can be used to protect code and keys before distribution.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/codex
-```
+<Endpoint method="POST" url="/api/v1/codex" />
+
 
 ## Request Parameters
 

@@ -4,6 +4,7 @@ description: "Live cryptocurrency data."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API provides real-time pricing, 24-hour percentage changes, market cap, and volume for the top 200 cryptocurrencies. To ensure extreme speed and stability, responses are cached for 5 minutes for optimal speed.
 
@@ -13,9 +14,8 @@ Crypto prices are aggregated from third-party providers and may be delayed or in
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/crypto
-```
+<Endpoint method="POST" url="/api/v1/crypto" />
+
 
 ## Request Parameters
 

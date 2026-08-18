@@ -4,6 +4,7 @@ description: "Extract and summarize content from URLs. Supports batch processing
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro';
 
 This API provides an intelligent extraction engine designed to turn websites into structured data. It supports **batch processing** (up to 10 URLs) and features an **AI Analysis** that reads, structures, and categorizes content automatically.
 
@@ -21,9 +22,7 @@ This endpoint uses a stable, standard browser signature. It will **NOT** work on
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/web-search
-```
+<Endpoint method="POST" url="/api/v1/web-search" />
 
 ## Request Parameters
 

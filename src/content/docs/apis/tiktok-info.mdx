@@ -4,14 +4,13 @@ description: "Get public profile details from TikTok accounts at your disposal."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Endpoint from '../../../components/Endpoint.astro'; 
 
 This API provides retrieves real-time public profile information from TikTok accounts. It provides follower counts, bios, profile pictures, and engagement stats.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/tiktok-info
-```
+<Endpoint method="POST" url="/api/v1/tiktok-info" />
 
 ## Request Parameters
 
