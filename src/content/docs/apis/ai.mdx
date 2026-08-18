@@ -4,14 +4,16 @@ description: "An advanced conversational AI API."
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import MethodBadge from '../../../components/MethodBadge.astro';
 
 This API provides an advanced conversational AI optimized for natural, witty, and context-aware interactions. Suitable for ChatBots, Coding, AI Agents, Short replies, writing memos, etc.
 
 ## Endpoint
 
-```text
-POST https://heavstal.com.ng/api/v1/ai
-```
+<div style="display: flex; align-items: center; gap: 0.75rem; margin-top: 1rem; margin-bottom: 2rem; padding: 0.75rem 1rem; background-color: var(--sl-color-bg-nav); border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem;">
+  <MethodBadge method="POST" /> 
+  <code style="font-size: 0.9rem; background: transparent; padding: 0; border: none;">/api/v1/ai</code>
+</div>
 
 ## Request Parameters
 
