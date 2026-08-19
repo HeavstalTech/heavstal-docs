@@ -23,7 +23,7 @@ export const GET = async ({ props }: APIContext<Props>) => {
   
   return new Response(doc.body || '', {
     headers: {
-      'Content-Type': 'text/markdown; charset=utf-8',
+      'Content-Type': 'text/plain; charset=utf-8',
     },
   });
 };
