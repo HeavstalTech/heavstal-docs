@@ -35,7 +35,7 @@ export default function MarkdownActions({ rawMarkdown, mdUrl }: Props) {
   };
 
   const basePrompt = `Load the contents of ${mdUrl} into this chat's context so we can discuss it.`;
-  const chatGptPrompt = `/search ${basePrompt}`;
+  const chatGptPrompt = `@search ${basePrompt}`;
   const links = {
     chatgpt: `https://chatgpt.com/?q=${encodeURIComponent(chatGptPrompt)}`,
     claude: `https://claude.ai/new?q=${encodeURIComponent(basePrompt)}`,
