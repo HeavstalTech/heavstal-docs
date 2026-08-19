@@ -1,0 +1,13 @@
+---
+// src/components/PageFrameOverride.astro
+import Default from '@astrojs/starlight/components/PageFrame.astro';
+import ScrollToTop from './ScrollToTop.astro';
+---
+
+<Default {...Astro.props}>
+  <slot name="header" slot="header" />
+  <slot name="sidebar" slot="sidebar" />
+  <slot />
+</Default>
+
+<ScrollToTop />
