@@ -17,7 +17,7 @@ const fullMdUrl = new URL(mdPath, Astro.url.origin).href;
   <div class="flex-shrink-0 mt-1 sm:mt-0">
     <MarkdownActions 
       client:idle 
-      rawMarkdown={entry.body || ''} 
+      rawMarkdown={entry?.body || ''} 
       mdUrl={fullMdUrl} 
     />
   </div>
