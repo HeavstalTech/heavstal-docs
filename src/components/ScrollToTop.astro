@@ -1,0 +1,80 @@
+---
+// src/components/ScrollToTop.astro
+---
+
+<button
+  id="back-to-top"
+  class="fixed bottom-6 right-6 lg:bottom-8 lg:right-8 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[var(--sl-color-bg)]/90 backdrop-blur-md text-[var(--sl-color-text)] shadow-lg ring-1 ring-[var(--sl-color-gray-5)] transition-all duration-300 opacity-0 pointer-events-none translate-y-4 hover:bg-[var(--sl-color-bg-nav)] hover:scale-105 hover:shadow-xl focus:outline-none"
+  aria-label="Back to top"
+  title="Back to top"
+>
+  <svg class="absolute inset-0 w-full h-full drop-shadow-sm" viewBox="0 0 48 48">
+    <circle 
+      class="text-[var(--sl-color-gray-5)]" 
+      stroke="currentColor" 
+      fill="transparent" 
+      stroke-width="2.5" 
+      r="22" 
+      cx="24" 
+      cy="24" 
+    />
+    <circle 
+      id="progress-ring"
+      class="text-[var(--sl-color-accent)] transition-all duration-150 ease-out origin-center -rotate-90" 
+      stroke="currentColor" 
+      fill="transparent" 
+      stroke-width="2.5" 
+      stroke-linecap="round"
+      r="22" 
+      cx="24" 
+      cy="24" 
+    />
+  </svg>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="relative z-10 transition-transform group-hover:-translate-y-0.5">
+    <path d="m18 15-6-6-6 6"/>
+  </svg>
+</button>
+
+<script>
+  function initScrollToTop() {
+    const btn = document.getElementById('back-to-top');
+    const ring = document.getElementById('progress-ring');  
+    if (!btn || !ring) return;
+    const radius = parseFloat(ring.getAttribute('r') || '22');
+    const circumference = radius * 2 * Math.PI;
+    
+    ring.style.strokeDasharray = `${circumference} ${circumference}`;
+    ring.style.strokeDashoffset = `${circumference}`;
+
+    const updateProgress = () => {
+      const scrollY = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      
+      if (docHeight > 0) {
+        const scrollPercent = scrollY / docHeight;
+        const offset = circumference - (scrollPercent * circumference);
+        ring.style.strokeDashoffset = offset.toString();
+      }
+
+      if (scrollY > 150) {
+        btn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+        btn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0', 'group');
+      } else {
+        btn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+        btn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0', 'group');
+      }
+    };
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    
+    updateProgress();
+  }
+
+  initScrollToTop();
+  document.addEventListener("astro:page-load", initScrollToTop);
+</script>
