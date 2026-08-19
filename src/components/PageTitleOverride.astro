@@ -1,0 +1,24 @@
+---
+// src/components/PageTitleOverride.astro
+import Default from '@astrojs/starlight/components/PageTitle.astro'
+import MarkdownActions from './MarkdownActions'
+
+const { entry } = Astro.props
+const pathname = Astro.url.pathname.replace(/\/$/, '');
+const mdPath = pathname === '' ? '/index.md' : `${pathname}.md`;
+const fullMdUrl = new URL(mdPath, Astro.url.origin).href;
+---
+
+<div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 pb-2">
+  <div class="flex-1 min-w-0">
+    <Default {...Astro.props} />
+  </div>
+  
+  <div class="flex-shrink-0 mt-1 sm:mt-0">
+    <MarkdownActions 
+      client:idle 
+      rawMarkdown={entry.body || ''} 
+      mdUrl={fullMdUrl} 
+    />
+  </div>
+</div>
