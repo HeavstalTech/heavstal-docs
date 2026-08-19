@@ -20,6 +20,7 @@ export default defineConfig({
       },
       components: {
         Pagination: './src/components/Feedback.astro',
+        PageTitle: './src/components/PageTitleOverride.astro',
       },
       head:[
         { tag: 'link', attrs: { rel: 'apple-touch-icon', href: '/favicon.ico' } },
