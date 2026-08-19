@@ -34,12 +34,12 @@ export default function MarkdownActions({ rawMarkdown, mdUrl }: Props) {
     setIsOpen(false);
   };
 
-  const PROMPT = "Load the contents of {url} into this chat's context so we can discuss it.";
-  const promptText = encodeURIComponent(PROMPT.replace('{url}', mdUrl));
+  const basePrompt = `Load the contents of ${mdUrl} into this chat's context so we can discuss it.`;
+  const chatGptPrompt = `/search ${basePrompt}`;
   const links = {
-    chatgpt: `https://chatgpt.com/?q=${promptText}`,
-    claude: `https://claude.ai/new?q=${promptText}`,
-    gemini: `https://gemini.google.com/app?q=${promptText}`,
+    chatgpt: `https://chatgpt.com/?q=${encodeURIComponent(chatGptPrompt)}`,
+    claude: `https://claude.ai/new?q=${encodeURIComponent(basePrompt)}`,
+    gemini: `https://gemini.google.com/app?q=${encodeURIComponent(basePrompt)}`,
   };
 
   return (
