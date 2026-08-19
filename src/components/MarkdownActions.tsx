@@ -36,7 +36,6 @@ export default function MarkdownActions({ rawMarkdown, mdUrl, txtUrl }: Props) {
   const links = {
     chatgpt: `https://chatgpt.com/?q=${promptText}`,
     claude: `https://claude.ai/new?q=${promptText}`,
-    gemini: `https://gemini.google.com/app?q=${promptText}`,
   };
 
   return (
@@ -68,11 +67,6 @@ export default function MarkdownActions({ rawMarkdown, mdUrl, txtUrl }: Props) {
             <a href={links.chatgpt} target="_blank" rel="noreferrer" className="group flex items-center gap-3 px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#2a2a2d] transition-colors">
               <img src="/chatgpt.svg" alt="ChatGPT" className="h-4 w-4 shrink-0" />
               <span>Open in ChatGPT</span>
-              <ExternalLink size={14} className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
-            </a>
-            <a href={links.gemini} target="_blank" rel="noreferrer" className="group flex items-center gap-3 px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#2a2a2d] transition-colors">
-              <img src="/gemini.svg" alt="Gemini" className="h-4 w-4 shrink-0" />
-              <span>Open in Gemini</span>
               <ExternalLink size={14} className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
             </a>
           </div>
