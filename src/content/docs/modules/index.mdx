@@ -1,27 +1,40 @@
 ---
-title: Heavstal NPM Modules
+title: Packages
 description: Explore our enterprise-grade open-source packages and libraries.
 sidebar:
   label: Overview
+  badge:
+    text: NEW
+    variant: success
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import PackageCard from '../../../components/PackageCard.astro';
 
-Welcome to the Heavstal Tech module registry. Here you will find documentation for our official Node.js and TypeScript packages.
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 not-content flex-wrap">
+  <PackageCard
+    title="@heavstal/api"
+    description="The official SDK for the Heavstal API Ecosystem. Integrate conversational AI, web scraping, and media downloaders effortlessly into your applications."
+    guideLink="/modules/api"
+    sourceLink="https://github.com/heavstal/api"
+    type="api"
+    npmPackage="@heavstal/api"
+  />
 
-<CardGrid stagger>
-  <Card title="@heavstal/api" icon="puzzle">
-    A powerful, all-in-one scraping and utility library.
-    <br/><br/>[**Read Docs →**](/modules/api/)
-  </Card>
-  
-  <Card title="@heavstal/auth" icon="shield">
-    The official NextAuth.js provider for Heavstal Tech.
-    <br/><br/>[**Read Docs →**](/modules/auth/)
-  </Card>
-  
-  <Card title="HT-Baileys" icon="seti:javascript">
-    An Advanced WhatsApp Web API wrapper fork (baileys).
-    <br/><br/>[**Read Docs →**](/modules/baileys/)
-  </Card>
-</CardGrid>
+  <PackageCard
+    title="@heavstal/auth"
+    description="A lightweight and secure authentication wrapper for Heavstal OAuth 2.0 / OpenID Connect. Perfect for Next.js, React, and Node backends."
+    guideLink="/modules/auth"
+    sourceLink="https://github.com/heavstal/auth"
+    type="auth"
+    npmPackage="@heavstal/auth"
+  />
+
+  <PackageCard
+    title="HT_Baileys"
+    description="An enhanced, developer-friendly WhatsApp bot framework built on top of Baileys for seamless automation and message handling."
+    guideLink="/modules/baileys"
+    sourceLink="https://github.com/heavstal/baileys"
+    type="baileys"
+    npmPackage="@heavstaltech/baileys"
+  />
+</div>
