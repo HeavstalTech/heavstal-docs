@@ -3,9 +3,16 @@
 import Default from '@astrojs/starlight/components/Pagination.astro';
 import FeedbackWidget from './FeedbackWidget';
 
+// --- DEBUG LOGGING ---
+console.log('--- Feedback Props for:', Astro.url.pathname, '---');
+console.log('Template:', Astro.props.entry?.data?.template);
+console.log('HidePagination:', Astro.props.entry?.data?.hidePagination);
+// ---------------------
+
 const { entry } = Astro.props;
+const isHomePage = Astro.url.pathname === '/' || Astro.url.pathname === '';
 const isSplash = entry?.data?.template === 'splash';
-const hidePagination = isSplash || entry?.data?.hidePagination === true;
+const hidePagination = isHomePage || isSplash || entry?.data?.hidePagination === true;
 ---
 
 {!hidePagination && (
