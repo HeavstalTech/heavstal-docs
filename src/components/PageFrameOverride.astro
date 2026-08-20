@@ -1,28 +1,13 @@
 ---
-// src/components/PageTitleOverride.astro
-import Default from '@astrojs/starlight/components/PageTitle.astro'
-import MarkdownActions from './MarkdownActions'
-
-const { entry } = Astro.props
-const hideTitle = entry.data.hideTitle;
-const pathname = Astro.url.pathname.replace(/\/$/, '');
-const mdPath = pathname === '' ? '/index.md' : `${pathname}.md`;
-const txtPath = pathname === '' ? '/index.txt' : `${pathname}.txt`;
-const fullMdUrl = new URL(mdPath, Astro.url.origin).href;
-const fullTxtUrl = new URL(txtPath, Astro.url.origin).href;
+// src/components/PageFrameOverride.astro
+import Default from '@astrojs/starlight/components/PageFrame.astro';
+import ScrollToTop from './ScrollToTop.astro';
 ---
 
-{!hideTitle && (
-  <div class="mb-6">
-    <Default {...Astro.props} />
-    
-    <div class="mt-4 flex justify-start sm:justify-end">
-      <MarkdownActions 
-        client:idle 
-        rawMarkdown={entry?.body || ''} 
-        mdUrl={fullMdUrl} 
-        txtUrl={fullTxtUrl}
-      />
-    </div>
-  </div>
-)}
+<Default {...Astro.props}>
+  <slot name="header" slot="header" />
+  <slot name="sidebar" slot="sidebar" />
+  <slot />
+</Default>
+
+<ScrollToTop />
