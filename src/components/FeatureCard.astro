@@ -9,16 +9,16 @@ const { title, href, ctaText } = Astro.props;
 ---
 
 <article class="flex flex-col rounded-2xl border border-[var(--sl-color-gray-5)] bg-[var(--sl-color-bg-nav)] p-6 shadow-sm h-full hover:border-[var(--sl-color-accent)] hover:shadow-md transition-all">
-  
-  <div class="mb-5 flex-none self-start">
+
+  <div class="mb-3 flex-none self-start">
     <slot name="icon" />
   </div>
   
   <h3 class="text-xl md:text-2xl font-bold text-[var(--sl-color-white)] m-0 mb-2">
     {title}
   </h3>
-  
-  <div class="flex-grow text-[var(--sl-color-gray-3)] text-[15px] leading-relaxed mb-6">
+
+  <div class="flex-grow text-[var(--sl-color-gray-3)] text-[15px] leading-relaxed mb-4">
     <slot />
   </div>
   
@@ -27,4 +27,5 @@ const { title, href, ctaText } = Astro.props;
       {ctaText} <span class="ml-1 text-lg leading-none">&rarr;</span>
     </a>
   </div>
+  
 </article>
