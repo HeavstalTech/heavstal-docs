@@ -3,9 +3,19 @@
 import Default from '@astrojs/starlight/components/PageTitle.astro'
 import MarkdownActions from './MarkdownActions'
 
+// --- DEBUG LOGGING ---
+// Log
+console.log('--- PageTitleOverride Props for:', Astro.url.pathname, '---');
+console.log('Template:', Astro.props.entry?.data?.template);
+console.log('HideTitle:', Astro.props.entry?.data?.hideTitle);
+console.log('Full Props:', Astro.props)
+// ---------------------
+
 const { entry } = Astro.props
-const isSplash = entry?.data?.template === 'splash';
-const hideTitle = isSplash || entry?.data?.hideTitle === true;
+const isHomePage = Astro.url.pathname === '/' || Astro.url.pathname === '';
+const isSplash = entry?.data?.template === 'splash'
+const hideTitle = isHomePage || isSplash || entry?.data?.hideTitle === true;
+
 const pathname = Astro.url.pathname.replace(/\/$/, '');
 const mdPath = pathname === '' ? '/index.md' : `${pathname}.md`;
 const txtPath = pathname === '' ? '/index.txt' : `${pathname}.txt`;
