@@ -4,7 +4,8 @@ import Default from '@astrojs/starlight/components/PageTitle.astro'
 import MarkdownActions from './MarkdownActions'
 
 const { entry } = Astro.props
-const hideTitle = entry.data.hideTitle;
+// const hideTitle = entry.data.hideTitle;
+const hideTitle = entry?.data?.hideTitle === true;
 const pathname = Astro.url.pathname.replace(/\/$/, '');
 const mdPath = pathname === '' ? '/index.md' : `${pathname}.md`;
 const txtPath = pathname === '' ? '/index.txt' : `${pathname}.txt`;
