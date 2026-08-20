@@ -13,8 +13,8 @@ lastUpdated: false
 import { CardGrid } from '@astrojs/starlight/components';
 import FeatureCard from '../../components/FeatureCard.astro';
 import Hero from '../../components/Hero';
-import { TbApi } from "react-icons/tb";
-import { Bot, Puzzle, BookOpen } from "lucide-react";
+import { TbApi, TbPackages } from "react-icons/tb";
+import { Bot, BookOpen } from "lucide-react";
 
 <Hero client:load />
 
@@ -34,8 +34,8 @@ import { Bot, Puzzle, BookOpen } from "lucide-react";
   </FeatureCard>
   
   <FeatureCard title="Packages" href="/modules/" ctaText="View Npm Libraries">
-    <div slot="icon" className="w-14 h-14 bg-[#e0e7ff] dark:bg-[#1e3a8a] text-[#4338ca] dark:text-[#93c5fd] rounded-xl shadow-sm flex items-center justify-center">
-      <Puzzle size={28} strokeWidth={2} />
+    <div slot="icon" className="w-14 h-14 bg-[#ffedd5] dark:bg-[#7c2d12] text-[#ea580c] dark:text-[#fdba74] rounded-xl shadow-sm flex items-center justify-center">
+      <TbPackages size={30} strokeWidth={1.5} />
     </div>
     Enterprise-grade packages including `@heavstal/api`, `HT-Baileys`, and `@heavstal/auth`.
   </FeatureCard>
