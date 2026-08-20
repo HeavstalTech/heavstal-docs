@@ -2,8 +2,15 @@
 //src/components/Feedback.astro
 import Default from '@astrojs/starlight/components/Pagination.astro';
 import FeedbackWidget from './FeedbackWidget';
+
+const { entry } = Astro.props;
+const isSplash = entry?.data?.template === 'splash';
 ---
 
-<FeedbackWidget client:idle />
-<div class="h-2"></div>
+{!isSplash && (
+  <>
+    <FeedbackWidget client:idle />
+    <div class="h-2"></div>
+  </>
+)}
 <Default {...Astro.props} />
