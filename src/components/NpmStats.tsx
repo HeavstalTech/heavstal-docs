@@ -7,6 +7,13 @@ interface NpmStatsProps {
   packageName?: string;
 }
 
+const formatNumber = (num: number) => {
+    if (!num || isNaN(num)) return '0';
+    if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+    if (num >= 1000) return (num / 1000).toFixed(1) + 'k';
+    return num.toString();
+};
+
 export default function NpmStats({ packageName }: NpmStatsProps) {
   const [stats, setStats] = useState<{ version: string | null; downloads: string | null }>({
     version: null,
@@ -15,29 +22,25 @@ export default function NpmStats({ packageName }: NpmStatsProps) {
 
   useEffect(() => {
     if (!packageName) return;
+
     if (ramCache.has(packageName)) {
       ramCache.get(packageName)!.then(setStats);
       return;
     }
-    
+
     const fetchStats = async () => {
       try {
         const [verRes, dlRes] = await Promise.all([
           fetch(`https://registry.npmjs.org/${packageName}/latest`).then(res => res.ok ? res.json() : {}),
           fetch(`https://api.npmjs.org/downloads/point/last-month/${packageName}`).then(res => res.ok ? res.json() : {})
-        ]);
+        ]) as [any, any];
 
         let version = null;
         let downloads = null;
-
         if (verRes.version) version = `v${verRes.version}`;
         
         if (dlRes.downloads !== undefined) {
-          const formatter = Intl.NumberFormat('en-US', {
-            notation: 'compact',
-            maximumFractionDigits: 1,
-          });
-          downloads = `${formatter.format(dlRes.downloads).toLowerCase()}/month`;
+          downloads = `${formatNumber(dlRes.downloads)}/month`;
         }
 
         return { version, downloads };
@@ -51,7 +54,7 @@ export default function NpmStats({ packageName }: NpmStatsProps) {
     ramCache.set(packageName, promise);
     promise.then(setStats);
   }, [packageName]);
-
+  
   if (!stats.version && !stats.downloads) return null;
 
   return (
