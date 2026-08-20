@@ -1,6 +1,5 @@
 // Docs/src/components/Hero.tsx
 import React from 'react';
-// Note: every shape, size, layout etc. that is here was made to be perfect, changing the even a single margin may break the design 
 
 export default function Hero() {
   return (
