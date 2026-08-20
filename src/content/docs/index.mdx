@@ -10,38 +10,41 @@ import { TbApi } from "react-icons/tb";
 import { Bot, Puzzle, BookOpen } from "lucide-react";
 import docsLogo from '../../assets/ht_iconDocs.svg';
 
-<div class="flex flex-col items-center justify-center text-center mt-2 mb-12 font-sans">
+<div class="flex flex-col items-center justify-center text-center mt-2 mb-10 font-sans">
   
   <img 
     src={docsLogo.src} 
     alt="Heavstal Docs" 
-    width="96" 
-    height="96" 
+    width="80" 
+    height="80" 
     class="mb-2 drop-shadow-md" 
   />
   
-  <h1 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white m-0 mb-2 leading-tight">
+  <h1 class="text-3xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white m-0 mb-1.5 leading-tight">
     Heavstal Tech Documentation
   </h1>
   
-  <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl m-0 mb-6 font-medium">
+  <p class="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl m-0 mb-4 font-medium">
     Building Tomorrow's Web, Today - Explore the Heavstal Tech ecosystem.
   </p>
   
   <div class="flex">
     <a 
       href="/apis/introduction/" 
-      class="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 bg-[#1a73e8] hover:bg-[#1557b0] !text-white rounded-full font-bold text-base shadow-sm transition-all hover:-translate-y-0.5 no-underline"
+      class="inline-flex items-center justify-center gap-1.5 px-6 py-2.5 bg-[#1a73e8] hover:bg-[#1557b0] !text-white rounded-full font-bold text-sm shadow-sm transition-all hover:-translate-y-0.5 no-underline"
     >
       <span>Get Started</span>
-      <span class="text-xl leading-none">&rarr;</span>
+      <span class="text-lg leading-none">&rarr;</span>
     </a>
   </div>
 
 </div>
 
 
-## Heavstal Docs <Icon name="open-book" class="inline-block translate-y-1" />
+<div class="flex items-center gap-2.5 mt-8 mb-6">
+  <h2 class="!m-0 text-3xl font-semibold text-gray-900 dark:text-white">Heavstal Docs</h2>
+  <Icon name="open-book" class="w-8 h-8 text-[var(--sl-color-text-accent)]" />
+</div>
 
 <CardGrid stagger>
   <FeatureCard title="Heavstal APIs" href="/apis/introduction/" ctaText="View API Docs">
@@ -59,22 +62,25 @@ import docsLogo from '../../assets/ht_iconDocs.svg';
   </FeatureCard>
   
   <FeatureCard title="Packages" href="/modules/" ctaText="View Npm Libraries">
-    <div slot="icon" className="w-14 h-14 bg-[var(--sl-color-black)] border border-[var(--sl-color-gray-5)] text-[var(--sl-color-text-accent)] rounded-xl shadow-sm flex items-center justify-center">
-      <Puzzle size={28} strokeWidth={1.5} />
+    {/* Indigo Theme */}
+    <div slot="icon" className="w-14 h-14 bg-[#e0e7ff] dark:bg-[#1e3a8a] text-[#4338ca] dark:text-[#93c5fd] rounded-xl shadow-sm flex items-center justify-center">
+      <Puzzle size={28} strokeWidth={2} />
     </div>
     Enterprise-grade packages including `@heavstal/api`, `HT-Baileys`, and `@heavstal/auth`.
   </FeatureCard>
   
   <FeatureCard title="Heavstal Bots" href="/bots/" ctaText="View Available Bots">
-    <div slot="icon" className="w-14 h-14 bg-[var(--sl-color-black)] border border-[var(--sl-color-gray-5)] text-[var(--sl-color-text-accent)] rounded-xl shadow-sm flex items-center justify-center">
-      <Bot size={28} strokeWidth={1.5} />
+    {/* Green Theme */}
+    <div slot="icon" className="w-14 h-14 bg-[#dcfce7] dark:bg-[#14532d] text-[#15803d] dark:text-[#86efac] rounded-xl shadow-sm flex items-center justify-center">
+      <Bot size={28} strokeWidth={2} />
     </div>
     Docs for our WhatsApp and Telegram automation bots.
   </FeatureCard>
 
   <FeatureCard title="Explore the Ecosystem" href="/overview/" ctaText="View Overview">
-    <div slot="icon" className="w-14 h-14 bg-[var(--sl-color-black)] border border-[var(--sl-color-gray-5)] text-[var(--sl-color-text-accent)] rounded-xl shadow-sm flex items-center justify-center">
-      <BookOpen size={28} strokeWidth={1.5} />
+    {/* Purple Theme */}
+    <div slot="icon" className="w-14 h-14 bg-[#f3e8ff] dark:bg-[#581c87] text-[#7e22ce] dark:text-[#d8b4fe] rounded-xl shadow-sm flex items-center justify-center">
+      <BookOpen size={28} strokeWidth={2} />
     </div>
     Learn how to navigate our platforms, create API keys, and manage applications.
   </FeatureCard>
