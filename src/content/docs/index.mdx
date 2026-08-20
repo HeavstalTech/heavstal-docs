@@ -13,11 +13,10 @@ lastUpdated: false
 import { CardGrid } from '@astrojs/starlight/components';
 import FeatureCard from '../../components/FeatureCard.astro';
 import Hero from '../../components/Hero';
-import docsLogo from '../../assets/ht_iconDocs.svg';
 import { TbApi } from "react-icons/tb";
 import { Bot, Puzzle, BookOpen } from "lucide-react";
 
-<Hero logoSrc={docsLogo.src} client:load />
+<Hero client:load />
 
 <CardGrid stagger>
   <FeatureCard title="Heavstal APIs" href="/apis/introduction/" ctaText="View API Docs">
