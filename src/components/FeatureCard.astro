@@ -2,16 +2,32 @@
 // src/components/FeatureCard.astro
 interface Props {
   title: string;
+  href: string;
+  ctaText: string;
 }
-const { title } = Astro.props;
+const { title, href, ctaText } = Astro.props;
 ---
 
-<article class="rounded-xl border border-[var(--sl-color-gray-5)] bg-[var(--sl-color-black)] p-6 shadow-sm h-full">
-  <div class="m-0 flex items-center gap-3 text-lg font-semibold text-[var(--sl-color-white)]">
+<article class="flex flex-col rounded-2xl border border-[var(--sl-color-gray-5)] bg-[var(--sl-color-bg-nav)] p-6 shadow-sm h-full hover:border-[var(--sl-color-gray-4)] hover:shadow-md transition-all">
+  <div class="mb-5 flex-shrink-0">
     <slot name="icon" />
-    <span>{title}</span>
   </div>
-  <div class="mt-4 text-[var(--sl-color-gray-3)] text-sm leading-relaxed">
+  
+  <h3 class="text-2xl font-bold text-[var(--sl-color-white)] m-0 mb-2">
+    {title}
+  </h3>
+  
+  <div class="flex-grow text-[var(--sl-color-gray-3)] text-base leading-relaxed mb-8">
     <slot />
   </div>
+  
+  <div class="mt-auto flex">
+    <a 
+      href={href} 
+      class="inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--sl-color-text-accent)] hover:opacity-90 px-5 py-2.5 text-sm font-semibold text-white transition-all no-underline"
+    >
+      {ctaText}
+    </a>
+  </div>
+  
 </article>
