@@ -37,8 +37,8 @@ export default function NpmStats({ packageName }: NpmStatsProps) {
 
         let version = null;
         let downloads = null;
+
         if (verRes.version) version = `v${verRes.version}`;
-        
         if (dlRes.downloads !== undefined) {
           downloads = `${formatNumber(dlRes.downloads)}/month`;
         }
@@ -54,11 +54,11 @@ export default function NpmStats({ packageName }: NpmStatsProps) {
     ramCache.set(packageName, promise);
     promise.then(setStats);
   }, [packageName]);
-  
+
   if (!stats.version && !stats.downloads) return null;
 
   return (
-    <div className="flex flex-wrap gap-2 mb-5">
+    <div className="flex flex-col items-start gap-1.5 mb-6">
       {stats.version && (
         <div className="flex text-[11px] font-bold tracking-wide shadow-sm">
           <span className="bg-[#555] text-white px-2 py-1 leading-none">npm</span>
