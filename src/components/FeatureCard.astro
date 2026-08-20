@@ -6,13 +6,11 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<article class="rounded-xl border border-[var(--sl-color-gray-5)] bg-[var(--sl-color-black)] p-6 shadow-sm">
-  <p class="m-0 flex items-center gap-3 text-lg font-semibold text-[var(--sl-color-white)]">
-    <span class="flex items-center justify-center text-[var(--sl-color-text-accent)] bg-[var(--sl-color-bg-nav)] border border-[var(--sl-color-gray-5)] rounded-md p-1.5 shadow-sm">
-      <slot name="icon" />
-    </span>
-    {title}
-  </p>
+<article class="rounded-xl border border-[var(--sl-color-gray-5)] bg-[var(--sl-color-black)] p-6 shadow-sm h-full">
+  <div class="m-0 flex items-center gap-3 text-lg font-semibold text-[var(--sl-color-white)]">
+    <slot name="icon" />
+    <span>{title}</span>
+  </div>
   <div class="mt-4 text-[var(--sl-color-gray-3)] text-sm leading-relaxed">
     <slot />
   </div>
