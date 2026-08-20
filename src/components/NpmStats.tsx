@@ -22,7 +22,6 @@ export default function NpmStats({ packageName }: NpmStatsProps) {
 
   useEffect(() => {
     if (!packageName) return;
-
     if (ramCache.has(packageName)) {
       ramCache.get(packageName)!.then(setStats);
       return;
@@ -58,7 +57,7 @@ export default function NpmStats({ packageName }: NpmStatsProps) {
   if (!stats.version && !stats.downloads) return null;
 
   return (
-    <div className="flex flex-col items-start gap-1.5 mb-6">
+    <div className="flex flex-col items-start gap-1.5">
       {stats.version && (
         <div className="flex text-[11px] font-bold tracking-wide shadow-sm">
           <span className="bg-[#555] text-white px-2 py-1 leading-none">npm</span>
