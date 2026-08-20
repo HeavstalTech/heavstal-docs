@@ -4,48 +4,14 @@ description: Official documentation for Heavstal Tech APIs, OAuth2, Modules, and
 template: splash
 ---
 
-import { CardGrid, Icon } from '@astrojs/starlight/components';
+import { CardGrid } from '@astrojs/starlight/components';
 import FeatureCard from '../../components/FeatureCard.astro';
+import Hero from '../../components/Hero';
+import docsLogo from '../../assets/ht_iconDocs.svg';
 import { TbApi } from "react-icons/tb";
 import { Bot, Puzzle, BookOpen } from "lucide-react";
-import docsLogo from '../../assets/ht_iconDocs.svg';
 
-<div class="flex flex-col items-center justify-center text-center mt-2 mb-10 font-sans gap-3">
-  
-  <img 
-    src={docsLogo.src} 
-    alt="Heavstal Docs" 
-    width="80" 
-    height="80" 
-    class="mb-1 drop-shadow-md" 
-  />
-  
-  <h1 class="text-3xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white m-0 leading-tight">
-    Heavstal Tech Documentation
-  </h1>
-  
-  <p class="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-lg m-0 font-medium">
-    Building Tomorrow's Web, Today - Explore the Heavstal Tech ecosystem.
-  </p>
-  
-  <div class="flex mt-3">
-    <a 
-      href="/apis/introduction/" 
-      class="inline-flex items-center justify-center gap-1.5 px-6 py-2.5 bg-[#1a73e8] hover:bg-[#1557b0] !text-white rounded-full font-bold text-sm shadow-sm transition-all hover:-translate-y-0.5 no-underline"
-    >
-      <span>Get Started</span>
-      <span class="text-lg leading-none">&rarr;</span>
-    </a>
-  </div>
-
-</div>
-
-<div class="flex items-center gap-3 mt-10 mb-6">
-  <h2 class="!m-0 text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">Heavstal Docs</h2>
-  <div class="flex items-center justify-center p-1.5 rounded-lg bg-sky-500/15 text-sky-600 dark:bg-sky-400/20 dark:text-sky-400">
-    <Icon name="open-book" class="w-[1em] h-[1em] text-2xl md:text-3xl" />
-  </div>
-</div>
+<Hero logoSrc={docsLogo.src} client:load />
 
 <CardGrid stagger>
   <FeatureCard title="Heavstal APIs" href="/apis/introduction/" ctaText="View API Docs">
@@ -59,7 +25,7 @@ import docsLogo from '../../assets/ht_iconDocs.svg';
     <div slot="icon" className="w-14 h-14 flex items-center justify-center">
       <img src="/ht_iconAccounts.svg" alt="Heavstal Accounts" class="w-12 h-12 drop-shadow-sm" />
     </div>
-    See how to Integrate "Sign in with Heavstal Tech" into your applications using standard OAuth2 & OpenID Connect.
+    Learn how to Integrate "Sign in with Heavstal Tech" into your applications using standard OAuth2 & OpenID Connect.
   </FeatureCard>
   
   <FeatureCard title="Packages" href="/modules/" ctaText="View Npm Libraries">
@@ -73,7 +39,7 @@ import docsLogo from '../../assets/ht_iconDocs.svg';
     <div slot="icon" className="w-14 h-14 bg-[#dcfce7] dark:bg-[#14532d] text-[#15803d] dark:text-[#86efac] rounded-xl shadow-sm flex items-center justify-center">
       <Bot size={28} strokeWidth={2} />
     </div>
-    Docs for Heavstal automation bots.
+    Docs for our WhatsApp and Telegram automation bots.
   </FeatureCard>
 
   <FeatureCard title="Explore the Ecosystem" href="/overview/" ctaText="View Overview">
