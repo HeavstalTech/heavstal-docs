@@ -10,17 +10,17 @@ import { TbApi } from "react-icons/tb";
 import { Bot, Puzzle, BookOpen } from "lucide-react";
 import docsLogo from '../../assets/ht_iconDocs.svg';
 
-<div class="flex flex-col items-center justify-center text-center mt-4 mb-16 font-sans">
+<div class="flex flex-col items-center justify-center text-center mt-2 mb-12 font-sans">
   
   <img 
     src={docsLogo.src} 
     alt="Heavstal Docs" 
-    width="100" 
-    height="100" 
-    class="mb-4 drop-shadow-md" 
+    width="96" 
+    height="96" 
+    class="mb-2 drop-shadow-md" 
   />
   
-  <h1 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white m-0 mb-3 leading-tight">
+  <h1 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white m-0 mb-2 leading-tight">
     Heavstal Tech Documentation
   </h1>
   
@@ -31,10 +31,10 @@ import docsLogo from '../../assets/ht_iconDocs.svg';
   <div class="flex">
     <a 
       href="/apis/introduction/" 
-      class="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#1a73e8] hover:bg-[#1557b0] !text-white rounded-full font-bold text-base shadow-sm transition-all hover:-translate-y-0.5 no-underline"
+      class="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 bg-[#1a73e8] hover:bg-[#1557b0] !text-white rounded-full font-bold text-base shadow-sm transition-all hover:-translate-y-0.5 no-underline"
     >
       <span>Get Started</span>
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      <span class="text-xl leading-none">&rarr;</span>
     </a>
   </div>
 
@@ -45,36 +45,36 @@ import docsLogo from '../../assets/ht_iconDocs.svg';
 
 <CardGrid stagger>
   <FeatureCard title="Heavstal APIs" href="/apis/introduction/" ctaText="View API Docs">
-    <div slot="icon" className="w-20 h-20 bg-[#FFD43B] rounded-xl flex items-center justify-center shadow-sm">
-      <TbApi color="#000" size={48} />
+    <div slot="icon" className="w-14 h-14 bg-[#FFD43B] rounded-xl flex items-center justify-center shadow-sm">
+      <TbApi color="#000" size={32} />
     </div>
     High-performance REST endpoints for AI, Media Downloaders, Movies, News, Crypto and more.
   </FeatureCard>
   
   <FeatureCard title="Heavstal OAuth2 & OIDC" href="/oauth/oauth-guide/" ctaText="View OAuth Guide">
-    <div slot="icon" className="w-20 h-20 bg-[var(--sl-color-black)] border border-[var(--sl-color-gray-5)] rounded-xl shadow-sm flex items-center justify-center">
-      <img src="/ht_iconAccounts.svg" alt="Heavstal Accounts" class="w-10 h-10" />
+    <div slot="icon" className="w-14 h-14 flex items-center justify-center">
+      <img src="/ht_iconAccounts.svg" alt="Heavstal Accounts" class="w-12 h-12 drop-shadow-sm" />
     </div>
     See how to Integrate "Sign in with Heavstal Tech" into your applications using standard OAuth2 & OpenID Connect.
   </FeatureCard>
   
   <FeatureCard title="Packages" href="/modules/" ctaText="View Npm Libraries">
-    <div slot="icon" className="w-20 h-20 bg-[var(--sl-color-black)] border border-[var(--sl-color-gray-5)] text-[var(--sl-color-text-accent)] rounded-xl shadow-sm flex items-center justify-center">
-      <Puzzle size={40} strokeWidth={1.5} />
+    <div slot="icon" className="w-14 h-14 bg-[var(--sl-color-black)] border border-[var(--sl-color-gray-5)] text-[var(--sl-color-text-accent)] rounded-xl shadow-sm flex items-center justify-center">
+      <Puzzle size={28} strokeWidth={1.5} />
     </div>
     Enterprise-grade packages including `@heavstal/api`, `HT-Baileys`, and `@heavstal/auth`.
   </FeatureCard>
   
   <FeatureCard title="Heavstal Bots" href="/bots/" ctaText="View Available Bots">
-    <div slot="icon" className="w-20 h-20 bg-[var(--sl-color-black)] border border-[var(--sl-color-gray-5)] text-[var(--sl-color-text-accent)] rounded-xl shadow-sm flex items-center justify-center">
-      <Bot size={40} strokeWidth={1.5} />
+    <div slot="icon" className="w-14 h-14 bg-[var(--sl-color-black)] border border-[var(--sl-color-gray-5)] text-[var(--sl-color-text-accent)] rounded-xl shadow-sm flex items-center justify-center">
+      <Bot size={28} strokeWidth={1.5} />
     </div>
     Docs for our WhatsApp and Telegram automation bots.
   </FeatureCard>
 
   <FeatureCard title="Explore the Ecosystem" href="/overview/" ctaText="View Overview">
-    <div slot="icon" className="w-20 h-20 bg-[var(--sl-color-black)] border border-[var(--sl-color-gray-5)] text-[var(--sl-color-text-accent)] rounded-xl shadow-sm flex items-center justify-center">
-      <BookOpen size={40} strokeWidth={1.5} />
+    <div slot="icon" className="w-14 h-14 bg-[var(--sl-color-black)] border border-[var(--sl-color-gray-5)] text-[var(--sl-color-text-accent)] rounded-xl shadow-sm flex items-center justify-center">
+      <BookOpen size={28} strokeWidth={1.5} />
     </div>
     Learn how to navigate our platforms, create API keys, and manage applications.
   </FeatureCard>
