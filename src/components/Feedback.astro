@@ -4,13 +4,13 @@ import Default from '@astrojs/starlight/components/Pagination.astro';
 import FeedbackWidget from './FeedbackWidget';
 
 const { entry } = Astro.props;
-const isSplash = entry?.data?.template === 'splash';
+const hidePagination = entry.data.hidePagination;
 ---
 
-{!isSplash && (
+{!hidePagination && (
   <>
     <FeedbackWidget client:idle />
     <div class="h-2"></div>
+    <Default {...Astro.props} />
   </>
 )}
-<Default {...Astro.props} />
