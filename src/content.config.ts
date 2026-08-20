@@ -1,5 +1,5 @@
 // Docs/src/content.config.ts
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
 import { docsSchema } from '@astrojs/starlight/schema';
 import { glob } from 'astro/loaders';
 import { z } from 'astro:schema';
