@@ -2,19 +2,44 @@
 title: Heavstal Tech Documentation
 description: Official documentation for Heavstal Tech APIs, OAuth2, Modules, and Bots.
 template: splash
-hero:
-  tagline: Building Tomorrow's Web, Today - Explore the Heavstal Tech ecosystem.
-  actions:
-    - text: Get Started
-      link: /apis/introduction/
-      icon: right-arrow
-      variant: primary
 ---
 
 import { CardGrid, Icon } from '@astrojs/starlight/components';
 import FeatureCard from '../../components/FeatureCard.astro';
 import { TbApi } from "react-icons/tb";
-import { Shield, Bot, Puzzle, BookOpen } from "lucide-react";
+import { Bot, Puzzle, BookOpen } from "lucide-react";
+import docsLogo from '../../assets/ht_iconDocs.svg';
+
+<div class="flex flex-col items-center justify-center text-center mt-8 mb-24 font-sans">
+  
+  <img 
+    src={docsLogo.src} 
+    alt="Heavstal Docs" 
+    width="120" 
+    height="120" 
+    class="mb-6 drop-shadow-md" 
+  />
+  
+  <h1 class="text-4xl md:text-[4rem] font-black tracking-tight text-gray-900 dark:text-white m-0 pb-4 leading-tight">
+    Heavstal Tech Documentation
+  </h1>
+  
+  <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl m-0 pb-8 font-medium">
+    Building Tomorrow's Web, Today - Explore the Heavstal Tech ecosystem.
+  </p>
+  
+  <div class="flex">
+    <a 
+      href="/apis/introduction/" 
+      class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#1a73e8] hover:bg-[#1557b0] !text-white rounded-full font-bold text-base shadow-sm transition-all hover:-translate-y-0.5 no-underline"
+    >
+      Get Started
+      <Icon name="right-arrow" size="1.2rem" />
+    </a>
+  </div>
+
+</div>
+
 
 ## Heavstal Docs <Icon name="open-book" class="inline-block translate-y-1" />
 
@@ -27,11 +52,11 @@ import { Shield, Bot, Puzzle, BookOpen } from "lucide-react";
     <br/><br/>[**View API Docs →**](/apis/introduction/)
   </FeatureCard>
   
-  <FeatureCard title="Heavstal Accounts (OAuth2)">
-    <div slot="icon" className="bg-[var(--sl-color-bg-nav)] border border-[var(--sl-color-gray-5)] text-[var(--sl-color-text-accent)] rounded-md p-1.5 shadow-sm">
-      <Shield size={20} />
+  <FeatureCard title="Heavstal OAuth2 & OIDC">
+    <div slot="icon" className="bg-[var(--sl-color-bg-nav)] border border-[var(--sl-color-gray-5)] rounded-md p-1.5 shadow-sm flex items-center justify-center">
+      <img src="/ht_iconAccounts.svg" alt="Heavstal Accounts" class="w-5 h-5" />
     </div>
-    Integrate "Sign in with Heavstal Tech" into your applications using standard OAuth2 & OpenID Connect.
+    See how to Integrate "Sign in with Heavstal Tech" into your applications using standard OAuth2 & OpenID Connect.
     <br/><br/>[**View OAuth Guide →**](/oauth/oauth-guide/)
   </FeatureCard>
   
@@ -47,7 +72,7 @@ import { Shield, Bot, Puzzle, BookOpen } from "lucide-react";
     <div slot="icon" className="bg-[var(--sl-color-bg-nav)] border border-[var(--sl-color-gray-5)] text-[var(--sl-color-text-accent)] rounded-md p-1.5 shadow-sm">
       <Bot size={20} />
     </div>
-    Docs for our automation bots.
+    Docs about Heavstal automation bots.
     <br/><br/>[**View Available Bots→**](/bots/)
   </FeatureCard>
 
