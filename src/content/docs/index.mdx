@@ -9,38 +9,53 @@ hero:
       link: /apis/introduction/
       icon: right-arrow
       variant: primary
-    - text: View on GitHub
-      link: https://github.com/HeavstalTech
-      icon: external
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { CardGrid, Icon } from '@astrojs/starlight/components';
+import FeatureCard from '../../components/FeatureCard.astro';
+import { TbApi } from "react-icons/tb";
+import { Shield, Bot, Puzzle, BookOpen } from "lucide-react";
 
-## The Heavstal Ecosystem
+## Heavstal Docs <Icon name="open-book" class="inline-block translate-y-1" />
 
 <CardGrid stagger>
-  <Card title="Heavstal APIs" icon="rocket">
-    High-performance REST endpoints for AI, Media Downloaders, Cryptography, and more.
+  <FeatureCard title="Heavstal APIs">
+    <div slot="icon" className="bg-[#FFD43B] rounded-md p-1 flex items-center justify-center shadow-sm">
+      <TbApi color="#000" size={24} title="APIs" />
+    </div>
+    High-performance REST endpoints for AI, Media Downloaders, Movies, News, Crypto and more.
     <br/><br/>[**View API Docs →**](/apis/introduction/)
-  </Card>
+  </FeatureCard>
   
-  <Card title="Heavstal Accounts (OAuth2)" icon="shield">
-    Integrate "Sign in with Heavstal Tech" into your applications using standard OpenID Connect.
+  <FeatureCard title="Heavstal Accounts (OAuth2)">
+    <div slot="icon" className="bg-[var(--sl-color-bg-nav)] border border-[var(--sl-color-gray-5)] text-[var(--sl-color-text-accent)] rounded-md p-1.5 shadow-sm">
+      <Shield size={20} />
+    </div>
+    Integrate "Sign in with Heavstal Tech" into your applications using standard OAuth2 & OpenID Connect.
     <br/><br/>[**View OAuth Guide →**](/oauth/oauth-guide/)
-  </Card>
+  </FeatureCard>
   
-  <Card title="NPM Modules" icon="puzzle">
-    Enterprise-grade packages including `@heavstaltech/api`, `HT-Baileys`, and `heavstal-auth`.
+  <FeatureCard title="Packages">
+    <div slot="icon" className="bg-[var(--sl-color-bg-nav)] border border-[var(--sl-color-gray-5)] text-[var(--sl-color-text-accent)] rounded-md p-1.5 shadow-sm">
+      <Puzzle size={20} />
+    </div>
+    Enterprise-grade packages including `@heavstal/api`, `HT-Baileys`, and `@heavstal/auth`.
     <br/><br/>[**View Npm Libraries →**](/modules/)
-  </Card>
+  </FeatureCard>
   
-  <Card title="Heavstal Bots" icon="seti:robot">
-    Documentation for Verselor-V1, our advanced WhatsApp and Telegram automation agents.
+  <FeatureCard title="Heavstal Bots">
+    <div slot="icon" className="bg-[var(--sl-color-bg-nav)] border border-[var(--sl-color-gray-5)] text-[var(--sl-color-text-accent)] rounded-md p-1.5 shadow-sm">
+      <Bot size={20} />
+    </div>
+    Docs for our automation bots.
     <br/><br/>[**View Available Bots→**](/bots/)
-  </Card>
+  </FeatureCard>
 
-<Card title="Explore the Ecosystem" icon="open-book">
-    Learn how to navigate our platforms, create API keys, and make OAuth apps.
+  <FeatureCard title="Explore the Ecosystem">
+    <div slot="icon" className="bg-[var(--sl-color-bg-nav)] border border-[var(--sl-color-gray-5)] text-[var(--sl-color-text-accent)] rounded-md p-1.5 shadow-sm">
+      <BookOpen size={20} />
+    </div>
+    Learn how to navigate our platforms.
     <br/><br/>[**View Overview →**](/overview/)
-  </Card>
+  </FeatureCard>
 </CardGrid>
