@@ -51,7 +51,7 @@ export default defineConfig({
           autogenerate: { directory: 'oauth' },
         },
         {
-          label: 'NPM Libraries (Modules)',
+          label: 'Packages',
           collapsed: true,
           autogenerate: { directory: 'modules' },
         },
