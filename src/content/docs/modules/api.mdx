@@ -4,6 +4,7 @@ description: "A powerful, zero-dependency multi-purpose SDK client for interacti
 ---
 
 import { Tabs, TabItem, Steps, Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import { PackageManagers } from 'starlight-package-managers';
 
 
 <div class="api-badges">
@@ -25,23 +26,7 @@ The legacy `@heavstaltech/api` package is now deprecated. Please update your dep
 
 Install the Heavstal API SDK using your preferred package manager:
 
-<Tabs syncKey="code-language">
-  <TabItem label="npm">
-  ```bash
-  npm install @heavstal/api
-  ```
-  </TabItem>
-  <TabItem label="yarn">
-  ```bash
-  yarn add @heavstal/api
-  ```
-  </TabItem>
-  <TabItem label="pnpm">
-  ```bash
-  pnpm add @heavstal/api
-  ```
-  </TabItem>
-</Tabs>
+<PackageManagers pkg="@heavstal/api" />
 
 ---
 

@@ -8,6 +8,7 @@ sidebar:
 ---
 
 import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
+import { PackageManagers } from 'starlight-package-managers';
 
 ## What is Heavstal Authentication
 
@@ -68,23 +69,7 @@ Use the official provider to pre-configure authorization endpoints, token exchan
 
 **Installation:**
 
-<Tabs syncKey="code-language">
-  <TabItem label="npm">
-  ```bash
-  npm install @heavstal/auth next-auth
-  ```
-  </TabItem>
-  <TabItem label="yarn">
-  ```bash
-  yarn add @heavstal/auth next-auth
-  ```
-  </TabItem>
-  <TabItem label="pnpm">
-  ```bash
-  pnpm add @heavstal/auth next-auth
-  ```
-  </TabItem>
-</Tabs>
+<PackageManagers pkg="@heavstal/auth next-auth" />
 
 **Configuration (`auth.ts` or `app/api/auth/[...nextauth]/route.ts`)**
 
