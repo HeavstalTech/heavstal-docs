@@ -1,0 +1,63 @@
+---
+/**
+ * @file BotCard.astro
+ * @description Static card component for displaying automation bots.
+ * 
+ * @param {string} title - The display name of the bot.
+ * @param {string} description - A brief description of the bot.
+ * @param {string} guideLink - The URL path to the bot's documentation guide.
+ * @param {string} sourceLink - The URL to the bot's external source code repository.
+ * @param {string} logoSrc - The path to the bot's logo in the public folder.
+ */
+
+interface Props {
+  title: string;
+  description: string;
+  guideLink: string;
+  sourceLink: string;
+  logoSrc: string;
+}
+
+const { title, description, guideLink, sourceLink, logoSrc } = Astro.props;
+---
+
+<div class="flex flex-col bg-white dark:bg-[#111113] border border-gray-200 dark:border-gray-800 rounded-[1.5rem] md:rounded-[2rem] p-6 shadow-sm hover:shadow-md transition-shadow h-full">
+  
+  <div class="flex items-center justify-center w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-[1.25rem] md:rounded-[1.5rem] overflow-hidden shrink-0 bg-gray-50 dark:bg-[#1a1a1c]">
+    <img src={logoSrc} alt={`${title} Logo`} class="w-full h-full object-contain p-1.5 md:p-2" />
+  </div>
+
+  <div class="h-6 md:h-8 w-full shrink-0"></div>
+
+  <div class="flex flex-col">
+    <h3 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white m-0 leading-none tracking-tight">{title}</h3>
+  </div>
+
+  <div class="h-6 md:h-8 w-full shrink-0"></div>
+
+  <p class="text-gray-600 dark:text-gray-400 text-[13px] md:text-sm flex-grow leading-relaxed m-0">
+    {description}
+  </p>
+  
+  <div class="h-8 md:h-10 w-full shrink-0"></div>
+
+  <div class="w-full mt-auto">
+    <div class="flex justify-start items-center gap-6">
+      <a 
+        href={guideLink} 
+        class="no-underline px-5 md:px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-[13px] md:text-sm font-semibold rounded-full transition-colors"
+      >
+        Guide
+      </a>
+      
+      <a 
+        href={sourceLink} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="no-underline px-5 md:px-6 py-2.5 bg-gray-100 dark:bg-gray-800/80 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 text-[13px] md:text-sm font-semibold rounded-full transition-colors"
+      >
+        Source
+      </a>
+    </div>
+  </div>
+</div>
