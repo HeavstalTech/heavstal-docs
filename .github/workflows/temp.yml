@@ -1,0 +1,96 @@
+name: Update MDX Code Tabs
+
+on:
+  workflow_dispatch: # Allows you to run this manually from the Actions tab
+
+jobs:
+  update-tabs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required to commit the changes back to the repo
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Run Migration Script
+        run: |
+          cat << 'EOF' > update-tabs.js
+          const fs = require('fs');
+          const path = require('path');
+
+          function processFile(filePath) {
+            let content = fs.readFileSync(filePath, 'utf8');
+            let updated = false;
+
+            // 1. Add syncKey="code-language" to <Tabs> if it doesn't have it
+            if (content.includes('<Tabs>') && !content.includes('syncKey=')) {
+              content = content.replace(/<Tabs>/g, '<Tabs syncKey="code-language">');
+              updated = true;
+            }
+
+            // 2. Add icons to <TabItem>s
+            const newContent = content.replace(/<TabItem\s+label="([^"]+)"([^>]*)>/g, (match, label, rest) => {
+              // If an icon is already there, don't modify it
+              if (rest.includes('icon=')) return match;
+
+              let icon = '';
+              if (label === 'cURL') icon = 'seti:shell';
+              else if (label.includes('JavaScript')) icon = 'seti:javascript';
+              else if (label === 'Heavstal SDK') icon = 'heavstal'; // Your custom icon!
+              else if (label === 'Python') icon = 'seti:python';
+              
+              if (icon) {
+                return `<TabItem label="${label}" icon="${icon}"${rest}>`;
+              }
+              return match;
+            });
+
+            if (content !== newContent) {
+              content = newContent;
+              updated = true;
+            }
+
+            if (updated) {
+              fs.writeFileSync(filePath, content, 'utf8');
+              console.log(`✅ Updated: ${filePath}`);
+            }
+          }
+
+          function walkDir(dir) {
+            const files = fs.readdirSync(dir);
+            for (const file of files) {
+              const fullPath = path.join(dir, file);
+              if (fs.statSync(fullPath).isDirectory()) {
+                walkDir(fullPath);
+              } else if (fullPath.endsWith('.mdx')) {
+                processFile(fullPath);
+              }
+            }
+          }
+
+          console.log('🔍 Scanning MDX files for code tabs...');
+          walkDir('./Docs/src/content/docs');
+          console.log('🎉 Done scanning!');
+          EOF
+          
+          node update-tabs.js
+          rm update-tabs.js
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add Docs/src/content/docs/
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit. Everything is already up to date!"
+          else
+            git commit -m "chore: auto-inject Starlight icons and syncKeys to MDX tabs"
+            git push
+          fi
