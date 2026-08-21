@@ -10,7 +10,7 @@ sidebar:
 
 import PackageCard from '../../../components/PackageCard.astro';
 
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 not-content flex-wrap">
+<div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-5 md:gap-6 mt-8 not-content">
   <PackageCard
     title="@heavstal/api"
     description="The official SDK for the Heavstal API Ecosystem. Integrate conversational AI, web scraping, and media downloaders effortlessly into your applications."
