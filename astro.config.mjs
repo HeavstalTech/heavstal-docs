@@ -56,7 +56,7 @@ export default defineConfig({
           autogenerate: { directory: 'modules' },
         },
         {
-          label: 'Bots', 
+          label: 'Automation Bots', 
           collapsed: true,
           autogenerate: { directory: 'bots' },
         },
