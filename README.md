@@ -1,1 +1,3 @@
-# HEAVSTAL TECH ECOSYSTEM DOCUMENTARY
+# HEAVSTAL TECH DOCS
+
+Built with Astro, React, & Cloudflare
