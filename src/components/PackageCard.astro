@@ -26,12 +26,12 @@ interface Props {
 const { title, description, guideLink, sourceLink, type, npmPackage } = Astro.props;
 ---
 
-<div class="flex flex-col bg-white dark:bg-[#111113] border border-gray-200 dark:border-gray-800 rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow h-full">
- 
-  <div class="flex items-center justify-center w-[88px] h-[88px] md:w-[120px] md:h-[120px] rounded-2xl md:rounded-[1.5rem] overflow-hidden shrink-0 bg-gray-50 dark:bg-[#1a1a1c]">
+<div class="flex flex-col bg-white dark:bg-[#111113] border border-gray-200 dark:border-gray-800 rounded-[1.5rem] md:rounded-[2rem] p-6 shadow-sm hover:shadow-md transition-shadow h-full">
+  
+  <div class="flex items-center justify-center w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-[1.25rem] md:rounded-[1.5rem] overflow-hidden shrink-0 bg-gray-50 dark:bg-[#1a1a1c]">
     {type === 'api' && (
       <div class="w-full h-full bg-yellow-400 flex items-center justify-center">
-        <TbApi className="w-12 h-12 md:w-16 md:h-16 text-black" />
+        <TbApi className="w-12 h-12 md:w-14 md:h-14 text-black" />
       </div>
     )}
     {type === 'auth' && (
@@ -42,21 +42,26 @@ const { title, description, guideLink, sourceLink, type, npmPackage } = Astro.pr
     )}
   </div>
 
-  <div class="flex flex-col gap-2 mt-12 md:mt-14">
-    <h3 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white m-0 leading-none">{title}</h3>
+  <div class="h-6 md:h-8 w-full shrink-0"></div>
+
+  <div class="flex flex-col gap-2">
+    <h3 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white m-0 leading-none tracking-tight">{title}</h3>
     <NpmStats packageName={npmPackage} client:load />
   </div>
 
-  <p class="text-gray-600 dark:text-gray-400 text-[14px] md:text-sm flex-grow leading-relaxed m-0 mt-12 md:mt-14">
+  <div class="h-6 md:h-8 w-full shrink-0"></div>
+
+  <p class="text-gray-600 dark:text-gray-400 text-[13px] md:text-sm flex-grow leading-relaxed m-0">
     {description}
   </p>
   
-  {/* Adjusted top padding slightly (pt-10) to balance the new margins */}
-  <div class="w-full mt-auto pt-10 md:pt-12">
-    <div class="flex justify-start items-center gap-8">
+  <div class="h-8 md:h-10 w-full shrink-0"></div>
+
+  <div class="w-full mt-auto">
+    <div class="flex justify-start items-center gap-6">
       <a 
         href={guideLink} 
-        class="no-underline px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-[13px] md:text-sm font-semibold rounded-full transition-colors"
+        class="no-underline px-5 md:px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-[13px] md:text-sm font-semibold rounded-full transition-colors"
       >
         Guide
       </a>
@@ -65,7 +70,7 @@ const { title, description, guideLink, sourceLink, type, npmPackage } = Astro.pr
         href={sourceLink} 
         target="_blank" 
         rel="noopener noreferrer"
-        class="no-underline px-6 py-2.5 bg-gray-100 dark:bg-gray-800/80 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 text-[13px] md:text-sm font-semibold rounded-full transition-colors"
+        class="no-underline px-5 md:px-6 py-2.5 bg-gray-100 dark:bg-gray-800/80 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 text-[13px] md:text-sm font-semibold rounded-full transition-colors"
       >
         Source
       </a>
