@@ -15,10 +15,10 @@ const fullTxtUrl = new URL(txtPath, Astro.url.origin).href;
 ---
 
 {!hideTitle ? (
-  <div class="mb-6">
+  <>
     <Default {...Astro.props} />
-    
-    <div class="mt-4 flex justify-start sm:justify-end">
+
+    <div class="mt-4 mb-6 flex justify-start sm:justify-end">
       <MarkdownActions 
         client:idle 
         rawMarkdown={entry?.body || ''} 
@@ -26,7 +26,7 @@ const fullTxtUrl = new URL(txtPath, Astro.url.origin).href;
         txtUrl={fullTxtUrl}
       />
     </div>
-  </div>
+  </>
 ) : (
   <style is:global>
     .content-panel:first-of-type {
