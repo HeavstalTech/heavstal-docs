@@ -1,13 +1,13 @@
-name: Update MDX Code Tabs
+name: Migrate Package Managers
 
 on:
-  workflow_dispatch: # Allows you to run this manually from the Actions tab
+  workflow_dispatch: # Run manually from the Actions tab
 
 jobs:
-  update-tabs:
+  migrate-pkg-managers:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Required to commit the changes back to the repo
+      contents: write
 
     steps:
       - name: Checkout Code
@@ -20,7 +20,7 @@ jobs:
 
       - name: Run Migration Script
         run: |
-          cat << 'EOF' > update-tabs.mjs
+          cat << 'EOF' > migrate-pkgs.mjs
           import fs from 'fs';
           import path from 'path';
 
@@ -28,37 +28,30 @@ jobs:
             let content = fs.readFileSync(filePath, 'utf8');
             let updated = false;
 
-            // 1. Add syncKey="code-language" to <Tabs> if it doesn't have it
-            if (content.includes('<Tabs>') && !content.includes('syncKey=')) {
-              content = content.replace(/<Tabs>/g, '<Tabs syncKey="code-language">');
-              updated = true;
-            }
+            // Regex to find <Tabs> blocks that contain "npm install <package-names>"
+            const installRegex = /<Tabs[^>]*>[\s\S]*?<TabItem label="npm">[\s\S]*?npm install\s+([^`\n]+)[\s\S]*?<\/Tabs>/g;
+            
+            if (installRegex.test(content)) {
+              // 1. Replace the Tabs block with the <PackageManagers> component
+              content = content.replace(installRegex, (match, packages) => {
+                // packages will capture things like "@heavstal/auth next-auth" or "@heavstal/api"
+                return `<PackageManagers pkg="${packages.trim()}" />`;
+              });
 
-            // 2. Add icons to <TabItem>s
-            const newContent = content.replace(/<TabItem\s+label="([^"]+)"([^>]*)>/g, (match, label, rest) => {
-              // If an icon is already there, don't modify it
-              if (rest.includes('icon=')) return match;
-
-              let icon = '';
-              if (label === 'cURL') icon = 'seti:shell';
-              else if (label.includes('JavaScript')) icon = 'seti:javascript';
-              else if (label === 'Heavstal SDK') icon = 'heavstal'; // Your custom icon!
-              else if (label === 'Python') icon = 'seti:python';
-              
-              if (icon) {
-                return `<TabItem label="${label}" icon="${icon}"${rest}>`;
+              // 2. Inject the import statement right after the existing Starlight component imports
+              if (!content.includes("from 'starlight-package-managers'")) {
+                content = content.replace(
+                  /(import \{[^}]*Tabs[^}]*\}[^\n]+)/,
+                  `$1\nimport { PackageManagers } from 'starlight-package-managers';`
+                );
               }
-              return match;
-            });
-
-            if (content !== newContent) {
-              content = newContent;
+              
               updated = true;
             }
 
             if (updated) {
               fs.writeFileSync(filePath, content, 'utf8');
-              console.log(`✅ Updated: ${filePath}`);
+              console.log(`✅ Migrated installations in: ${filePath}`);
             }
           }
 
@@ -74,13 +67,13 @@ jobs:
             }
           }
 
-          console.log('🔍 Scanning MDX files for code tabs...');
+          console.log('🔍 Scanning MDX files for installation blocks...');
           walkDir('./src/content/docs');
           console.log('🎉 Done scanning!');
           EOF
           
-          node update-tabs.mjs
-          rm update-tabs.mjs
+          node migrate-pkgs.mjs
+          rm migrate-pkgs.mjs
 
       - name: Commit and Push Changes
         run: |
@@ -89,8 +82,8 @@ jobs:
           git add src/content/docs/
           
           if git diff --staged --quiet; then
-            echo "No changes to commit. Everything is already up to date!"
+            echo "No installation blocks needed migration."
           else
-            git commit -m "chore: auto-inject Starlight icons and syncKeys to MDX tabs"
+            git commit -m "chore: migrate installation tabs to starlight-package-managers"
             git push
           fi
