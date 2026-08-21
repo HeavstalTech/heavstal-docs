@@ -69,8 +69,8 @@ Pass the API key via the `x-api-key` header to authenticate your requests. If yo
 
 ### Making a Request
 
-<Tabs>
-  <TabItem label="cURL">
+<Tabs syncKey="code-language">
+  <TabItem label="cURL" icon="seti:shell">
   ```bash
   curl -X POST https://heavstal.com.ng/api/v1/ai \
   -H "Content-Type: application/json" \
@@ -78,7 +78,7 @@ Pass the API key via the `x-api-key` header to authenticate your requests. If yo
   -d '{"prompt": "Hello"}'
   ```
   </TabItem>
-  <TabItem label="JavaScript">
+  <TabItem label="JavaScript" icon="seti:javascript">
   ```javascript
   const response = await fetch('https://heavstal.com.ng/api/v1/ai', {
     method: 'POST',
@@ -96,7 +96,7 @@ Pass the API key via the `x-api-key` header to authenticate your requests. If yo
   console.log(res.data);
   ```
   </TabItem>
-  <TabItem label="Python">
+  <TabItem label="Python" icon="seti:python">
   ```python
   import requests
   

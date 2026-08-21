@@ -22,8 +22,8 @@ The following parameters are accepted in the request body:
 
 ## Request Examples
 
-<Tabs>
-  <TabItem label="cURL">
+<Tabs syncKey="code-language">
+  <TabItem label="cURL" icon="seti:shell">
   ```bash
   curl -X POST https://heavstal.com.ng/api/v1/weather \
   -H "Content-Type: application/json" \
@@ -31,7 +31,7 @@ The following parameters are accepted in the request body:
   -d '{"city": "Lekki"}'
   ```
   </TabItem>
-  <TabItem label="JavaScript (Fetch)">
+  <TabItem label="JavaScript (Fetch)" icon="seti:javascript">
   ```javascript
   const response = await fetch('https://heavstal.com.ng/api/v1/weather', {
     method: 'POST',
@@ -46,7 +46,7 @@ The following parameters are accepted in the request body:
   console.log(`Temp: ${res.data.temp_c}°C | Condition: ${res.data.condition}`);
   ```
   </TabItem>
-  <TabItem label="Heavstal SDK">
+  <TabItem label="Heavstal SDK" icon="heavstal">
   ```javascript
   import { search } from '@heavstal/api';
 
@@ -54,7 +54,7 @@ The following parameters are accepted in the request body:
   console.log(`Temp: ${weather.data.temp_c}°C | Condition: ${weather.data.condition}`);
   ```
   </TabItem>
-  <TabItem label="Python">
+  <TabItem label="Python" icon="seti:python">
   ```python
   import requests
 
@@ -75,7 +75,7 @@ The following parameters are accepted in the request body:
 
 ## Response Examples
 
-<Tabs>
+<Tabs syncKey="code-language">
   <TabItem label="Success Response">
   ```json
   {

@@ -27,8 +27,8 @@ The following parameters are accepted in the request body:
 
 Choose your preferred method to interact with the Unzip API:
 
-<Tabs>
-  <TabItem label="cURL">
+<Tabs syncKey="code-language">
+  <TabItem label="cURL" icon="seti:shell">
   ```bash
   curl -X POST https://heavstal.com.ng/api/v1/unzip \
   -H "Content-Type: application/json" \
@@ -36,7 +36,7 @@ Choose your preferred method to interact with the Unzip API:
   -d '{"url": "https://github.com/HeavstalTech/api/archive/refs/heads/main.zip", "includeBinary": false}'
   ```
   </TabItem>
-  <TabItem label="JavaScript (Fetch)">
+  <TabItem label="JavaScript (Fetch)" icon="seti:javascript">
   ```javascript
   const response = await fetch('https://heavstal.com.ng/api/v1/unzip', {
     method: 'POST',
@@ -54,7 +54,7 @@ Choose your preferred method to interact with the Unzip API:
   console.log(res.data);
   ```
   </TabItem>
-  <TabItem label="Heavstal SDK">
+  <TabItem label="Heavstal SDK" icon="heavstal">
   ```javascript
   import { tools } from '@heavstal/api';
   import fs from 'fs';
@@ -68,7 +68,7 @@ Choose your preferred method to interact with the Unzip API:
   fs.writeFileSync(codebase.filename, codebase.buffer);
   ```
   </TabItem>
-  <TabItem label="Python">
+  <TabItem label="Python" icon="seti:python">
   ```python
   import requests
 
@@ -90,7 +90,7 @@ Choose your preferred method to interact with the Unzip API:
 
 ## Response Examples
 
-<Tabs>
+<Tabs syncKey="code-language">
   <TabItem label="Success Response">
   ```json
   {

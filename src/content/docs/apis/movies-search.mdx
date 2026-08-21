@@ -32,8 +32,8 @@ The following parameters are accepted in the request body:
 
 ## Request Examples
 
-<Tabs>
-  <TabItem label="cURL">
+<Tabs syncKey="code-language">
+  <TabItem label="cURL" icon="seti:shell">
   ```bash
   curl -X POST https://heavstal.com.ng/api/v1/movies/search \
   -H "Content-Type: application/json" \
@@ -41,7 +41,7 @@ The following parameters are accepted in the request body:
   -d '{"query": "Inception", "limit": 1}'
   ```
   </TabItem>
-  <TabItem label="JavaScript (Fetch)">
+  <TabItem label="JavaScript (Fetch)" icon="seti:javascript">
   ```javascript
   const response = await fetch('https://heavstal.com.ng/api/v1/movies/search', {
     method: 'POST',
@@ -59,7 +59,7 @@ The following parameters are accepted in the request body:
   console.log(res.data.movies);
   ```
   </TabItem>
-  <TabItem label="Heavstal SDK">
+  <TabItem label="Heavstal SDK" icon="heavstal">
   ```javascript
   import { movies } from '@heavstal/api';
 
@@ -72,7 +72,7 @@ The following parameters are accepted in the request body:
   console.log(`Found ${results.count} results!`);
   ```
   </TabItem>
-  <TabItem label="Python">
+  <TabItem label="Python" icon="seti:python">
   ```python
   import requests
 
@@ -94,7 +94,7 @@ The following parameters are accepted in the request body:
 
 ## Response Examples
 
-<Tabs>
+<Tabs syncKey="code-language">
   <TabItem label="Success Response">
   ```json
   {

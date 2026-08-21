@@ -28,8 +28,8 @@ The following parameters are accepted in the request body:
 
 ## Request Examples
 
-<Tabs>
-  <TabItem label="cURL">
+<Tabs syncKey="code-language">
+  <TabItem label="cURL" icon="seti:shell">
   ```bash
   curl -X POST https://heavstal.com.ng/api/v1/calc \
   -H "Content-Type: application/json" \
@@ -37,7 +37,7 @@ The following parameters are accepted in the request body:
   -d '{"expr": "sqrt(16) + 5^2"}'
   ```
   </TabItem>
-  <TabItem label="JavaScript (Fetch)">
+  <TabItem label="JavaScript (Fetch)" icon="seti:javascript">
   ```javascript
   const response = await fetch('https://heavstal.com.ng/api/v1/calc', {
     method: 'POST',
@@ -52,7 +52,7 @@ The following parameters are accepted in the request body:
   console.log(res.data.result);
   ```
   </TabItem>
-  <TabItem label="Heavstal SDK">
+  <TabItem label="Heavstal SDK" icon="heavstal">
   ```javascript
   import { tools } from '@heavstal/api';
 
@@ -60,7 +60,7 @@ The following parameters are accepted in the request body:
   console.log(`Result: ${math.data.result}`); // Outputs "29"
   ```
   </TabItem>
-  <TabItem label="Python">
+  <TabItem label="Python" icon="seti:python">
   ```python
   import requests
 
@@ -81,7 +81,7 @@ The following parameters are accepted in the request body:
 
 ## Response Examples
 
-<Tabs>
+<Tabs syncKey="code-language">
   <TabItem label="Success Response">
   ```json
   {

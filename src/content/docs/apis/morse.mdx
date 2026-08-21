@@ -23,8 +23,8 @@ The following parameters are accepted in the request body:
 
 ## Request Examples
 
-<Tabs>
-  <TabItem label="cURL">
+<Tabs syncKey="code-language">
+  <TabItem label="cURL" icon="seti:shell">
   ```bash
   # Encoding to Morse
   curl -X POST https://heavstal.com.ng/api/v1/morse \
@@ -33,7 +33,7 @@ The following parameters are accepted in the request body:
   -d '{"text": "HELLO WORLD", "mode": "encode"}'
   ```
   </TabItem>
-  <TabItem label="JavaScript (Fetch)">
+  <TabItem label="JavaScript (Fetch)" icon="seti:javascript">
   ```javascript
   const response = await fetch('https://heavstal.com.ng/api/v1/morse', {
     method: 'POST',
@@ -51,7 +51,7 @@ The following parameters are accepted in the request body:
   console.log(res.data.output);
   ```
   </TabItem>
-  <TabItem label="Heavstal SDK">
+  <TabItem label="Heavstal SDK" icon="heavstal">
   ```javascript
   import { tools } from '@heavstal/api';
 
@@ -64,7 +64,7 @@ The following parameters are accepted in the request body:
   console.log(decoded.data.output); // Output: SOS
   ```
   </TabItem>
-  <TabItem label="Python">
+  <TabItem label="Python" icon="seti:python">
   ```python
   import requests
 
@@ -86,7 +86,7 @@ The following parameters are accepted in the request body:
 
 ## Response Examples
 
-<Tabs>
+<Tabs syncKey="code-language">
   <TabItem label="Success Response">
   ```json
   {

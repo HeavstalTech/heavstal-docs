@@ -23,8 +23,8 @@ This endpoint does not require any JSON body parameters.
 
 ## Request Examples
 
-<Tabs>
-  <TabItem label="cURL">
+<Tabs syncKey="code-language">
+  <TabItem label="cURL" icon="seti:shell">
   ```bash
   curl -X POST https://heavstal.com.ng/api/v1/funfact \
   -H "Content-Type: application/json" \
@@ -32,7 +32,7 @@ This endpoint does not require any JSON body parameters.
   -d '{}'
   ```
   </TabItem>
-  <TabItem label="JavaScript (Fetch)">
+  <TabItem label="JavaScript (Fetch)" icon="seti:javascript">
   ```javascript
   const response = await fetch('https://heavstal.com.ng/api/v1/funfact', {
     method: 'POST',
@@ -47,7 +47,7 @@ This endpoint does not require any JSON body parameters.
   console.log(res.data.fact);
   ```
   </TabItem>
-  <TabItem label="Heavstal SDK">
+  <TabItem label="Heavstal SDK" icon="heavstal">
   ```javascript
   import { tools } from '@heavstal/api';
 
@@ -55,7 +55,7 @@ This endpoint does not require any JSON body parameters.
   console.log(fact.data.fact);
   ```
   </TabItem>
-  <TabItem label="Python">
+  <TabItem label="Python" icon="seti:python">
   ```python
   import requests
 
@@ -73,7 +73,7 @@ This endpoint does not require any JSON body parameters.
 
 ## Response Examples
 
-<Tabs>
+<Tabs syncKey="code-language">
   <TabItem label="Success Response">
   ```json
   {

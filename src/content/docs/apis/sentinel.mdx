@@ -26,8 +26,8 @@ The following parameters are accepted in the request body:
 
 ## Request Examples
 
-<Tabs>
-  <TabItem label="cURL">
+<Tabs syncKey="code-language">
+  <TabItem label="cURL" icon="seti:shell">
   ```bash
   curl -X POST https://heavstal.com.ng/api/v1/sentinel \
   -H "Content-Type: application/json" \
@@ -35,7 +35,7 @@ The following parameters are accepted in the request body:
   -d '{"text": "This is the text I want to scan for AI patterns."}'
   ```
   </TabItem>
-  <TabItem label="JavaScript (Fetch)">
+  <TabItem label="JavaScript (Fetch)" icon="seti:javascript">
   ```javascript
   const response = await fetch('https://heavstal.com.ng/api/v1/sentinel', {
     method: 'POST',
@@ -52,7 +52,7 @@ The following parameters are accepted in the request body:
   console.log(`Verdict: ${res.data.verdict}`);
   ```
   </TabItem>
-  <TabItem label="Heavstal SDK">
+  <TabItem label="Heavstal SDK" icon="heavstal">
   ```javascript
   import { ai } from '@heavstal/api';
 
@@ -60,7 +60,7 @@ The following parameters are accepted in the request body:
   console.log(`Score: ${scan.score}% | Verdict: ${scan.verdict}`);
   ```
   </TabItem>
-  <TabItem label="Python">
+  <TabItem label="Python" icon="seti:python">
   ```python
   import requests
 
@@ -81,7 +81,7 @@ The following parameters are accepted in the request body:
 
 ## Response Examples
 
-<Tabs>
+<Tabs syncKey="code-language">
   <TabItem label="Success Response">
   ```json
   {

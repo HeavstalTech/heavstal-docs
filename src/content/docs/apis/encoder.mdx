@@ -31,8 +31,8 @@ The following parameters are accepted in the request body:
 
 Choose your preferred method to interact with the Encoder API:
 
-<Tabs>
-  <TabItem label="cURL">
+<Tabs syncKey="code-language">
+  <TabItem label="cURL" icon="seti:shell">
   ```bash
   curl -X POST https://heavstal.com.ng/api/v1/encoder \
   -H "Content-Type: application/json" \
@@ -40,7 +40,7 @@ Choose your preferred method to interact with the Encoder API:
   -d '{"text": "Heavstal Tech", "mode": "encode", "type": "base64"}'
   ```
   </TabItem>
-  <TabItem label="JavaScript (Fetch)">
+  <TabItem label="JavaScript (Fetch)" icon="seti:javascript">
   ```javascript
   const response = await fetch('https://heavstal.com.ng/api/v1/encoder', {
     method: 'POST',
@@ -58,7 +58,7 @@ Choose your preferred method to interact with the Encoder API:
   console.log(res.data.output);
   ```
   </TabItem>
-  <TabItem label="Heavstal SDK">
+  <TabItem label="Heavstal SDK" icon="heavstal">
   ```javascript
   import { tools } from '@heavstal/api';
 
@@ -70,7 +70,7 @@ Choose your preferred method to interact with the Encoder API:
   console.log(decodedFile.data.output); // Returns a URL if it's an image/file
   ```
   </TabItem>
-  <TabItem label="Python">
+  <TabItem label="Python" icon="seti:python">
   ```python
   import requests
 
@@ -93,7 +93,7 @@ Choose your preferred method to interact with the Encoder API:
 
 ## Response Examples
 
-<Tabs>
+<Tabs syncKey="code-language">
   <TabItem label="Success Response (Text)">
   ```json
   {
