@@ -13,7 +13,7 @@ export default defineConfig({
     react(),
     starlight({
       title: 'Heavstal Docs',
-      description: 'Official documentation for the Heavstal Tech Ecosystem.',
+      description: 'Documentation for the Heavstal Tech.',
       favicon: '/favicon.svg',
       logo: {
         src: './src/assets/ht_iconDocs.svg', 
@@ -41,12 +41,12 @@ export default defineConfig({
           link: '/',
         },
         {
-          label: 'Heavstal APIs',
+          label: 'REST APIs',
           collapsed: true,
           autogenerate: { directory: 'apis' },
         },
         {
-          label: 'Heavstal Auth Provider',
+          label: 'Auth Provider',
           collapsed: true,
           autogenerate: { directory: 'oauth' },
         },
@@ -56,12 +56,12 @@ export default defineConfig({
           autogenerate: { directory: 'modules' },
         },
         {
-          label: 'Heavstal Bots (Wa/Tg)', 
+          label: 'Bots', 
           collapsed: true,
           autogenerate: { directory: 'bots' },
         },
         {
-          label: 'Heavstal Tech Ecosystem Documentary',
+          label: 'Ecosystem Guides',
           collapsed: true,
           items:[
             {
