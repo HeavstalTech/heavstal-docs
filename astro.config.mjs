@@ -22,6 +22,7 @@ export default defineConfig({
         Pagination: './src/components/Feedback.astro',
         PageTitle: './src/components/PageTitleOverride.astro',
         PageFrame: './src/components/PageFrameOverride.astro',
+        Icon: './src/components/IconOverride.astro',
       },
       head:[
         { tag: 'link', attrs: { rel: 'apple-touch-icon', href: '/favicon.ico' } },
