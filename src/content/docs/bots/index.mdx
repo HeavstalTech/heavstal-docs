@@ -1,17 +1,23 @@
 ---
-title: Heavstal Bots
-description: Explore our advanced WhatsApp and Telegram automation agents.
+title: Automation Bots
+description: Explore our curated list of automation agents on WhatsApp & Telegram for your everyday tasks.
 sidebar:
   label: Overview
+  badge:
+    text: NEW
+    variant: success
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import BotCard from '../../../components/BotCard.astro';
 
-Welcome to the Heavstal Tech bot ecosystem. Discover our high-performance automation agents for WhatsApp and Telegram.
+Explore the curated list of our third-party automation bots to suit your everyday tasks.
 
-<CardGrid>
-  <Card title="Verselor-V1" icon="seti:robot">
-    A high-performance and feature-rich WhatsApp assistant by Heavstal Tech.
-    <br/><br/>[**Read Docs →**](/bots/verselor/)
-  </Card>
-</CardGrid>
+<div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-5 md:gap-6 mt-8 not-content">
+  <BotCard
+    title="Verselor-V1"
+    description="A high-performance and feature-rich WhatsApp assistant to handle your daily automation tasks."
+    guideLink="/bots/verselor/"
+    sourceLink="https://github.com/HeavstalTech/Verselor-V1"
+    logoSrc="/verselor.svg"
+  />
+</div>
