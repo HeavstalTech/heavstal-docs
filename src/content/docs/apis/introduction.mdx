@@ -96,6 +96,18 @@ Pass the API key via the `x-api-key` header to authenticate your requests. If yo
   console.log(res.data);
   ```
   </TabItem>
+  <TabItem label="Heavstal SDK" icon="heavstal">
+  ```javascript
+  import { ai } from '@heavstal/api';
+
+  const chat = await ai.chat(
+    "Explain quantum physics like I'm 5", 
+    "A 21th century Physicists with 5 PhDs"
+  );
+  
+  console.log(chat.response);
+  ```
+  </TabItem>
   <TabItem label="Python" icon="seti:python">
   ```python
   import requests
