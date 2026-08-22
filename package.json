@@ -1,6 +1,6 @@
 {
   "name": "heavstal-docs",
-  "description": "Heavstal Tech Ecosystem Documentary",
+  "description": "Heavstal Tech Documentation",
   "engines": {
     "node": ">=22"
   },
@@ -26,6 +26,7 @@
     "@tailwindcss/postcss": "^4.3.3",
     "@marsidev/react-turnstile": "^1.5.3",
     "starlight-package-managers": "^0.12.0",
+    "marked": "18.0.2",
     "react": "^19.2.8",
     "react-hot-toast": "^2.6.0",
     "react-icons": "^5.7.0",
