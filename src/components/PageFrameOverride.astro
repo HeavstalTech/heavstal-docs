@@ -2,6 +2,20 @@
 // src/components/PageFrameOverride.astro
 import Default from '@astrojs/starlight/components/PageFrame.astro';
 import ScrollToTop from './ScrollToTop.astro';
+
+import { 
+  SiJavascript, 
+  SiPython, 
+  SiNpm, 
+  SiYarn, 
+  SiPnpm, 
+  SiGnubash 
+} from 'react-icons/si';
+
+const iconProps = { 
+  size: "1.3em", 
+  style: { display: 'inline-block', marginRight: '0.4em', verticalAlign: 'text-bottom' } 
+};
 ---
 
 <Default {...Astro.props}>
@@ -11,3 +25,45 @@ import ScrollToTop from './ScrollToTop.astro';
 </Default>
 
 <ScrollToTop />
+
+<div id="custom-tab-icons" style="display: none;" aria-hidden="true">
+  <div data-label="JavaScript (Fetch)"><SiJavascript color="#F7DF1E" {...iconProps} /></div>
+  <div data-label="Python"><SiPython color="#3776AB" {...iconProps} /></div>
+  <div data-label="cURL"><SiGnubash color="#4EAA25" {...iconProps} /></div>
+  <div data-label="npm"><SiNpm color="#CB3837" {...iconProps} /></div>
+  <div data-label="yarn"><SiYarn color="#2C8EBB" {...iconProps} /></div>
+  <div data-label="pnpm"><SiPnpm color="#F69220" {...iconProps} /></div>
+  
+  <div data-label="Heavstal SDK">
+    <img src="/heavstal.svg" style="width: 1.3em; height: 1.3em; display: inline-block; margin-right: 0.4em; vertical-align: text-bottom;" alt="Heavstal" />
+  </div>
+</div>
+
+<script>
+  function injectTabIcons() {
+    const registry = document.getElementById('custom-tab-icons');
+    if (!registry) return;
+    
+    document.querySelectorAll('a[role="tab"]').forEach(tab => {
+      if (tab.hasAttribute('data-icon-injected')) return;
+      const label = tab.textContent?.trim();
+      const iconSource = registry.querySelector(`[data-label="${label}"]`);
+      
+      if (iconSource && iconSource.firstElementChild) {
+        const defaultIcon = tab.querySelector('svg');
+        if (defaultIcon) defaultIcon.remove();
+
+        const newIcon = iconSource.firstElementChild.cloneNode(true);
+        tab.insertBefore(newIcon, tab.firstChild);
+        tab.setAttribute('data-icon-injected', 'true');
+      }
+    });
+  }
+
+  document.addEventListener('astro:page-load', injectTabIcons);
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    injectTabIcons();
+  } else {
+    document.addEventListener('DOMContentLoaded', injectTabIcons);
+  }
+</script>
