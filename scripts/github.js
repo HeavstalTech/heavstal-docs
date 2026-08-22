@@ -1,4 +1,4 @@
-// scripts/fetch-github.js
+// scripts/github.js
 // © Heavstal Tech
 import fs from 'fs/promises';
 import path from 'path';
