@@ -55,19 +55,19 @@ export default function HomepageUpdates() {
             {update.date}
           </div>
          
-          <hr className="border-t border-[var(--sl-color-gray-5)] mb-[24px]" />
+          <hr className="border-t border-[var(--sl-color-gray-5)] mb-[32px]" />
 
           <h3 className="text-xl md:text-2xl font-bold text-[var(--sl-color-white)] m-0 mb-4 leading-tight line-clamp-2">
             {update.title}
           </h3>
           
-          <hr className="border-t border-[var(--sl-color-gray-5)] mb-[24px]" />
+          <hr className="border-t border-[var(--sl-color-gray-5)] mb-[32px]" />
 
           <div className="mb-4 flex-grow">
             <RichText text={update.text} className="line-clamp-4 overflow-hidden" />
           </div>
           
-          <hr className="border-t border-[var(--sl-color-gray-5)] mt-auto mb-[24px]" />
+          <hr className="border-t border-[var(--sl-color-gray-5)] mt-auto mb-[32px]" />
 
           <div className="flex justify-end">
             <a 
