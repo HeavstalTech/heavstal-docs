@@ -1,0 +1,43 @@
+name: Sync Changelog From DB
+
+on:
+  workflow_dispatch: 
+
+jobs:
+  sync-changelog:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Install Dependencies
+        working-directory: ./src
+        run: npm ci
+
+      - name: Fetch Changelog from DB
+        working-directory: ./src
+        env:
+          PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/changelog.js
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add src/data/changelog.json
+          
+          if git diff --staged --quiet; then
+            echo "No new updates found in DB. Skipping commit."
+          else
+            git commit -m "chore: sync changelog updates from DB"
+            git push
+          fi
