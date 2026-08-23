@@ -2,14 +2,14 @@
   {
     "id": "c45dc08b-c178-42a7-8e99-f4e5120510a3",
     "title": "Introduction To The New Heavstal Invoice System",
-    "text": "To Our Dear Esteemed Users,\nHeavstal Tech has just launched a new invoice system, hence any payments made within any Heavstal Services (third-party or not) will be recorded in the new billing page. \n\nMake a payment today and check out your invoice at: https://heavstal.com.ng/dashboard/billing",
+    "text": "Billing & Invoicing\n\nWe’ve launched a new **[Billing & Invoicing](https://heavstal.com.ng/dashboard/billing)** system across Heavstal Tech.\n\nPayments made through any Heavstal Tech service are now automatically recorded in your billing history, with invoices available directly from the **[Billing](https://heavstal.com.ng/dashboard/billing)** page.\n\nMake a payment through any of our services and head to your **[Billing](https://heavstal.com.ng/dashboard/billing)** page to view the generated invoice.",
     "media": [],
     "date": "Jun 25, 2026 • 11:33 AM"
   },
   {
     "id": "7ad37220-5471-4026-8531-075197f7e04f",
     "title": "Notice of Domain Migration.",
-    "text": "Dear Esteemed User,\nThis is to inform you that we've migrated our domain, if you're using the old domain please update your apps to use the new \"https://heavstal.com.ng\"\n\nHeavstal Tech Team",
+    "text": "We've officially migrated to a new domain.\n\nAll users, developers, and applications currently using our previous domain are advised to update their configurations to use our new official domain:\n\n**[Official Domain](https://heavstal.com.ng)**\n\nPlease ensure that any application configurations, integrations, API references, or other domain-dependent services are updated accordingly to maintain uninterrupted access to Heavstal Tech services.",
     "media": [],
     "date": "Apr 19, 2026 • 01:39 PM"
   }
