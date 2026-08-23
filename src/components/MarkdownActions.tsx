@@ -68,7 +68,7 @@ export default function MarkdownActions({ rawMarkdown, mdUrl, txtUrl }: Props) {
             <a href={links.chatgpt} target="_blank" rel="noreferrer" className="group flex items-center gap-3 px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#2a2a2d] transition-colors">
               <img src="/chatgpt.svg" alt="ChatGPT" className="h-4 w-4 shrink-0" />
               <span>Open in ChatGPT</span>
-              <IoLogoMarkdown size={14} className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+              <ExternalLink size={14} className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
             </a>
           </div>
           
@@ -78,7 +78,7 @@ export default function MarkdownActions({ rawMarkdown, mdUrl, txtUrl }: Props) {
               <span>Copy Markdown</span>
             </button>
             <a href={mdUrl} target="_blank" rel="noreferrer" className="group flex items-center gap-3 px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#2a2a2d] transition-colors">
-              <FileText size={16} className="text-gray-400 dark:text-gray-500 shrink-0" />
+              <IoLogoMarkdown size={16} className="text-gray-400 dark:text-gray-500 shrink-0" />
               <span>View as Markdown</span>
               <ExternalLink size={14} className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
             </a>
