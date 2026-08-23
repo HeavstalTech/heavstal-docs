@@ -38,8 +38,12 @@ export default defineConfig({
       customCss: ['./src/tailwind.css'],
       sidebar:[
         {
-          label: 'Getting Started',
+          label: 'Home',
           link: '/',
+        },
+        {
+          label: 'Changelog',
+          link: '/changelog/',
         },
         {
           label: 'REST APIs',
