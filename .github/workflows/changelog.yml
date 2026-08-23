@@ -19,11 +19,9 @@ jobs:
           node-version: '24'
 
       - name: Install Dependencies
-        working-directory: ./src
         run: npm ci
 
       - name: Fetch Changelog from DB
-        working-directory: ./src
         env:
           PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
