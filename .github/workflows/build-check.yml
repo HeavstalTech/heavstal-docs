@@ -26,3 +26,6 @@ jobs:
 
       - name: Run Astro Build
         run: npm run build
+        env:
+            PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
+            SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
