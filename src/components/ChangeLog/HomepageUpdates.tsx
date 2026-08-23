@@ -1,45 +1,12 @@
-// src/components/ChangeLog/HomepageUpdates.tsx
+//src/components/ChangeLog/HomepageUpdates.tsx
 import React from 'react';
 import { ExternalLink } from 'lucide-react'; 
 import changelogData from '../../data/changelog.json';
-
-const formatPreviewText = (text: string, wordLimit: number = 50) => {
-  let stripped = text.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '$2');
-  stripped = stripped.replace(/[#_*~`>]/g, '').trim();
-  
-  const words = stripped.split(/\s+/);
-  let truncated = stripped;
-  if (words.length > wordLimit) {
-    truncated = words.slice(0, wordLimit).join(' ') + '...';
-  }
-  
-  const urlRegex = /(https?:\/\/[^\s]+)/g;
-  const parts = truncated.split(urlRegex);
-  
-  return (
-    <>
-      {parts.map((part, i) => {
-        if (part.startsWith('http://') || part.startsWith('https://')) {
-          return (
-            <a 
-              key={i} 
-              href={part} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-[var(--sl-color-accent)] hover:underline font-medium break-all"
-            >
-              {part}
-            </a>
-          );
-        }
-        return <React.Fragment key={i}>{part}</React.Fragment>;
-      })}
-    </>
-  );
-};
+import RichText from './RichText';
 
 export default function HomepageUpdates() {
   if (!changelogData || changelogData.length === 0) return null;
+
   const topUpdates = changelogData.slice(0, 4);
 
   return (
@@ -61,9 +28,9 @@ export default function HomepageUpdates() {
           
           <hr className="border-t border-[var(--sl-color-gray-5)] mb-4" />
 
-          <p className="text-[var(--sl-color-gray-3)] text-[15px] leading-relaxed mb-6 flex-grow m-0">
-            {formatPreviewText(update.text, 50)}
-          </p>
+          <div className="mb-6 flex-grow">
+            <RichText text={update.text} className="line-clamp-4 overflow-hidden" />
+          </div>
           
           <hr className="border-t border-[var(--sl-color-gray-5)] mb-4 mt-auto" />
 
