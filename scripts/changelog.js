@@ -35,14 +35,14 @@ async function run() {
       const formatted = news.map(n => {
       const dateObj = new Date(n.created_at)
       const dateStr = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-      const timeStr = dateObj.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+     // const timeStr = dateObj.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
 
       return {
         id: n.id,
         title: n.title || 'Update',
         text: n.text || '',
         media: n.media || [], 
-        date: `${dateStr} • ${timeStr}`
+        date: `${dateStr}`
       };
     })
 
