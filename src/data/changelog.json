@@ -1,16 +1,25 @@
 [
   {
+    "id": "b60f1df9-cc7a-4605-a0b7-aa4c8dc1e33a",
+    "title": "Granular Security Controls for Your API Keys",
+    "text": "**We are introducing a major expansion to API security with the launch of Web Application Firewall (WAF) controls for API keys.**\n\nThe new security layer gives developers granular control over how their API credentials can be used, enabling them to define trusted sources, authorized clients, and permitted API capabilities for each individual key.\n\nThe API Key WAF is designed to introduce additional security for keys.\n\n## Security Layer for Every API Key\n\nDevelopers can create up to **five independent API keys**, with each key capable of having its own security configuration.\n\nThe WAF provides four primary authorization controls:\n\n### IP Address Authorization\n\nOrganizations can restrict an API key to specific IP addresses or network ranges.\n\nOnce configured, requests originating from an unauthorized address are automatically rejected.\n\nCIDR notation is also supported, allowing organizations to authorize entire network ranges rather than maintaining individual IP addresses.\n\nFor example, authorizing `1.1.1.0/24` permits requests from addresses within that network range while rejecting requests originating outside it.\n\n### Origin Authorization\n\nAPI keys can be restricted to authorized origins.\n\nDevelopers and Organizations can define the domains permitted to use a particular API Key, providing an additional security boundary for keys associated with web applications and specific environments.\n\nRequests originating outside the configured authorization policy are automatically rejected.\n\n### User-Agent Authorization\n\nDevelopers and Organizations can establish an explicit User-Agent policy for individual API keys.\n\nCustom User-Agents can be authorized for internal applications, services, and automated clients. Requests that do not satisfy the configured policy can be rejected at the API boundary.\n\n### API Endpoint Authorization\n\nWe also introduced endpoint-level authorization for API keys.\n\nRather than granting a key access to the entire API surface, developers can select the specific APIs and endpoints that a key is permitted to access.\n\nFor example, a credential intended for movie APIs can be restricted exclusively to those APIs. If that credential is subsequently used to access an unauthorized AI endpoint, the WAF will reject the request.\n\nThis provides a practical implementation of the principle of least privilege, limiting credentials to the capabilities they actually require.\n\n## Request Auditing\n\nSecurity controls require visibility.\n\nThe dashboard now provides an **audit log for blocked API requests,** including the reason each request was rejected.\n\nThis allows developers and security teams to identify unauthorized access attempts, diagnose configuration issues, and understand how their API security policies are being enforced in production.\n\n## Defense in Depth for API Credentials\n\nThe introduction of API Key WAF controls represents a significant expansion in API security.\n\nDevelopers and Organizations can establish additional conditions that must be met before a request is accepted.\n\nA single key can therefore be constrained by:\n* **Source IP** — where the request originates\n* **Origin** — which domain is making the request\n* **User-Agent** — which client is making the request\n* **API permissions** — which APIs the key can access\n\nThese controls can be configured independently for each API key, providing organizations with greater control over credential usage and reducing the potential impact of exposed or misused credentials.\n\n## Available Now\n\nThe API Key WAF is available now through the platform.\n\n[Configure API Keys →](https://heavstal.com.ng/credentials)  \n[See Documentation](https://docs.heavstal.com.ng/apis/introduction)",
+    "media": [
+      "https://h.uguu.se/KQZoAAZS.png"
+    ],
+    "date": "Aug 24, 2026"
+  },
+  {
     "id": "c45dc08b-c178-42a7-8e99-f4e5120510a3",
     "title": "Introduction To The New Heavstal Invoice System",
     "text": "Billing & Invoicing\n\nWe’ve launched a new **[Billing & Invoicing](https://heavstal.com.ng/dashboard/billing)** system across Heavstal Tech.\n\nPayments made through any Heavstal Tech service are now automatically recorded in your billing history, with invoices available directly from the **[Billing](https://heavstal.com.ng/dashboard/billing)** page.\n\nMake a payment through any of our services and head to your **[Billing](https://heavstal.com.ng/dashboard/billing)** page to view the generated invoice.",
     "media": [],
-    "date": "Jun 25, 2026 • 11:33 AM"
+    "date": "Jun 25, 2026"
   },
   {
     "id": "7ad37220-5471-4026-8531-075197f7e04f",
     "title": "Notice of Domain Migration.",
     "text": "We've officially migrated to a new domain.\n\nAll users, developers, and applications currently using our previous domain are advised to update their configurations to use our new official domain:\n\n**[Official Domain](https://heavstal.com.ng)**\n\nPlease ensure that any application configurations, integrations, API references, or other domain-dependent services are updated accordingly to maintain uninterrupted access to Heavstal Tech services.",
     "media": [],
-    "date": "Apr 19, 2026 • 01:39 PM"
+    "date": "Apr 19, 2026"
   }
 ]
