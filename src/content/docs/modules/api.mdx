@@ -4,7 +4,7 @@ description: "A powerful, zero-dependency multi-purpose SDK client for interacti
 ---
 
 import { Tabs, TabItem, Steps, Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
-import { PackageManagers } from 'starlight-package-managers';
+import PackageManagers from '@/components/PackageManagers.astro';
 
 
 <div class="api-badges">
@@ -26,7 +26,10 @@ The legacy `@heavstaltech/api` package is now deprecated. Please update your dep
 
 Install the Heavstal API SDK using your preferred package manager:
 
-<PackageManagers pkg="@heavstal/api" />
+<PackageManagers 
+  pkg="@heavstal/api" 
+  githubRepo="HeavstalTech/heavstal-api#main" 
+/>
 
 ---
 
