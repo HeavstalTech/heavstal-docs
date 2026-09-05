@@ -79,7 +79,7 @@ Use the official provider to pre-configure authorization endpoints, token exchan
 The Heavstal Auth library defaults to `oidc` mode. Use `oauth2` mode in strict edge-runtime environments where JWKS retrieval or JWT verification introduces complexity.
 
 <Tabs syncKey="code-language">
-  <TabItem label="OIDC" icon="seti:javascript>
+  <TabItem label="OIDC" icon="seti:javascript">
 ```typescript
   // Default
   import NextAuth from "next-auth";
@@ -95,7 +95,7 @@ The Heavstal Auth library defaults to `oidc` mode. Use `oauth2` mode in strict e
   };
 ```
   </TabItem>
-  <TabItem label="OAuth 2.0" icon="seti:javascript>
+  <TabItem label="OAuth 2.0" icon="seti:javascript">
 ```typescript
   import NextAuth from "next-auth";
   import HeavstalProvider from "@heavstal/auth";
@@ -118,7 +118,7 @@ The Heavstal Auth library defaults to `oidc` mode. Use `oauth2` mode in strict e
 For frameworks like Vue.js, Express.js, or Node.js, Heavstal Auth operates as an OpenID Connect (OIDC) compliant provider. Provide the Issuer URL to any OpenID library to automatically handle endpoint discovery and configuration.
 
 <Tabs syncKey="code-language">
-  <TabItem label="app.js" icon="seti:javascript>
+  <TabItem label="app.js" icon="seti:javascript">
 ```javascript
 const { Issuer } = require('openid-client');
 
@@ -151,7 +151,7 @@ If you use Heavstal Auth OIDC directly, use the following parameters for integra
 You can use Heavstal Auth with any language that supports backend execution.
 
 <Tabs syncKey="code-language">
-  <TabItem label="app.py" icon="seti:python>
+  <TabItem label="app.py" icon="seti:python">
 ```python
 from authlib.integrations.flask_client import OAuth
 import os
@@ -186,7 +186,7 @@ interface HeavstalProfile {
 The following example demonstrates how to create a new user account or log in an existing account using the provider's stable user identifier. It uses Redis as the database and demonstrates sign-in handling, JWT persistence, session management, and user creation using OAuth 2.0 mode.
 
 <Tabs syncKey="code-language">
-  <TabItem label="auth.js" icon="seti:javascript>
+  <TabItem label="auth.js" icon="seti:javascript">
 ```javascript
 import NextAuth from "next-auth";
 import HeavstalProvider from "@heavstal/auth";
