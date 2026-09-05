@@ -3,30 +3,35 @@
 import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
 interface Props {
-  pkg: string;
-  githubRepo?: string;
+  pkg: string | string[]; 
+  githubRepo?: string | string[];
 }
 
 const { pkg, githubRepo } = Astro.props;
+const pkgString = Array.isArray(pkg) ? pkg.join(' ') : pkg;
+
+const githubString = githubRepo 
+  ? (Array.isArray(githubRepo) ? githubRepo.map(repo => `github:${repo}`).join(' ') : `github:${githubRepo}`)
+  : '';
 ---
 
 <Tabs syncKey="package-manager">
   <TabItem label="npm">
-    <Code code={`npm install ${pkg}`} lang="bash" />
+    <Code code={`npm install ${pkgString}`} lang="bash" />
   </TabItem>
   <TabItem label="yarn">
-    <Code code={`yarn add ${pkg}`} lang="bash" />
+    <Code code={`yarn add ${pkgString}`} lang="bash" />
   </TabItem>
   <TabItem label="pnpm">
-    <Code code={`pnpm add ${pkg}`} lang="bash" />
+    <Code code={`pnpm add ${pkgString}`} lang="bash" />
   </TabItem>
   <TabItem label="bun">
-    <Code code={`bun add ${pkg}`} lang="bash" />
+    <Code code={`bun add ${pkgString}`} lang="bash" />
   </TabItem>
   
   {githubRepo && (
     <TabItem label="GitHub">
-      <Code code={`# Latest development version\nnpm install github:${githubRepo}`} lang="bash" />
+      <Code code={`# Latest development version\nnpm install ${githubString}`} lang="bash" />
     </TabItem>
   )}
 </Tabs>
