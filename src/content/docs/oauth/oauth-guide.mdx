@@ -8,7 +8,7 @@ sidebar:
 ---
 
 import { Tabs, TabItem, Steps } from '@astrojs/starlight/components';
-import { PackageManagers } from 'starlight-package-managers';
+import PackageManagers from '@/components/PackageManagers.astro';
 
 ## What is Heavstal Authentication
 
@@ -69,15 +69,19 @@ Use the official provider to pre-configure authorization endpoints, token exchan
 
 **Installation:**
 
-<PackageManagers pkg="@heavstal/auth next-auth" />
+<PackageManagers 
+  pkg={['@heavstal/api', 'next-auth']} 
+  githubRepo="HeavstalTech/heavstal-auth#main"
+/>
 
 **Configuration (`auth.ts` or `app/api/auth/[...nextauth]/route.ts`)**
 
 The Heavstal Auth library defaults to `oidc` mode. Use `oauth2` mode in strict edge-runtime environments where JWKS retrieval or JWT verification introduces complexity.
 
 <Tabs syncKey="code-language">
-  <TabItem label="OIDC Mode (Default)">
+  <TabItem label="OIDC" icon="seti:javascript>
   ```typescript
+  // Default
   import NextAuth from "next-auth";
   import HeavstalProvider from "@heavstal/auth";
 
@@ -91,7 +95,7 @@ The Heavstal Auth library defaults to `oidc` mode. Use `oauth2` mode in strict e
   };
   ```
   </TabItem>
-  <TabItem label="OAuth 2.0 Mode">
+  <TabItem label="OAuth 2.0" icon="seti:javascript>
   ```typescript
   import NextAuth from "next-auth";
   import HeavstalProvider from "@heavstal/auth";
@@ -113,7 +117,9 @@ The Heavstal Auth library defaults to `oidc` mode. Use `oauth2` mode in strict e
 
 For frameworks like Vue.js, Express.js, or Node.js, Heavstal Auth operates as an OpenID Connect (OIDC) compliant provider. Provide the Issuer URL to any OpenID library to automatically handle endpoint discovery and configuration.
 
-```javascript title="app.js"
+<Tabs syncKey="code-language">
+  <TabItem label="app.js" icon="seti:javascript>
+```javascript
 const { Issuer } = require('openid-client');
 
 async function main() {
@@ -126,6 +132,9 @@ async function main() {
   });
 }
 ```
+</TabItem>
+</Tabs>
+
 
 ### OIDC Direct Integration
 
@@ -141,7 +150,9 @@ If you use Heavstal Auth OIDC directly, use the following parameters for integra
 
 You can use Heavstal Auth with any language that supports backend execution.
 
-```python title="app.py"
+<Tabs syncKey="code-language">
+  <TabItem label="app.py" icon="seti:python>
+```python
 from authlib.integrations.flask_client import OAuth
 import os
 
@@ -154,6 +165,8 @@ oauth.register(
     client_kwargs={'scope': 'openid profile email'}
 )
 ```
+</TabItem>
+</Tabs>
 
 ## User Profile Data
 
@@ -172,7 +185,9 @@ interface HeavstalProfile {
 
 The following example demonstrates how to create a new user account or log in an existing account using the provider's stable user identifier. It uses Redis as the database and demonstrates sign-in handling, JWT persistence, session management, and user creation using OAuth 2.0 mode.
 
-```javascript title="auth.js"
+<Tabs syncKey="code-language">
+  <TabItem label="auth.js" icon="seti:javascript>
+```javascript
 import NextAuth from "next-auth";
 import HeavstalProvider from "@heavstal/auth";
 import { kv } from "@vercel/kv";
@@ -222,6 +237,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
 })
 ```
+</TabItem>
+</Tabs>
 
 ## Frequently Asked Questions (FAQ)
 
