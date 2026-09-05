@@ -1,0 +1,32 @@
+---
+// src/components/PackageManagers.astro
+import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
+
+interface Props {
+  pkg: string;
+  githubRepo?: string;
+}
+
+const { pkg, githubRepo } = Astro.props;
+---
+
+<Tabs syncKey="package-manager">
+  <TabItem label="npm">
+    <Code code={`npm install ${pkg}`} lang="bash" />
+  </TabItem>
+  <TabItem label="yarn">
+    <Code code={`yarn add ${pkg}`} lang="bash" />
+  </TabItem>
+  <TabItem label="pnpm">
+    <Code code={`pnpm add ${pkg}`} lang="bash" />
+  </TabItem>
+  <TabItem label="bun">
+    <Code code={`bun add ${pkg}`} lang="bash" />
+  </TabItem>
+  
+  {githubRepo && (
+    <TabItem label="GitHub">
+      <Code code={`# Latest development version\nnpm install github:${githubRepo}`} lang="bash" />
+    </TabItem>
+  )}
+</Tabs>
