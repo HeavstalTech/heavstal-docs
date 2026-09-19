@@ -22,6 +22,7 @@ export default defineConfig({
         Pagination: './src/components/Feedback.astro',
         PageTitle: './src/components/PageTitleOverride.astro',
         PageFrame: './src/components/PageFrameOverride.astro',
+        Head: './src/components/HeadOverride.astro',
        // Icon: './src/components/IconOverride.astro', // Astro doesn't support it
       },
       head:[
