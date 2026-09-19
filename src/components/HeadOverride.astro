@@ -1,0 +1,114 @@
+---
+// src/components/HeadOverride.astro
+import Default from '@astrojs/starlight/components/Head.astro';
+import type { Props } from '@astrojs/starlight/props';
+
+const { entry, id } = Astro.props;
+const Url = new URL(Astro.url.pathname, Astro.site ?? 'https://docs.heavstal.com.ng').href;
+
+let schemaType = entry.data.schemaType;
+
+if (!schemaType) {
+  if (id === 'index.mdx' || id === 'index') {
+    schemaType = 'WebSite';
+  } else if (id.startsWith('apis/') && id !== 'apis/introduction.mdx') {
+    schemaType = 'APIReference';
+  } else if (id.startsWith('modules/') || id.startsWith('bots/')) {
+    schemaType = 'SoftwareApplication';
+  } else if (id.startsWith('guides/') || id.startsWith('oauth/')) {
+    schemaType = 'HowTo';
+  } else {
+    schemaType = 'TechArticle';
+  }
+}
+
+const Org = {
+  "@type": "Organization",
+  "name": "Heavstal Tech™",
+  "alternateName": ["Heavstal", "Heavstal Technologies"],
+  "url": "https://heavstal.com.ng",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://docs.heavstal.com.ng/ht_iconDocs.svg"
+  },
+  "foundingDate": "2025-07-01",
+  "founder": {
+    "@type": "Person",
+    "name": "Mr. Promise"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+2348166546725",
+      "contactType": "customer service",
+      "email": "heavstaltech@gmail.com",
+      "areaServed": ["World"],
+      "availableLanguage": ["English"]
+    }
+  ],
+  "sameAs": [
+    "https://www.youtube.com/@Heavstal_Tech",
+    "https://github.com/HeavstalTech",
+    "https://whatsapp.com/channel/0029VbBcg80KwqSR7dr7do1D",
+    "https://t.me/promisemdv1",
+    "https://x.com/Heavstal_Tech",
+    "https://www.linkedin.com/in/heavstal-tech"
+  ]
+};
+
+const jsonLd: Record<string, any> = {
+  "@context": "https://schema.org",
+  "@type": schemaType,
+  "headline": entry.data.title || "Heavstal Tech Documentation",
+  "description": entry.data.description || "Official documentation for Heavstal Tech APIs, OAuth2, Modules, and Bots.",
+  "url": Url,
+  "author": Org,
+  "publisher": Org
+};
+
+if (schemaType === 'SoftwareApplication') {
+  jsonLd.applicationCategory = "DeveloperApplication";
+  jsonLd.operatingSystem = "Any";
+  jsonLd.offers = {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  };
+}
+
+if (schemaType === 'WebSite') {
+  jsonLd.name = "Heavstal Tech Documentation";
+  
+  jsonLd.potentialAction = {
+    "@type": "SearchAction",
+    "target": "https://docs.heavstal.com.ng/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  };
+
+  jsonLd.about = {
+    "@type": "OfferCatalog",
+    "name": "Developer Services",
+    "itemListElement": [
+      {
+        "@type": "Service",
+        "name": "OAuth2 Identity Service",
+        "description": "Secure authentication provider for web applications."
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Heavstal Password Manager",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Web"
+      },
+      {
+        "@type": "Service",
+        "name": "Developer APIs & Automation Tools",
+        "description": "Suite of high-performance APIs, modules, and automation solutions."
+      }
+    ]
+  };
+}
+---
+
+<Default {...Astro.props} />
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
