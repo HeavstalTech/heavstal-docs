@@ -6,7 +6,7 @@ import type { Props } from '@astrojs/starlight/props';
 const { entry, id } = Astro.props;
 const Url = new URL(Astro.url.pathname, Astro.site ?? 'https://docs.heavstal.com.ng').href;
 
-let schemaType = entry?.data.schemaType;
+let schemaType = entry?.data?.schemaType;
 
 if (!schemaType) {
   if (id === 'index.mdx' || id === 'index') {
@@ -59,8 +59,8 @@ const Org = {
 const jsonLd: Record<string, any> = {
   "@context": "https://schema.org",
   "@type": schemaType,
-  "headline": entry.data.title || "Heavstal Tech Documentation",
-  "description": entry.data.description || "Official documentation for Heavstal Tech APIs, OAuth2, Modules, and Bots.",
+  "headline": entry?.data?.title || "Heavstal Tech Documentation",
+  "description": entry?.data?.description || "Official documentation for Heavstal Tech APIs, OAuth2, Modules, and Bots.",
   "url": Url,
   "author": Org,
   "publisher": Org
