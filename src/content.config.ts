@@ -1,4 +1,4 @@
-// Docs/src/content.config.ts
+//src/content.config.ts
 import { defineCollection } from 'astro:content';
 import { docsSchema } from '@astrojs/starlight/schema';
 import { glob } from 'astro/loaders';
@@ -11,6 +11,7 @@ export const collections = {
       extend: z.object({
         hideTitle: z.boolean().default(false),
         hidePagination: z.boolean().default(false),
+        schemaType: z.string().optional(),
       })
     }),
   }),
