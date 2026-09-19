@@ -3,7 +3,8 @@
 import Default from '@astrojs/starlight/components/Head.astro';
 import type { Props } from '@astrojs/starlight/props';
 
-const { entry, id } = Astro.props;
+const { entry } = Astro.props;
+const id = Astro.props.id || '';
 const Url = new URL(Astro.url.pathname, Astro.site ?? 'https://docs.heavstal.com.ng').href;
 
 let schemaType = entry?.data?.schemaType;
